@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["kik_sync_service"] = [{"text":"impl Default for ChannelConfig","synthetic":false,"types":[]},{"text":"impl&lt;T, R, S&gt; Default for DeliveryService&lt;T, R, S&gt; <span class=\"where fmt-newline\">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: MessageData + 'static,<br>&nbsp;&nbsp;&nbsp;&nbsp;R: MessageInput&lt;T&gt; + 'static,<br>&nbsp;&nbsp;&nbsp;&nbsp;S: Message&lt;T, R&gt; + Sync + Send + Clone + 'static,&nbsp;</span>","synthetic":false,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

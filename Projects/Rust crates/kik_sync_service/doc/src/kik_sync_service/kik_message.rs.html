@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/kik_message.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>kik_message.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../kik_sync_service/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1"> 1</span>
+<span id="2"> 2</span>
+<span id="3"> 3</span>
+<span id="4"> 4</span>
+<span id="5"> 5</span>
+<span id="6"> 6</span>
+<span id="7"> 7</span>
+<span id="8"> 8</span>
+<span id="9"> 9</span>
+<span id="10">10</span>
+<span id="11">11</span>
+<span id="12">12</span>
+<span id="13">13</span>
+<span id="14">14</span>
+<span id="15">15</span>
+<span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
+<span id="60">60</span>
+</pre><div class="example-wrap"><pre class="rust ">
+<span class="doccomment">//! # Messages</span>
+<span class="doccomment">//! </span>
+<span class="doccomment">//! Traits for defining how the channel should transfer, work and retrieve the messages.</span>
+<span class="doccomment">//! Users have to implement these traits in their data structure before using the channel.</span>
+<span class="doccomment">//! </span>
+<span class="doccomment">//! The type with the &quot;Message&quot; Trait must be able to hold types that implement &quot;MessageData&quot; and &quot;MessageInput&quot; as well.</span>
+<span class="doccomment">//! </span>
+<span class="doccomment">//! &quot;Message&quot; is what the channels share. &quot;MessageInput&quot; is what the feeder sets in each message.</span>
+<span class="doccomment">//! &quot;MessageData&quot; is what the channel returns when the user iterates through it.</span>
+<span class="doccomment">//! </span>
+<span class="doccomment">//! The data shared must be &quot;Sync&quot; and &quot;Send&quot;. Must have &#39;static lifetimes, must have &quot;Clone&quot; trait, </span>
+<span class="doccomment">//! but doesn&#39;t need to be &quot;Copy&quot;. I haven&#39;t tested if being &quot;Copy&quot; will break drop behaviors.</span>
+<span class="doccomment">//! But if it did, compiler would probably notice.</span>
+<span class="doccomment">//! </span>
+<span class="doccomment">//! </span>
+
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">marker</span>::{<span class="ident">Send</span>, <span class="ident">Sync</span>};
+
+<span class="comment">// Making sure that this trait only applies to objects that have Clone</span>
+<span class="doccomment">/// MessageData holds the resource type that will be returned by the worker-threads. Must implement Sync, Send, Clone and have lifetime &#39;static.</span>
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">MessageData</span>: <span class="ident">Sync</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Clone</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>{
+    <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>;
+}
+
+<span class="comment">// This is the trait input that can only be applied to ojbects with MessageData trait</span>
+<span class="doccomment">/// MessageInput will have the input arguments for generating each MessageData. Must implement Sync, Send, Clone and have lifetime &#39;static.</span>
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">MessageInput</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> : <span class="ident">Sync</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Clone</span> <span class="op">+</span> <span class="lifetime">&#39;static</span> <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">MessageData</span>
+{
+    <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>;
+}
+
+<span class="comment">// This is the Message Trait that holds the data and the value type that changes it</span>
+<span class="doccomment">/// Message has the tools to generate each MessageData T, based on each MessageInput R. Must implement Sync, Send, Clone and have lifetime &#39;static.</span>
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Message</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">R</span><span class="op">&gt;</span> : <span class="ident">Sync</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Clone</span> <span class="op">+</span> <span class="lifetime">&#39;static</span> <span class="kw">where</span>
+                                                <span class="ident">R</span>: <span class="ident">MessageInput</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
+                                                <span class="ident">T</span>: <span class="ident">MessageData</span>,
+{
+    <span class="doccomment">/// Behavior for storing a given input MessageInput, before a worker can use it for generating MessageData. Used by kik_feeder.</span>
+    <span class="kw">fn</span> <span class="ident">set_input</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">message_input</span>: <span class="ident">R</span>);
+
+    <span class="doccomment">/// Workers will call this to use the stored MessageInput (R&lt;T&gt;) to generate and replace the existing MessageData stored. Used by kik_worker.</span>
+    <span class="kw">fn</span> <span class="ident">work</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>);
+
+    <span class="doccomment">/// This will call MessageInput::new() method. No need to implement this. Used by kik_feeder.</span>
+    <span class="kw">fn</span> <span class="ident">new_message_input</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">R</span>{
+        <span class="ident">R</span>::<span class="ident">new</span>()
+    }
+
+    <span class="doccomment">/// This will call MessageData::new() method. No need to implement this. Used by kik_feeder.</span>
+    <span class="kw">fn</span> <span class="ident">new_message_data</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">T</span>{
+        <span class="ident">T</span>::<span class="ident">new</span>()
+    }
+
+    <span class="doccomment">/// This method is used when retrieving MessageData for the iterator. Clone the MessageData stored and return it. Used by kik_feeder.</span>
+    <span class="kw">fn</span> <span class="ident">clone_message_data</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">T</span>;
+    
+    <span class="doccomment">/// Construct a new message with default values. Used by kik_feeder.</span>
+    <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>;
+
+}</pre></div>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "kik_sync_service";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
