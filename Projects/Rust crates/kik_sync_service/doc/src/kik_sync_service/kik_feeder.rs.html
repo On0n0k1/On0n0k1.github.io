@@ -252,35 +252,35 @@
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! # Feeder</span>
 <span class="doccomment">//! </span>
-<span class="doccomment">//! Used by kik_channel for sending/retrieving messages to/from workers. Not meant to be used directly.</span>
+<span class="doccomment">//! Used by kik_channel&#39;s *DeliveryService* for sending/retrieving messages to/from workers. Not meant to be used directly.</span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! # How it works</span>
-<span class="doccomment">//! It&#39;s behavior can be checked first through it&#39;s &quot;Iterator&quot; implementation. The user iterates through kik_channel, which calls kik_feeder&#39;s &quot;next&quot; method.</span>
-<span class="doccomment">//! kik_feeder will check how many messages are roaming through it&#39;s system (counted through how many &quot;gets&quot; and &quot;sends&quot; were successful). If there are not enough messages,</span>
-<span class="doccomment">//! it will send more in the system. If there are no messages to send and no messages to retrieve, return None.</span>
+<span class="doccomment">//! It&#39;s behavior can be checked first through it&#39;s *Iterator* implementation. The user iterates through *DeliveryService*, which calls *kik_feeder*&#39;s *next* method.</span>
+<span class="doccomment">//! *kik_feeder* will check how many *Messages* are roaming through it&#39;s system (counted based on how many &quot;gets&quot; and &quot;sends&quot; were successful). If there are not enough *Messages*,</span>
+<span class="doccomment">//! it will send more in the system. If there are no *Message*s to send and no *Message*s to retrieve, return None.</span>
 <span class="doccomment">//! </span>
-<span class="doccomment">//! If there are messages to retrieve, it will block until a worker sends it in the &quot;deliverer&quot; channel. A deadlock might occur if the thread panics while working.</span>
-<span class="doccomment">//! So be aware that the implementation of the message relies completely on the user.</span>
+<span class="doccomment">//! If there are *Message*s to retrieve, it will block until a *Worker* leave it in the *deliverer* channel. A deadlock might occur if the thread panics while working.</span>
+<span class="doccomment">//! So be aware that the implementation of the *Message* relies completely on the user.</span>
 <span class="doccomment">//! </span>
-<span class="doccomment">//! Once it retrieves a message from the deliverer. The feeder will call the message&#39;s implementation of clone_message_data to get a copy of the data to send back </span>
-<span class="doccomment">//! to the iterator. Before returning the message_data, it will try to reset the message that it&#39;s holding with the next input waiting to be sent back to the system. </span>
+<span class="doccomment">//! Once it retrieves a *Message* from the *deliverer*. The feeder will call the *Message*&#39;s implementation of *clone_message_data* to get a copy of the *MessageData* to send back </span>
+<span class="doccomment">//! to the iterator. Before returning the *MessageData*, it will try to reset the *Message* that it&#39;s holding with the next input waiting to be sent back to the system. </span>
 <span class="doccomment">//! This is done to reduce calls to memory management in the system.</span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! # Tips</span>
-<span class="doccomment">//! Use large packs of data in each message, so there&#39;s the least number of messages possible. Less messages = less calls to the Arc pointer, which is really slow.</span>
+<span class="doccomment">//! Use large packs of data in each *Message*, so there&#39;s the least number of *Messages* possible. Less *Messages* = less calls to the *Arc pointer*, which is really slow.</span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! # Contribute</span>
-<span class="doccomment">//! This would be optimal if instead of using memory ownership, the threads and workers focused entirely on borrows. </span>
-<span class="doccomment">//! The problem would then be code complexity that includes lifetimes. But messages could become a lot lighter if they only held references to memory, </span>
+<span class="doccomment">//! This would be optimal if instead of using memory ownership, the threads and *Worker*s focused entirely on borrows. </span>
+<span class="doccomment">//! The problem would then be code complexity due to lifetimes. But *Messages* could become a lot lighter if they only held references to memory, </span>
 <span class="doccomment">//! saving stack space. Maybe the code would become so complex that it should be used in another crate entirely. Not sure yet.</span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! # Panics!</span>
-<span class="doccomment">//! Will panic if it tries to send a message to inserter but receive a &quot;disconnect&quot; error. The order for drop is kik_channel then kik_feeder then kik_worker.</span>
-<span class="doccomment">//! When kik_channel drops, all the others will do the same without panicking. But if channel is disconnected, then some unexpected event happened.</span>
+<span class="doccomment">//! Will panic if it tries to send a *Message* to *inserter* but receive a *std::sync::mpsc::TrySendError::Disconnected* error. The order for drop is *DeliveryService* then *FeederRecycler* then *Worker*.</span>
+<span class="doccomment">//! When *DeliveryService* drops, all the others will do the same without panicking. But if channel is disconnected, then some unexpected event happened.</span>
 <span class="doccomment">//! </span>
 <span class="doccomment">//! </span>
 

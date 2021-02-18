@@ -291,6 +291,7 @@
 <span id="288">288</span>
 <span id="289">289</span>
 <span id="290">290</span>
+<span id="291">291</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! # kik_channel</span>
 <span class="doccomment">//! </span>
@@ -310,15 +311,15 @@
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">kik_worker</span>::<span class="ident">Worker</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">kik_feeder</span>::<span class="ident">FeederRecycler</span>;
 
-<span class="doccomment">/// To be used when the user needs to set specific configurations before creating a kik_channel. Optional type.</span>
+<span class="doccomment">/// To be used when the user needs to set specific configurations before creating a *DeliveryService* channel. Optional type.</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// # How to use it</span>
 <span class="doccomment">/// </span>
-<span class="doccomment">/// -Create a new instance calling ChannelConfig::default()</span>
+<span class="doccomment">/// - Create a new instance using *ChannelConfig::default()*</span>
 <span class="doccomment">/// </span>
-<span class="doccomment">/// -Set custom values for it.</span>
+<span class="doccomment">/// - Set custom values for it.</span>
 <span class="doccomment">/// </span>
-<span class="doccomment">/// -Construct a new kik_channel DeliveryService instance using DeliveryService::new(your_channel_config_name)</span>
+<span class="doccomment">/// - Construct a new *DeliveryService* instance using *DeliveryService::new(your_channel_config_name)*</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// # Methods</span>
 <span class="doccomment">/// </span>
@@ -411,16 +412,17 @@
 <span class="doccomment">/// </span>
 <span class="doccomment">/// How to use it:</span>
 <span class="doccomment">/// </span>
-<span class="doccomment">/// -Call DeliveryService&lt;T, R, S&gt;::default() to construct an instance for given T, R, S traits that use default values.</span>
+<span class="doccomment">/// - Call *DeliveryService&lt;T, R, S&gt;::default()* to construct an instance for given **T**, **R**, **S** traits that use default values.</span>
 <span class="doccomment">/// </span>
-<span class="doccomment">/// -Feed initial values with DeliveryService&lt;T, R, S&gt;::feed_feeder(input_vec: &amp;mut Vec&lt;R&gt;)</span>
+<span class="doccomment">/// - Feed initial values with *DeliveryService&lt;T, R, S&gt;::feed_feeder(input_vec: &amp;mut Vec&lt;R&gt;)*</span>
 <span class="doccomment">/// </span>
-<span class="doccomment">/// -Iterate through a mutable reference of this object. &quot;for i in &amp;mut delivery_service{}&quot;</span>
+<span class="doccomment">/// - Iterate through a mutable reference of this object. &quot;*for i in &amp;mut delivery_service{}*&quot;</span>
 <span class="doccomment">/// </span>
-<span class="doccomment">/// -Feed more values and iterate again to get more T results.</span>
+<span class="doccomment">/// - Feed more values and iterate again to get more **T** results.</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// </span>
+
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DeliveryService</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">R</span>, <span class="ident">S</span><span class="op">&gt;</span>  <span class="kw">where</span> 
 <span class="ident">T</span>: <span class="ident">MessageData</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,
 <span class="ident">R</span>: <span class="ident">MessageInput</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;static</span>,

@@ -237,7 +237,6 @@
 <span id="234">234</span>
 <span id="235">235</span>
 <span id="236">236</span>
-<span id="237">237</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! # Example</span>
 <span class="doccomment">//! </span>
@@ -255,7 +254,6 @@
 <span class="kw">mod</span> <span class="ident">tests</span>{
     <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">message</span>::{<span class="ident">Message</span>, <span class="ident">MessageData</span>, <span class="ident">MessageInput</span>};
     <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">channel</span>::{<span class="ident">DeliveryService</span>};
-    <span class="comment">// use crate::*;</span>
 
     <span class="comment">// What type of data should be returned.</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">MessageArray</span>{
@@ -361,7 +359,7 @@
 
             <span class="comment">// Not very creative right now, each operation will count from 0 to 1024.</span>
             <span class="comment">// This is just to show that the results are being made and returned. I&#39;ll use it to generate fractals in the next project.</span>
-            <span class="comment">// I&#39;m thankful for anyone willing to offer a better example for this later.</span>
+            <span class="comment">// I&#39;m grateful for anyone offering a more straightforward example.</span>
             <span class="comment">// Counting in the first line will go like 0 1 2 3 ... 30 31 1 2 3 ...</span>
             <span class="comment">// Counting in the second line will go like 32 33 34 35 ... 59 60 61 62 63 ...</span>
             <span class="comment">// And so forth until 1023 in the last line.</span>
