@@ -8,5 +8,4 @@
 
  - [Web Page](https://on0n0k1.github.io/Projects/Rust%20crates/kik_sync_service/doc/kik_sync_service/index.html)
 
- - [WebCam](https://on0n0k1.github.io/Projects/webcam/dist/index.html)
  
