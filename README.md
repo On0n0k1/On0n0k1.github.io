@@ -8,4 +8,4 @@
 
  - [Web Page](https://on0n0k1.github.io/Projects/Rust%20crates/kik_sync_service/doc/kik_sync_service/index.html)
 
- 
+ - [canvas](https://on0n0k1.github.io/Projects/compiledcanvas/dist)
