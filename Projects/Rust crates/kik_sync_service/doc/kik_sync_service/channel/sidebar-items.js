@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["ChannelConfig","To be used when the user needs to set specific configurations before creating a DeliveryService channel. Optional type."],["DeliveryService","Main structure for the entire crate. Creates the channels, workers and feeder."]]});
