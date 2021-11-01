@@ -1,0 +1,121 @@
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* z-index:-1; */
+}
+
+body {
+    margin: 0;
+    /* overflow-x: hidden; */
+
+    background: #151616;
+    font-family: roboto;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+:root {
+    --menu-bg: rgba(15, 15, 15, 0.85);
+    /* --menu-bg: #242526a0; */
+
+    --menu-bg-accent: rgba(35, 35, 35, 0.85);
+    /* --menu-bg-accent: #484a4d; */
+    --menu-text-color: #dadce1;
+    /* --menu-nav-size: 60px; */
+    --menu-nav-size: 4rem;
+    --menu-border: 1px solid #474a4d;
+    --menu-border-radius: 8px;
+    --menu-speed: 400ms;
+
+    /* --background-scene-color: #87CEEB; */
+    --background-scene-color: #2481b6;
+    
+
+    /* scrollbar */
+    --scrollbar-background: var(--menu-bg);
+    --scrollbar-color: #484a4d;
+}
+
+/* Scrollbars(start) */
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-background) var(--scrollbar-color);
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--scrollbar-background);
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-background);
+    border-radius: 20px;
+    border: 3px solid var(--scrollbar-color);
+  }
+/* Scrollbars(end) */
+
+
+
+#bg-birds{
+    z-index: var(--z-index-background-canvas-birds);
+}
+
+#bg-cube{
+  z-index: var(--z-index-background-canvas-cube);
+}
+
+#bg-floating{
+  z-index: var(--z-index-background-canvas-floating);
+}
+
+#background-scene-container-birds{
+    z-index: var(--z-index-background-div-birds);
+}
+
+#background-scene-container-cube{
+  z-index: var(--z-index-background-div-cube);
+}
+
+#background-scene-container-floating{
+  z-index: var(--z-index-background-div-floating);
+}
+
+.background-scene-container {
+    /* tell our scene container to take up the full page */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /* z-index: -2; */
+  
+    /*
+      Set the container's background color to the same as the scene's
+      background to prevent flashing on load
+    */
+    background-color: var(--background-scene-color);
+  }
+  
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a { 
+    color: var(--menu-text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
