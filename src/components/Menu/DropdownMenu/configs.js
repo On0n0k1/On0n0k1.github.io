@@ -36,6 +36,7 @@ export function mainTransition(backgroundActions){
                 uniqueKey: '1', 
                 id: "dropDownMainAboutMe", 
                 ignoretransitionend: "true", 
+                href: "#headerAboutMe",
                 leftIcon: <AboutMeIcon />, 
                 dDownText: "About Me" 
             }, { 

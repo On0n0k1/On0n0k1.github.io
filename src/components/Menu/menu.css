@@ -13,6 +13,8 @@
     background-color: var(--menu-bg);
     padding: 0 1rem;
     border-bottom: var(--menu-border);
+
+    z-index: var(--z-index-menu-items);
 }
 
 .menu-navbar-nav {
@@ -26,6 +28,8 @@
     /* overflow: hidden;
     position: fixed;
     top: 0; */
+
+    z-index: var(--z-index-menu-items);
 }
 
 .menu-nav-item {
@@ -33,6 +37,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    z-index: var(--z-index-menu-items);
 }
 
 

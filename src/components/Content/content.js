@@ -12,21 +12,35 @@ function Content() {
       </header>
 
       <blockquote>
-        <p> I like making stuff and putting it on the internet</p>
+        <p>I like learning and finding solutions for developers' most boring problems.</p>
       </blockquote>
 
       <section>
-        <h2>Manifesto</h2>
+        <h2 id="headerContactInfo">Contact Info</h2>
+        <ul>
+          <li><b>Github:</b> <a target="_blank" href="https://github.com/On0n0k1">https://github.com/On0n0k1</a></li>
+          <li><b>Linkedin:</b> <a target="_blank" href="https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2">https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2/</a></li>
+          <li><b>Email:</b> stiltztinkerstein@gmail.com</li>
+          <li><b>Phone:</b> (Message me so we can schedule a call)</li>
+        </ul>
+      </section>
+
+      <section className="content-left">
+        <h2 id="headerAboutMe">About Me</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          I'm a freelancer software developer that focuses in implementing systems coded in Rust and Javascript.
         </p>
 
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          I can create simple frontend applications using react and powerful, light-weight systems in rust and javascript packaged in tiny docker images.
         </p>
 
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          If there's need to optimize a system using webassembly, don't need to worry about going through the nightmare of learning webassembly for the first time. Cause I did it several times, and have all the setup ready for a quick implementation.
+        </p>
+
+        <p>
+          I can use rust to execute asynchronous tasks, multithreaded tasks, and use simd instructions like avx.
         </p>
       </section>
 
