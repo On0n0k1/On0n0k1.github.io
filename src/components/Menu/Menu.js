@@ -80,6 +80,14 @@ function Navbar(props) {
 
 function NavItem(props) {
     const [open, setOpen] = useState(false);
+    // mainContent
+    useEffect(() => {
+        const mainElement = document.getElementById("mainContent");
+        mainElement.addEventListener('click', function () {
+            // console.log("closing window");
+            setOpen(false);
+        });
+    }, []);
 
     return (
         <li key={props.propKey} className="menu-nav-item">
