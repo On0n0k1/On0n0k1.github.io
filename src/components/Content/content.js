@@ -12,7 +12,7 @@ function Content() {
         </header>
 
         <blockquote>
-          <p>I like learning and finding solutions for developers' most boring problems.</p>
+          <p>I like to find the most optimal and effective ways for machines to solve our problems.</p>
         </blockquote>
 
         <section>
