@@ -1,12 +1,5 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
-/* canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-} */
-
-
 :root {
     --dark-bg: rgba(15, 15, 15, 0.95);
     --spacing: 350px;
@@ -31,6 +24,18 @@ main {
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+}
+
+main ul{
+    padding-left: 4%;
+}
+
+main ul.list-circle{
+    list-style-type: circle;
+}
+
+main ul.list-disc{
+    list-style-type: disc;
 }
 
 h1, h2, h3, blockquote {

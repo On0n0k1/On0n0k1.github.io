@@ -17,7 +17,7 @@ function Content() {
 
         <section>
           <h2 id="headerContactInfo">Contact Info</h2>
-          <ul>
+          <ul className="list-circle">
             <li><b>Github:</b> <a target="_blank" href="https://github.com/On0n0k1">https://github.com/On0n0k1</a></li>
             <li><b>Linkedin:</b> <a target="_blank" href="https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2">https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2/</a></li>
             <li><b>Email:</b> stiltztinkerstein@gmail.com</li>
@@ -40,8 +40,18 @@ function Content() {
           </p>
 
           <p>
-            I can use rust to execute asynchronous tasks, multithreaded tasks, and use simd instructions like avx.
+            I can use rust to execute asynchronous tasks, multithreaded tasks, and optimize with simd, avx instructions.
           </p>
+        </section>
+
+
+        <section>
+          <h2>Language Skills</h2>
+          <ul className="list-disc">
+            <li><b>Brazilian Portuguese:</b> Native</li>
+            <li><b>English:</b> Fluent</li>
+            <li><b>Japanese:</b> Basic</li>
+          </ul>
         </section>
 
         <section className="light">
