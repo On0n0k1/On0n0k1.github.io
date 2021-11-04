@@ -47,11 +47,13 @@ h1, h2, h3, blockquote {
 
 header {
     background: var(--dark-bg);
-    grid-column: 3/ span 7;
+    /* grid-column: 3/ span 7; */
     /* font-size: 1.75rem; */
     font-size: calc(0.5rem + 2.5vw);
     padding: 1rem;
-    margin-bottom: var(--spacing);
+    display: inline-block;
+
+    /* margin-bottom: var(--spacing); */
 }
 
 section {
@@ -67,7 +69,7 @@ section {
     display: inline-block;
 }
 
-section.content-left{
+header, section.content-left{
     margin-right: auto;
 }
 
@@ -92,6 +94,12 @@ blockquote p {
     font-size: calc(0.5rem + 4.5vw);
     display: inline;
     line-height: 1;
+}
+
+div.content-header {
+    grid-column: 3/ span 7;
+
+    margin-bottom: var(--spacing);
 }
 
 div.content-right {

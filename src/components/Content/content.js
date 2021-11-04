@@ -5,11 +5,12 @@ import './content.css';
 function Content() {
     return (
       <main id="mainContent">
-
-        <header>
-          <h1>Warning</h1>
-          <p>Page still under development!</p>
-        </header>
+        <div className="content-header">
+          <header>
+            <h1>Warning</h1>
+            <p>Page still under development!</p>
+          </header>
+        </div>
 
         <blockquote>
           <p>I like to find the most optimal and effective ways for machines to solve our problems.</p>
