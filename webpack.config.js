@@ -8,7 +8,7 @@ module.exports = (env, args) => {
     return {
         entry:  path.resolve(__dirname, './src/index.js'),
         output: {
-            path: path.join(__dirname, '/dist'),
+            path: path.join(__dirname, '/docs'),
             filename: isProductionMode ? '[name].[contenthash].js' : '[name].[hash].js',
         },
         module: {
