@@ -74,7 +74,7 @@ header, section.content-left{
 }
 
 section.content-middle{
-    margin: auto;
+    margin: 0 auto;
 }
 
 section.content-right{
@@ -103,7 +103,7 @@ div.content-header {
 }
 
 div.content-right {
-    grid-column: 5 / 10;
+    grid-column: 5 / 11;
 
     margin-bottom: var(--spacing);
 }
@@ -116,8 +116,10 @@ div.content-left {
 }
 
 div.content-middle {
-    grid-column: 4 / 11;
-
+    grid-column: 4 / 10;
+    display: flex;
+    justify-content: center;
+    
     margin-bottom: var(--spacing);
 }
 

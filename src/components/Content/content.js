@@ -60,8 +60,8 @@ function Content() {
           </section>
         </div>
 
-        <div className="content-middle">
-          <section className="content-middle">
+        <div className="content-right">
+          <section className="content-right">
             <h2>Projects</h2>
 
             <p>
@@ -77,15 +77,90 @@ function Content() {
           </section>
         </div>
 
+
+        <div id="coding-skills" className="content-middle">
+          <section className="content-middle">
+            <h2>Coding Skills</h2>
+          </section>
+        </div>
+
         <div className="content-left">
           <section className="content-left">
-            <h2>Coding Skills</h2>
+            <h2>Rust</h2>
 
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
 
-            <h2>Rust</h2>
+            <h2>WebAssembly</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </section>
+        </div>
+
+
+        <div id="javascript-related" className="content-middle">
+          <section className="content-middle">
+            <h2>Javascript Related</h2>
+          </section>
+        </div>
+
+        <div className="content-right">
+          <section className="content-right">
+            <h2>React</h2>
+            <h2>Nodejs</h2>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+          </section>
+        </div>
+
+
+        <div className="content-left">
+          <section className="content-left">
+            <h2>Python</h2>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+          </section>
+        </div>
+
+
+        <div id="ci-cd" className="content-middle">
+          <section className="content-middle">
+            <h2><b>CI/CD</b></h2>
+          </section>
+        </div>
+
+        <div className="content-right">
+          <section className="content-right">
+            <h2>Docker</h2>
+            <h2>Webpack</h2>
+            <h2>Github Actions</h2>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+          </section>
+        </div>
+
+
+        <div id="cloud-aws" className="content-middle">
+          <section className="content-middle">
+            <h2><b>Cloud(AWS)</b></h2>
+          </section>
+        </div>
+
+        <div className="content-left">
+          <section className="content-left">
+            <h2>EC2</h2>
+            <h2>Lambda</h2>
 
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -98,7 +173,7 @@ function Content() {
           <p>The best way out is always through <br />-Robert Frost</p>
         </blockquote>
 
-        <div className="content-right">
+        <div id="work-history" className="content-right">
           <section className="content-right">
             <h2>Work History</h2>
 
