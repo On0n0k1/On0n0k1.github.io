@@ -15,17 +15,19 @@ function Content() {
           <p>I like to find the most optimal and effective ways for machines to solve our problems.</p>
         </blockquote>
 
-        <section>
-          <h2 id="headerContactInfo">Contact Info</h2>
-          <ul className="list-circle">
-            <li><b>Github:</b> <a target="_blank" href="https://github.com/On0n0k1">https://github.com/On0n0k1</a></li>
-            <li><b>Linkedin:</b> <a target="_blank" href="https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2">https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2/</a></li>
-            <li><b>Email:</b> stiltztinkerstein@gmail.com</li>
-            <li><b>Phone:</b> (Message me so we can schedule a call)</li>
-          </ul>
-        </section>
+        <div className="content-left">
+          <section className="content-left">
+            <h2 id="headerContactInfo">Contact Info</h2>
+            <ul className="list-circle">
+              <li><b>Github:</b> <a target="_blank" href="https://github.com/On0n0k1">https://github.com/On0n0k1</a></li>
+              <li><b>Linkedin:</b> <a target="_blank" href="https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2">https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2/</a></li>
+              <li><b>Email:</b> stiltztinkerstein@gmail.com</li>
+              <li><b>Phone:</b> (Message me so we can schedule a call)</li>
+            </ul>
+          </section>
+        </div>
 
-        <section className="content-left">
+        <section className="content-right">
           <h2 id="headerAboutMe">About Me</h2>
           <p>
             I'm a freelancer software developer that focuses in implementing systems coded in Rust and Javascript.
@@ -44,17 +46,18 @@ function Content() {
           </p>
         </section>
 
+        <div className="content-left">
+          <section>
+            <h2>Language Skills</h2>
+            <ul className="list-disc">
+              <li><b>Brazilian Portuguese:</b> Native</li>
+              <li><b>English:</b> Fluent</li>
+              <li><b>Japanese:</b> Basic</li>
+            </ul>
+          </section>
+        </div>
 
-        <section>
-          <h2>Language Skills</h2>
-          <ul className="list-disc">
-            <li><b>Brazilian Portuguese:</b> Native</li>
-            <li><b>English:</b> Fluent</li>
-            <li><b>Japanese:</b> Basic</li>
-          </ul>
-        </section>
-
-        <section className="light">
+        <section className="content-middle">
           <h2>Projects</h2>
 
           <p>
@@ -69,11 +72,27 @@ function Content() {
 
         </section>
 
+
+        <section className="content-left">
+          <h2>Coding Skills</h2>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+
+          <h2>Rust</h2>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+
+        </section>
+
         <blockquote>
           <p>The best way out is always through <br />-Robert Frost</p>
         </blockquote>
 
-        <section className="content-left">
+        <section className="content-right">
           <h2>Work History</h2>
 
           <h3>Job1</h3>

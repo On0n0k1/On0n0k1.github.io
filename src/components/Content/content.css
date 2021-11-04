@@ -24,6 +24,7 @@ main {
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    /* grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr)); */
 }
 
 main ul{
@@ -54,12 +55,15 @@ header {
 }
 
 section {
-    grid-column: 2 / 8;
+    /* grid-column: 2 / 8; */
     padding: 1rem;
     background: var(--dark-bg);
     font-size: 1.25rem;
     line-height: 1.5;
     margin-bottom: var(--spacing);
+
+    margin-right: auto;
+    display: inline-block;
 }
 
 blockquote {
@@ -77,8 +81,23 @@ blockquote p {
     line-height: 1;
 }
 
-.content-left {
+.content-right {
     grid-column: 6 / 12;
 }
 
+
+.content-left {
+    grid-column: 2 / span 8;
+}
+
+.content-middle {
+    grid-column: 4 / 11;
+}
+
+div.minimal-size{
+    margin: 0;
+    padding: 0;
+    padding-right: auto;
+    margin-bottom: var(--spacing);
+}
 
