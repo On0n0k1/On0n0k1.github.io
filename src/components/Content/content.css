@@ -58,12 +58,25 @@ section {
     /* grid-column: 2 / 8; */
     padding: 1rem;
     background: var(--dark-bg);
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; */
+    font-size: calc(0.8rem + 1vw);
     line-height: 1.5;
-    margin-bottom: var(--spacing);
-
-    margin-right: auto;
+    /* margin-bottom: var(--spacing); */
+/* 
+    margin-right: auto; */
     display: inline-block;
+}
+
+section.content-left{
+    margin-right: auto;
+}
+
+section.content-middle{
+    margin: auto;
+}
+
+section.content-right{
+    margin-left: auto;
 }
 
 blockquote {
@@ -81,23 +94,23 @@ blockquote p {
     line-height: 1;
 }
 
-.content-right {
-    grid-column: 6 / 12;
-}
+div.content-right {
+    grid-column: 5 / 10;
 
-
-.content-left {
-    grid-column: 2 / span 8;
-}
-
-.content-middle {
-    grid-column: 4 / 11;
-}
-
-div.minimal-size{
-    margin: 0;
-    padding: 0;
-    padding-right: auto;
     margin-bottom: var(--spacing);
 }
+
+/* grid-column: calc(5 - max(18vw, 5rem)/9vw) / 10; */
+div.content-left {
+    grid-column: 2 / 7;
+
+    margin-bottom: var(--spacing);
+}
+
+div.content-middle {
+    grid-column: 4 / 11;
+
+    margin-bottom: var(--spacing);
+}
+
 
