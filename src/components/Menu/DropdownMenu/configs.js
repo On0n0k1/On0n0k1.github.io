@@ -5,7 +5,7 @@ import LeftIcon from '../../Icons/left-svgrepo-com.svg';
 import AboutMeIcon from '../../Icons/account-svgrepo-com.svg';
 import ProjectsIcon from '../../Icons/folder-svgrepo-com.svg'
 import AnimationSettingsIcon from '../../Icons/setting-svgrepo-com.svg';
-import TextInterface from './TextInterface/TextInterface';
+import FPSCheckbox from './FPSCheckbox/FPSCheckbox';
 
 import React from 'react';
 
@@ -142,7 +142,7 @@ export function settingsCube(backgroundActions) {
             }, { 
                 uniqueKey: '3', 
                 id: "dropDownSettingsTextInterfaceCheckbox", 
-                dDownText: <TextInterface id="text-interface-checkbox"/>
+                dDownText: <FPSCheckbox id="text-interface-checkbox"/>
             }, { 
                 uniqueKey: '4', 
                 id: "dropDownSettingsCubeButterfly", 
@@ -193,7 +193,7 @@ export function settingsBirds(backgroundActions) {
             }, , { 
                 uniqueKey: '3', 
                 id: "dropDownSettingsTextInterfaceCheckbox", 
-                dDownText: <TextInterface id="text-interface-checkbox"/>
+                dDownText: <FPSCheckbox id="text-interface-checkbox"/>
             }, { 
                 uniqueKey: '4', 
                 id: "dropDownSettingsBirdsSnake", 
@@ -235,7 +235,7 @@ export function settingsFloating(backgroundActions) {
             }, { 
                 uniqueKey: '3', 
                 id: "dropDownSettingsTextInterfaceCheckbox", 
-                dDownText: <TextInterface id="text-interface-checkbox"/>
+                dDownText: <FPSCheckbox id="text-interface-checkbox"/>
             }, { 
                 uniqueKey: '4', 
                 id: "dropDownSettingsBirdsSnake", 

@@ -102,19 +102,23 @@ code {
 }
 
 .background-scene-container {
-    /* tell our scene container to take up the full page */
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    /* z-index: -2; */
-  
-    /*
-      Set the container's background color to the same as the scene's
-      background to prevent flashing on load
-    */
-    background-color: var(--background-scene-color);
-  }
-  
+  /* tell our scene container to take up the full page */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  /* z-index: -2; */
+
+  /*
+    Set the container's background color to the same as the scene's
+    background to prevent flashing on load
+  */
+  background-color: var(--background-scene-color);
+}
+
+.background-scene-container#background-scene-text-interface{
+  background-color: #0000;
+}
+
 
 ul {
     list-style: none;

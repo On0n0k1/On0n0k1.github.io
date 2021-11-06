@@ -2,7 +2,10 @@ import { BirdAnimation } from './BirdAnimation/BirdAnimation.js';
 import { CubeAnimation } from './CubeAnimation/CubeAnimation.js';
 import { FloatingAnimation } from './FloatingAnimation/FloatingAnimation.js';
 
+import countFrame from './TextInterface/TextInterface.js';
+
 // import main from "./main";
+
 
 
 
@@ -12,11 +15,15 @@ class Background {
         this.cubeAnimation = new CubeAnimation();
         this.floatingAnimation = new FloatingAnimation();
 
+        // this.textInterface = new TextInterface();
+        // this.textInterface.init();
+
         // currentAnimation
         // 0: cube
         // 1: birds
         this.currentAnimation = 0;
-
+        countFrame()
+        // drawCanvas();
     }
 
     async init(){
