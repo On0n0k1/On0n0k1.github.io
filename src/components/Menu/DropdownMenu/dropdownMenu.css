@@ -9,6 +9,7 @@
     /* Javascript will change these dinamically */
 }
 
+/* Menu */
 .menu-dropdown {
     z-index:var(--z-index-menu-items);
     position: fixed;
@@ -27,6 +28,7 @@
     width: 100%;
 }
 
+/* Menu list items */
 .menu-item {
     color: var(--menu-text-color);
     z-index: var(--z-index-menu-items);
@@ -66,6 +68,7 @@ div.menu-item {
 
 
 /* Css transitions */
+
 /* This is the default transition for each menu tab, applies to all elements */
 .menu-original-enter{
     width: 90%;
@@ -103,9 +106,9 @@ div.menu-item {
 
 /* .menu-original-exit a:first-child[ignoretransitionend] {} */
 
-
 .menu-original-exit-active a[ignoretransitionend], .menu-original-exit-active div[ignoretransitionend]{    
     transform: var(--menu-leaving);
 
     transition: all 0ms ease;
 }
+

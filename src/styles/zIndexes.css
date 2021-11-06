@@ -6,12 +6,15 @@
 
 :root{
     /* background 3d canvas */
+    --z-index-background-interface: -1;
     --z-index-background-visible: -2;
     --z-index-background-invisible: -3;
 
     --z-index-background-canvas-cube: var(--z-index-background-invisible);
     --z-index-background-canvas-birds: var(--z-index-background-invisible);
     --z-index-background-canvas-floating: var(--z-index-background-invisible);
+
+    --z-index-background-scene-text-interface: var(--z-index-background-invisible);
 
     --z-index-background-div-cube: var(--z-index-background-canvas-cube);
     --z-index-background-div-birds: var(--z-index-background-canvas-birds);

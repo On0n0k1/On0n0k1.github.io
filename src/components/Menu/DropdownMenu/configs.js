@@ -5,6 +5,7 @@ import LeftIcon from '../../Icons/left-svgrepo-com.svg';
 import AboutMeIcon from '../../Icons/account-svgrepo-com.svg';
 import ProjectsIcon from '../../Icons/folder-svgrepo-com.svg'
 import AnimationSettingsIcon from '../../Icons/setting-svgrepo-com.svg';
+import TextInterface from './TextInterface/TextInterface';
 
 import React from 'react';
 
@@ -140,9 +141,8 @@ export function settingsCube(backgroundActions) {
                 rightGoToMenu: () => { return "settings-birds"; } 
             }, { 
                 uniqueKey: '3', 
-                id: "dropDownSettingsCubeFrog", 
-                leftIcon: "🐸", 
-                dDownText: "Frog" 
+                id: "dropDownSettingsTextInterfaceCheckbox", 
+                dDownText: <TextInterface id="text-interface-checkbox"/>
             }, { 
                 uniqueKey: '4', 
                 id: "dropDownSettingsCubeButterfly", 
@@ -157,7 +157,10 @@ export function settingsCube(backgroundActions) {
         ]
     };
 };
-
+//  <TextInterface 
+//                     id="text-interface-checkbox"
+//                     name="text-interface-checkbox"
+//                     value="interface" 
 
 // classNames: "menu-primary"
 export function settingsBirds(backgroundActions) {
@@ -187,11 +190,10 @@ export function settingsBirds(backgroundActions) {
                 rightIcon: <RightIcon />, 
                 rightAction: () => { goFloating() }, 
                 rightGoToMenu: () => { return "settings-floating"; } 
-            }, { 
+            }, , { 
                 uniqueKey: '3', 
-                id: "dropDownSettingsBirdsFrog", 
-                leftIcon: "🐸", 
-                dDownText: "Frog" 
+                id: "dropDownSettingsTextInterfaceCheckbox", 
+                dDownText: <TextInterface id="text-interface-checkbox"/>
             }, { 
                 uniqueKey: '4', 
                 id: "dropDownSettingsBirdsSnake", 
@@ -232,9 +234,8 @@ export function settingsFloating(backgroundActions) {
                 rightGoToMenu: () => { return "settings-cube"; } 
             }, { 
                 uniqueKey: '3', 
-                id: "dropDownSettingsBirdsFrog", 
-                leftIcon: "🐸", 
-                dDownText: "Frog" 
+                id: "dropDownSettingsTextInterfaceCheckbox", 
+                dDownText: <TextInterface id="text-interface-checkbox"/>
             }, { 
                 uniqueKey: '4', 
                 id: "dropDownSettingsBirdsSnake", 

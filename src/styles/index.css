@@ -81,6 +81,10 @@ code {
   z-index: var(--z-index-background-canvas-floating);
 }
 
+#bg-text{
+  z-index: var(--z-index-background-scene-text-interface);
+}
+
 #background-scene-container-birds{
     z-index: var(--z-index-background-div-birds);
 }
@@ -91,6 +95,10 @@ code {
 
 #background-scene-container-floating{
   z-index: var(--z-index-background-div-floating);
+}
+
+#background-scene-text-interface{
+  z-index: var(--z-index-background-scene-text-interface);
 }
 
 .background-scene-container {

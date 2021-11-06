@@ -53,6 +53,7 @@ function DropdownMenu(props) {
     // Represents one line of the dropdown menu
     function DropdownItem(props){
 
+
         if((props.iconLinks === true)) {
             // Transition ignores will not apply to the text in the middle
             return (
@@ -67,6 +68,7 @@ function DropdownMenu(props) {
                     className="menu-icon-button" 
                     onClick={
                         () => {
+
                             props.leftAction && props.leftAction();
                             goLeft();
                             props.leftGoToMenu && setActiveMenu(props.leftGoToMenu());
@@ -108,13 +110,14 @@ function DropdownMenu(props) {
                 ignoretransitionend={props.ignoretransitionend}
                 onClick={
                 () => {
+
                     moveDirection();
                     props.goToMenu && setActiveMenu(props.goToMenu());
                 }
             }>
-                <span className="menu-icon-button">{props.leftIcon}</span>
+                {props.leftIcon && <span className="menu-icon-button">{props.leftIcon}</span>}
                 {props.children}
-                <span className="menu-icon-right">{props.rightIcon}</span>
+                {props.rightIcon && <span className="menu-icon-right">{props.rightIcon}</span>}
             </a>
         );
     }
