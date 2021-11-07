@@ -33,8 +33,22 @@ function canvasInvisible(){
   setCSS("--z-index-background-scene-text-interface", invisible);
 }
 
+// The current state of fps is stored as css
+// We check the current css value to know if it's enabled
+function getState(){
+  let state = parseInt(getCSS("--z-index-background-scene-text-interface"), 10);
+  let visible = parseInt(getCSS("--z-index-background-interface"), 10);
+  // console.log(state);
+  // console.log(visible);
+  // console.log((state === visible));
+  
+  return (state === visible);
+  // return false;
+}
+
 export default function FPSCheckbox(props) {
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(getState());
+    // getState();
 
     const handleOnChange = () => {
       !isChecked && canvasVisible();
