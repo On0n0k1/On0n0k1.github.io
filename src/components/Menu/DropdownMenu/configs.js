@@ -9,6 +9,11 @@ import FPSCheckbox from './FPSCheckbox/FPSCheckbox';
 
 import React from 'react';
 
+
+import DropdownRow from './DropdownRow/DropdownRow.js';
+import DropdownSideways from './DropdownRow/DropdownSideways.js';
+
+
 const menuclassname = {
     enter: 'menu-original-enter',
     enterActive: 'menu-original-enter-active',
@@ -16,237 +21,234 @@ const menuclassname = {
     exitActive: 'menu-original-exit-active',
 };
 
-// { goCube, goBirds }
-// ['settings-cube', 'settings-birds']
 
-// getCurrentAnimation(){
-//     getAnimationClassNames(){
-
-// { goCube, goBirds, getAnimationClassNames, getCurrentAnimation };
-
-// classNames: "menu-primary"
-export function mainTransition(backgroundActions){
+export function mainTransition(backgroundActions, setActiveMenu){
     let { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation } = backgroundActions;
 
     return {
         activeMenu: 'main',
-        // classNames: "menu-original",
         classNames: menuclassname,
         theseDropDownItems:[
-            { 
-                uniqueKey: '1', 
-                id: "dropDownMainAboutMe", 
-                ignoretransitionend: "true", 
-                href: "#headerAboutMe",
-                leftIcon: <AboutMeIcon />, 
-                dDownText: "About Me" 
-            }, { 
-                uniqueKey: '2', 
-                id: "dropDownMainProjects", 
-                leftIcon: <ProjectsIcon />, 
-                rightIcon: <RightIcon />, 
-                goToMenu: () => { return "projects";}, 
-                dDownText: "Projects" 
-            }, { 
-                uniqueKey: '3', 
-                id: "dropDownMainSettings", 
-                leftIcon: <AnimationSettingsIcon />, 
-                rightIcon: <RightIcon />, 
-                goToMenu: () => { 
+            <DropdownRow 
+                key='1'
+                id="dropDownMainAboutMe"
+                setActiveMenu={ setActiveMenu }
+                ignoretransitionend="true"
+                href="#headerAboutMe"
+                leftIcon={ <AboutMeIcon /> } 
+            >{ "About Me" }</DropdownRow>, 
+            <DropdownRow 
+                key='2'
+                id="dropDownMainProjects"
+                setActiveMenu={ setActiveMenu }
+                leftIcon={ <ProjectsIcon /> } 
+                rightIcon={ <RightIcon /> } 
+                goToMenu={ () => { return "projects";} }
+            >{ "Projects" }</DropdownRow>, 
+            <DropdownRow 
+                key='3'
+                id="dropDownMainSettings"
+                setActiveMenu={ setActiveMenu }
+                leftIcon={ <AnimationSettingsIcon /> } 
+                rightIcon={ <RightIcon /> } 
+                goToMenu={ () => { 
                     let classNames = getAnimationClassNames();
                     let index = getCurrentAnimation();
                     return classNames[index];
-                    // return "settings-cube";
-                }, 
-                dDownText: "Animation Settings" 
-            }
+                }} 
+            >{ "Animation Settings" }</DropdownRow>
         ]
     };
 };
 
-// classNames: "menu-secondary"
-export function projects(backgroundActions) { 
+
+export function projects(backgroundActions, setActiveMenu) { 
     return {
         activeMenu: 'projects',
-        // classNames: "menu-original",
         classNames: menuclassname,
         theseDropDownItems: [
-            { 
-                uniqueKey: '1', 
-                id: "dropDownProjectsGoBack", 
-                ignoretransitionstart: "true", 
-                ignoretransitionend: "true", 
-                leftIcon: <LeftIcon />, 
-                goToMenu: () => { return "main";}, 
-                dDownText: "Back", 
-                goBack: true 
-            }, { 
-                uniqueKey: '2', 
-                id: "dropDownProjectsHTML", 
-                leftIcon: <StarIcon />, 
-                dDownText: "HTML" 
-            }, { 
-                uniqueKey: '3', 
-                id: "dropDownProjectsCSS", 
-                leftIcon: <StarIcon />, 
-                dDownText: "CSS" 
-            }, { 
-                uniqueKey: '4', 
-                id: "dropDownProjectsJavascript",
-                leftIcon: <StarIcon />, 
-                dDownText: "JavaScript" 
-            }, { 
-                uniqueKey: '5', 
-                id: "dropDownProjectsAwesome!", 
-                leftIcon: <StarIcon />, 
-                dDownText: "Awesome!" 
-            }
+            <DropdownRow 
+                key='1'
+                id="dropDownProjectsGoBack"
+                setActiveMenu={ setActiveMenu }
+                ignoretransitionstart="true" 
+                ignoretransitionend="true"
+                leftIcon={ <LeftIcon /> } 
+                goToMenu={ () => { return "main";} }
+                goBack={ true }
+            >{ "Back" }</DropdownRow>, 
+            <DropdownRow 
+                key='2'
+                id="dropDownProjectsHTML"
+                setActiveMenu={ setActiveMenu }
+                leftIcon={ <StarIcon /> }
+            >{ "HTML" }</DropdownRow>, 
+            <DropdownRow
+                key='3'
+                id="dropDownProjectsCSS"
+                setActiveMenu={ setActiveMenu }
+                leftIcon={ <StarIcon /> } 
+            >{ "CSS" }</DropdownRow>, 
+            <DropdownRow 
+                key='4'
+                id="dropDownProjectsJavascript"
+                setActiveMenu={ setActiveMenu }
+                leftIcon={ <StarIcon /> } 
+            >{ "JavaScript" }</DropdownRow>,
+            <DropdownRow 
+                key='5'
+                id="dropDownProjectsAwesome!"
+                setActiveMenu={ setActiveMenu }
+                leftIcon={ <StarIcon /> }
+            >{ "Awesome!" }</DropdownRow>
         ]
     };
 };
 
 
-
-// classNames: "menu-secondary"
-export function settingsCube(backgroundActions) {
+export function settingsCube(backgroundActions, setActiveMenu) {
     let { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation } = backgroundActions;
     return {
         activeMenu: 'settings-cube',
-        // classNames: "menu-original",
         classNames: menuclassname,
         theseDropDownItems: [
-            { 
-                uniqueKey: '1', 
-                id: "dropDownSettingsCubeGoBack", 
-                ignoretransitionstart: "true", 
-                ignoretransitionend: "true", 
-                leftIcon: <LeftIcon />, 
-                goToMenu: () => { return "main"; }, 
-                dDownText: "Back", 
-                goBack: true 
-            }, { 
-                uniqueKey: '2', 
-                id: "dropDownSettingsCubeGoNext",
-                iconLinks: true, 
-                leftIcon: <LeftIcon />, 
-                leftAction: () => { 
+            <DropdownRow 
+                key='1'
+                id="dropDownSettingsCubeGoBack"
+                setActiveMenu={ setActiveMenu }
+                ignoretransitionstart="true"
+                ignoretransitionend="true"
+                leftIcon={ <LeftIcon /> } 
+                goToMenu={ () => { return "main"; } } 
+                goBack={ true }
+            >{ "Back" }</DropdownRow>,  
+            <DropdownSideways 
+                key='2'
+                id="dropDownSettingsCubeGoNext"
+                setActiveMenu={ setActiveMenu }
+                iconLinks={ true }
+                leftIcon={<LeftIcon />} 
+                leftAction={() => { 
                     goFloating();
-                },
-                leftGoToMenu: () => { return "settings-floating"; }, 
-                dDownText: "Cube", 
-                rightIcon: <RightIcon />, 
-                rightAction: () => { 
+                }}
+                leftGoToMenu={() => { return "settings-floating"; }}
+                rightIcon={<RightIcon />}
+                rightAction={() => { 
                     goBirds(); 
-                }, 
-                rightGoToMenu: () => { return "settings-birds"; } 
-            }, { 
-                uniqueKey: '3', 
-                id: "dropDownSettingsTextInterfaceCheckbox", 
-                dDownText: <FPSCheckbox id="text-interface-checkbox"/>
-            }, { 
-                uniqueKey: '4', 
-                id: "dropDownSettingsCubeButterfly", 
-                leftIcon: "🦋", 
-                dDownText: "Butterfly" 
-            }, { 
-                uniqueKey: '5', 
-                id: "dropDownSettingsCubeSnake", 
-                leftIcon: "🐍", 
-                dDownText: "Snake" 
-            },
+                }}
+                rightGoToMenu={() => { return "settings-birds"; }}
+            >{"Cube"}</DropdownSideways>,
+            <DropdownRow 
+                key='3'
+                id={ "dropDownSettingsTextInterfaceCheckbox" }
+                setActiveMenu={ setActiveMenu }
+            >{ <FPSCheckbox id="text-interface-checkbox"/> }</DropdownRow>, 
+            <DropdownRow 
+                key='4'
+                id={ "dropDownSettingsCubeButterfly" }
+                setActiveMenu={ setActiveMenu }
+                leftIcon="🦋"
+            >{ "Butterfly" }</DropdownRow>, 
+            <DropdownRow 
+                key='5'
+                id={ "dropDownSettingsCubeSnake" }
+                setActiveMenu={ setActiveMenu }
+                leftIcon="🐍"
+            >{ "Snake" }</DropdownRow>,
         ]
     };
 };
-//  <TextInterface 
-//                     id="text-interface-checkbox"
-//                     name="text-interface-checkbox"
-//                     value="interface" 
 
-// classNames: "menu-primary"
-export function settingsBirds(backgroundActions) {
+
+export function settingsBirds(backgroundActions, setActiveMenu) {
     let { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation } = backgroundActions;
     return {
         activeMenu: 'settings-birds',
-        // classNames: "menu-original",
         classNames: menuclassname,
         theseDropDownItems: [
-            { 
-                uniqueKey: '1', 
-                id: "dropDownSettingsBirdsGoBack", 
-                ignoretransitionstart: "true", 
-                ignoretransitionend: "true", 
-                leftIcon: <LeftIcon />, 
-                goToMenu: () => { return "main";}, 
-                dDownText: "Back", 
-                goBack: true 
-            }, { 
-                uniqueKey: '2', 
-                id: "dropDownSettingsBirdsGoCube",
-                iconLinks: true, 
-                leftIcon: <LeftIcon />, 
-                leftAction: () => { goCube() }, 
-                leftGoToMenu: () => { return "settings-cube"; }, 
-                dDownText: "Birds", 
-                rightIcon: <RightIcon />, 
-                rightAction: () => { goFloating() }, 
-                rightGoToMenu: () => { return "settings-floating"; } 
-            }, , { 
-                uniqueKey: '3', 
-                id: "dropDownSettingsTextInterfaceCheckbox", 
-                dDownText: <FPSCheckbox id="text-interface-checkbox"/>
-            }, { 
-                uniqueKey: '4', 
-                id: "dropDownSettingsBirdsSnake", 
-                leftIcon: "🐍", 
-                dDownText: "Snake" 
-            },
+            <DropdownRow 
+                key='1'
+                id={ "dropDownSettingsBirdsGoBack" }
+                setActiveMenu={ setActiveMenu }
+                ignoretransitionstart={ "true" }
+                ignoretransitionend={ "true" }
+                leftIcon={ <LeftIcon /> }
+                goToMenu={ () => { return "main";} } 
+                goBack={ true }
+            >{ "Back" }</DropdownRow>, 
+            <DropdownSideways 
+                key='2'
+                id={ "dropDownSettingsBirdsGoCube" }
+                setActiveMenu={ setActiveMenu }
+                iconLinks={ true } 
+                leftIcon={ <LeftIcon /> } 
+                leftAction={ () => { goCube() } } 
+                leftGoToMenu={ () => { return "settings-cube"; } } 
+                rightIcon={ <RightIcon /> } 
+                rightAction={ () => { goFloating() } } 
+                rightGoToMenu={ () => { return "settings-floating"; } }
+            >{ "Birds" }</DropdownSideways>, 
+            <DropdownRow 
+                key='3'
+                id={ "dropDownSettingsTextInterfaceCheckbox" }
+                setActiveMenu={ setActiveMenu }
+            >{ <FPSCheckbox id="text-interface-checkbox"/> }</DropdownRow>, 
+            <DropdownRow 
+                key='4'
+                id={ "dropDownSettingsBirdsSnake" }
+                setActiveMenu={ setActiveMenu }
+                leftIcon="🐍"
+            >{ "Snake" }</DropdownRow>,
         ]
     };
 };
 
-// 'settings-floating'
-export function settingsFloating(backgroundActions) {
+
+export function settingsFloating(backgroundActions, setActiveMenu) {
     let { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation } = backgroundActions;
     return {
         activeMenu: 'settings-floating',
-        // classNames: "menu-original",
         classNames: menuclassname,
         theseDropDownItems: [
-            { 
-                uniqueKey: '1', 
-                id: "dropDownSettingsFloatingGoBack", 
-                ignoretransitionstart: "true", 
-                ignoretransitionend: "true", 
-                leftIcon: <LeftIcon />, 
-                goToMenu: () => { return "main"; }, 
-                dDownText: "Back", 
-                goBack: true 
-            }, { 
-                uniqueKey: '2', 
-                id: "dropDownSettingsFloatingGoNext",
-                iconLinks: true, 
-                leftIcon: <LeftIcon />, 
-                leftAction: () =>{ goBirds() }, 
-                leftGoToMenu: () => { return "settings-birds"; }, 
-                dDownText: "Floating", 
-                rightIcon: <RightIcon />, 
-                rightAction: () => { goCube() }, 
-                rightGoToMenu: () => { return "settings-cube"; } 
-            }, { 
-                uniqueKey: '3', 
-                id: "dropDownSettingsTextInterfaceCheckbox", 
-                dDownText: <FPSCheckbox id="text-interface-checkbox"/>
-            }, { 
-                uniqueKey: '4', 
-                id: "dropDownSettingsBirdsSnake", 
-                leftIcon: "🐍", 
-                dDownText: "Snake" 
-            }, { 
-                uniqueKey: '5', 
-                id: "dropDownSettingsBirdsHorse", 
-                leftIcon: "🐎" , 
-                dDownText: "Horse" 
-            },
+            <DropdownRow 
+                key='1'
+                id="dropDownSettingsFloatingGoBack"
+                setActiveMenu={ setActiveMenu }
+                ignoretransitionstart="true"
+                ignoretransitionend="true"
+                leftIcon={ <LeftIcon /> }
+                goToMenu={ () => { return "main"; } }
+                goBack={ true }
+            >{ "Back" }</DropdownRow>, 
+            <DropdownSideways 
+                key='2'
+                id="dropDownSettingsFloatingGoNext"
+                setActiveMenu={ setActiveMenu }
+                iconLinks={true}
+                leftIcon={ <LeftIcon /> } 
+                leftAction={ () =>{ goBirds() }} 
+                leftGoToMenu={ () => { return "settings-birds"; }} 
+                rightIcon={ <RightIcon /> } 
+                rightAction={ () => { goCube() }} 
+                rightGoToMenu={ () => { return "settings-cube"; }} 
+            >{ "Floating" }</DropdownSideways>, 
+            <DropdownRow 
+                key='3'
+                id="dropDownSettingsTextInterfaceCheckbox"
+                setActiveMenu={ setActiveMenu }
+            >{ <FPSCheckbox id="text-interface-checkbox"/> }</DropdownRow>, 
+            <DropdownRow 
+                key='4'
+                id="dropDownSettingsBirdsSnake"
+                setActiveMenu={ setActiveMenu }
+                leftIcon="🐍"
+            >{ "Snake" }</DropdownRow>, 
+            <DropdownRow 
+                key='5'
+                id={ "dropDownSettingsBirdsHorse" }
+                setActiveMenu={ setActiveMenu }
+                leftIcon="🐎"
+            >{ "Horse" }</DropdownRow>,
         ]
     };
 };

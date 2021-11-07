@@ -9,6 +9,10 @@ import { getCSS } from '../../other_functions/cssFunctions';
 
 import './dropdownMenu.css';
 
+
+
+
+
 // Used in CSSTransition timeout. That way we can just change the variable in the css and have it change here as well.
 // Added 50 milliseconds just to be sure that the transition is finished before it ends.
 const convertedSpeed = parseInt(getCSS('--menu-speed'), 10) + 50;
@@ -35,6 +39,7 @@ function DropdownMenu(props) {
 
     // const goBirds = props.goBirds;
     // const goCube = props.goCube;
+
     const backgroundActions = props.backgroundActions;
 
     // When dropdown first renders, update height value
@@ -131,30 +136,32 @@ function DropdownMenu(props) {
         const dropDownItems = props.theseDropDownItems;
 
         // list of dropdownitems
-        const theseDropDownItems = dropDownItems.map((dDown) => {
+        // const theseDropDownItems = dropDownItems.map((dDown) => {
 
-            return (
-                <DropdownItem 
-                    id={dDown.id}
-                    ignoretransitionstart={dDown.ignoretransitionstart}
-                    ignoretransitionend={dDown.ignoretransitionend}
-                    leftIcon={dDown.leftIcon}
-                    rightIcon={dDown.rightIcon}
-                    iconLinks={dDown.iconLinks}
-                    goToMenu={dDown.goToMenu}
-                    goBack={dDown.goBack}
-                    leftAction={dDown.leftAction}
-                    leftGoToMenu={dDown.leftGoToMenu}
-                    rightAction={dDown.rightAction}
-                    rightGoToMenu={dDown.rightGoToMenu}
-                    href={dDown.href}
-                    hrefLeft={dDown.hrefLeft}
-                    hrefRight={dDown.hrefRight}
-                    key={dDown.uniqueKey}>
-                    {dDown.dDownText}
-                </DropdownItem>
-            );
-        });
+        // return dDown ;
+
+        //     // return (
+        //     //     <DropdownItem 
+        //     //         id={dDown.id}
+        //     //         ignoretransitionstart={dDown.ignoretransitionstart}
+        //     //         ignoretransitionend={dDown.ignoretransitionend}
+        //     //         leftIcon={dDown.leftIcon}
+        //     //         rightIcon={dDown.rightIcon}
+        //     //         iconLinks={dDown.iconLinks}
+        //     //         goToMenu={dDown.goToMenu}
+        //     //         goBack={dDown.goBack}
+        //     //         leftAction={dDown.leftAction}
+        //     //         leftGoToMenu={dDown.leftGoToMenu}
+        //     //         rightAction={dDown.rightAction}
+        //     //         rightGoToMenu={dDown.rightGoToMenu}
+        //     //         href={dDown.href}
+        //     //         hrefLeft={dDown.hrefLeft}
+        //     //         hrefRight={dDown.hrefRight}
+        //     //         key={dDown.uniqueKey}>
+        //     //         {dDown.dDownText}
+        //     //     </DropdownItem>
+        //     // );
+        // });
         // nodeRef={nodeRef}
 
         return (
@@ -165,7 +172,7 @@ function DropdownMenu(props) {
                 unmountOnExit
                 onEnter={calcHeight}>
                 <div className="menu">
-                    {theseDropDownItems}
+                    {dropDownItems}
                 </div>
             </CSSTransition>
         );
@@ -183,11 +190,11 @@ function DropdownMenu(props) {
     // call manual configs imported from './config.js' to render each of the possible menus
     return (
         <div className="menu-dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
-            { CSSTransitionList(mainTransition(backgroundActions)) }
-            { CSSTransitionList(projects(backgroundActions)) }
-            { CSSTransitionList(settingsCube(backgroundActions)) }
-            { CSSTransitionList(settingsBirds(backgroundActions)) }
-            { CSSTransitionList(settingsFloating(backgroundActions)) }
+            { CSSTransitionList(mainTransition(backgroundActions, setActiveMenu )) }
+            { CSSTransitionList(projects(backgroundActions, setActiveMenu)) }
+            { CSSTransitionList(settingsCube(backgroundActions, setActiveMenu)) }
+            { CSSTransitionList(settingsBirds(backgroundActions, setActiveMenu)) }
+            { CSSTransitionList(settingsFloating(backgroundActions,  setActiveMenu)) }
         </div>
     );
 }
