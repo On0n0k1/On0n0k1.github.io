@@ -34,7 +34,7 @@ export function mainTransition(backgroundActions, setActiveMenu){
                 id="dropDownMainAboutMe"
                 setActiveMenu={ setActiveMenu }
                 ignoretransitionend="true"
-                href="#headerAboutMe"
+                href="#content-about-me"
                 leftIcon={ <AboutMeIcon /> } 
             >{ "About Me" }</DropdownRow>, 
             <DropdownRow 
@@ -79,28 +79,25 @@ export function projects(backgroundActions, setActiveMenu) {
             >{ "Back" }</DropdownRow>, 
             <DropdownRow 
                 key='2'
-                id="dropDownProjectsHTML"
+                id="dropDownProjectsContactInfo"
+                href="#content-contact-info"
                 setActiveMenu={ setActiveMenu }
                 leftIcon={ <StarIcon /> }
-            >{ "HTML" }</DropdownRow>, 
+            >{ "Contact Info" }</DropdownRow>, 
             <DropdownRow
                 key='3'
-                id="dropDownProjectsCSS"
+                id="dropDownProjectsCodingSkills"
+                href="#content-coding-skills"
                 setActiveMenu={ setActiveMenu }
                 leftIcon={ <StarIcon /> } 
-            >{ "CSS" }</DropdownRow>, 
-            <DropdownRow 
+            >{ "Coding Skills" }</DropdownRow>, 
+            <DropdownRow
                 key='4'
-                id="dropDownProjectsJavascript"
+                id="dropDownProjectsProjects"
+                href="#content-projects"
                 setActiveMenu={ setActiveMenu }
                 leftIcon={ <StarIcon /> } 
-            >{ "JavaScript" }</DropdownRow>,
-            <DropdownRow 
-                key='5'
-                id="dropDownProjectsAwesome!"
-                setActiveMenu={ setActiveMenu }
-                leftIcon={ <StarIcon /> }
-            >{ "Awesome!" }</DropdownRow>
+            >{ "Projects" }</DropdownRow>
         ]
     };
 };

@@ -16,9 +16,9 @@ function Content() {
           <p>I like to find the most optimal and effective ways for machines to solve our problems.</p>
         </blockquote>
 
-        <div className="content-left">
-          <section className="content-left">
-            <h2 id="headerContactInfo">Contact Info</h2>
+        <div id="content-contact-info"className="content-left">
+          <section>
+            <h2>Contact Info</h2>
             <ul className="list-circle">
               <li><b>Github:</b> <a target="_blank" href="https://github.com/On0n0k1">https://github.com/On0n0k1</a></li>
               <li><b>Linkedin:</b> <a target="_blank" href="https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2">https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2/</a></li>
@@ -28,8 +28,8 @@ function Content() {
           </section>
         </div>
 
-        <div className="content-right">
-          <section className="content-right">
+        <div id="content-about-me" className="content-right">
+          <section>
             <h2 id="headerAboutMe">About Me</h2>
             <p>
               I'm a freelancer software developer that focuses in implementing systems coded in Rust and Javascript.
@@ -50,7 +50,7 @@ function Content() {
         </div>
 
         <div className="content-left">
-          <section className="content-left">
+          <section>
             <h2>Language Skills</h2>
             <ul className="list-disc">
               <li><b>Brazilian Portuguese:</b> Native</li>
@@ -60,25 +60,9 @@ function Content() {
           </section>
         </div>
 
-        <div className="content-right">
-          <section className="content-right">
-            <h2>Projects</h2>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-            <h2>Accomplishments</h2>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-          </section>
-        </div>
 
 
-        <div id="coding-skills" className="content-middle">
+        <div id="content-coding-skills" className="content-middle">
           <section className="content-middle">
             <h2>Coding Skills</h2>
           </section>
@@ -87,9 +71,24 @@ function Content() {
         <div className="content-left">
           <section className="content-left">
             <h2>Rust</h2>
+            <ul className="list-circle">
+              <li><b>Memory:</b> How rust stores data in the stack and the heap.</li>
+              <li><b>Threads:</b> For running instructions in parallel.</li>
+              <li><b>Macros:</b> Code that generates code (and only then compiles).</li>
+              <li><b>Arc and Mutex pointers:</b> For sharing data between multiple threads in parallel.</li>
+              <li><b>Traits:</b> Describe the requirements, describe the methods, and now you can easily implement unique behaviors for any type of data. Using very little code.</li>
+              <li><b>Cargo configuration:</b> Configurations for the compiler and dependencies.</li>
+              <li><b>Patterns:</b> Optimizing code using pattern matching.</li>
+              <li><b>Environment Variables:</b> Ways to store and access environment variables safely.</li>
+              <li><b>Publishing:</b> To "github" and "crates.io" as open-source.</li>
+              <li><b>Documentation:</b> Using cargo and code documentation to generate an entire website with everything about the project.</li>
+            </ul>
+
+            <h2>Frameworks, Tools</h2>
             <ul className="list-disc">
               <li><b>WebAssembly:</b> Compiled machine code for faster javascript computation.</li>
-              <li><b>Gtk:</b> GUI that is default for Gnome based operation systems.</li>
+              <li><b>PyO3:</b> Compiled machine code for faster Python.</li>
+              <li><b>Gtk:</b> GUI that is default for Gnome based operating systems.</li>
               <li><b>Rocket:</b> Api framework.</li>
               <li><b>Warp:</b> Api framework.</li>
               <li><b>Tokio:</b> Concurrency, multithreading framework.</li>
@@ -112,7 +111,7 @@ function Content() {
         </div>
 
 
-        <div id="webstack" className="content-middle">
+        <div className="content-middle">
           <section>
             <h2>Web Stack</h2>
           </section>
@@ -141,10 +140,10 @@ function Content() {
         </div>
 
         <div className="content-right">
-          <section className="content-right">
+          <section>
             <h2><b>CI/CD</b></h2>
             <ul className="list-disc">
-              <li><b>Docker:</b> I can compile/transpile code in one container and storing the end result in another.</li>
+              <li><b>Docker:</b> I can compile/transpile code in one container and store the end result in another. Which means, very tiny images.</li>
               <li><b>Webpack:</b> I use this to handle all javascript and webassembly dependencies.</li>
               <li><b>Github Actions:</b> Enable automated building/testing for a project.</li>
             </ul>
@@ -152,14 +151,14 @@ function Content() {
         </div>
 
 
-        <div id="cloud-aws" className="content-middle">
+        <div className="content-middle">
           <section className="content-middle">
             <h2><b>Cloud(AWS)</b></h2>
           </section>
         </div>
 
         <div className="content-left">
-          <section className="content-left">
+          <section>
             <h2>ECS</h2>
             <p>
               I know the basics of hosting a docker image here.
@@ -173,7 +172,7 @@ function Content() {
           </section>
         </div>
 
-        <div id="3d-modeling" className="content-middle">
+        <div className="content-middle">
           <section>
             <h2><b>3D Modeling</b></h2>
           </section>
@@ -185,6 +184,25 @@ function Content() {
             <p>
               Just getting started with these to make better 3D websites.
             </p>
+          </section>
+        </div>
+
+
+
+        <div id="content-projects" className="content-middle">
+          <section>
+            <h2>Projects</h2>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
+            <h2>Accomplishments</h2>
+
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+
           </section>
         </div>
 
