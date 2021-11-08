@@ -98,37 +98,8 @@ function Content() {
         </div>
 
 
-        <div id="webstack" className="content-middle">
-          <section className="content-middle">
-            <h2>Web Stack</h2>
-          </section>
-        </div>
-
         <div className="content-right">
-          <section className="content-right">
-            <h2>Javascript</h2>
-            <ul className="list-circle">
-              <li><b>Nodejs:</b> Javascript runtime and dependency manager.</li>
-              <li><b>React:</b> One of the most popular web front-end frameworks.</li>
-              <li><b>XMLHttpRequest:</b> High level protocols for data transfers.</li>
-              <li><b>ThreeJS:</b> High level 3D rendering using WebGL. Supports 3D models from blender, zbrush, unity, unreal engine, i.e.</li>
-              <li><b>WebAssembly:</b> Compiled machine code for faster javascript.</li>
-            </ul>
-
-            <h2>CSS</h2>
-            <ul className="list-disc">
-              <li><b>Grids</b></li>
-              <li><b>Flexbox</b></li>
-              <li><b>Transitions</b></li>
-            </ul>
-
-
-          </section>
-        </div>
-
-
-        <div className="content-left">
-          <section className="content-left">
+          <section>
             <h2>Python</h2>
             <ul className="list-circle">
               <li><b>Generators:</b> Like functions but a lot more simple and with less overhead.</li>
@@ -141,19 +112,41 @@ function Content() {
         </div>
 
 
-        {/* <div id="ci-cd" className="content-middle">
-          <section className="content-middle">
-            <h2><b>CI/CD</b></h2>
+        <div id="webstack" className="content-middle">
+          <section>
+            <h2>Web Stack</h2>
           </section>
-        </div> */}
+        </div>
+
+        <div className="content-left">
+          <section>
+            <h2>Javascript</h2>
+            <ul className="list-circle">
+              <li><b>Nodejs:</b> Javascript runtime and dependency manager.</li>
+              <li><b>React:</b> One of the most popular web front-end frameworks.</li>
+              <li><b>XMLHttpRequest:</b> High level protocols for data transfers.</li>
+              <li><b>ThreeJS:</b> High level 3D rendering using WebGL. Supports 3D models from blender, zbrush, unity, unreal engine, i.e.</li>
+              <li><b>WebAssembly:</b> Compiled machine code for faster javascript.</li>
+            </ul>
+
+            <h2>CSS</h2>
+            <ul className="list-disc">
+              <li><b>Grids:</b> Easy way to manage elements proportions and positions,</li>
+              <li><b>Flexbox:</b> When combined with grids, elements look a lot more responsive.</li>
+              <li><b>Transitions:</b> I'm started with 'react-transition-group', but I think that the library has some 'deprecated code' issues. Still improving at other ways to transition/animate. </li>
+            </ul>
+
+
+          </section>
+        </div>
 
         <div className="content-right">
           <section className="content-right">
             <h2><b>CI/CD</b></h2>
             <ul className="list-disc">
-              <li><b>Docker:</b></li>
-              <li><b>Webpack:</b></li>
-              <li><b>Github Actions:</b></li>
+              <li><b>Docker:</b> I can compile/transpile code in one container and storing the end result in another.</li>
+              <li><b>Webpack:</b> I use this to handle all javascript and webassembly dependencies.</li>
+              <li><b>Github Actions:</b> Enable automated building/testing for a project.</li>
             </ul>
           </section>
         </div>
@@ -180,33 +173,25 @@ function Content() {
           </section>
         </div>
 
-        <blockquote>
-          <p>This is the way for men who want to learn my strategy: Do not think dishonestly. The way is in training. Become acquainted with every art. Know the ways of all professions. Distinguish between gain and loss in wordly matters. Develop intuitive judgement and understanding for everything. Perceive those things which cannot be seen. Pay attention even to trifles. Do nothing which is of no use.<br />-Musashi Miyamoto</p>
-        </blockquote>
+        <div id="3d-modeling" className="content-middle">
+          <section>
+            <h2><b>3D Modeling</b></h2>
+          </section>
+        </div>
 
-        <div id="work-history" className="content-right">
-          <section className="content-right">
-            <h2>Work History</h2>
-
-            <h3>Job1</h3>
+        <div className="content-right">
+          <section>
+            <h2>Blender/Unity</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Just getting started with these to make better 3D websites.
             </p>
-            <h3>Job2</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <h3>Job3</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
           </section>
         </div>
 
         <blockquote>
-          <p>Seems to work so far!</p>
+          <p>This is the way for those who want to learn my strategy: Do not think dishonestly. The way is in training. Become acquainted with every art. Know the ways of all professions. Distinguish between gain and loss in wordly matters. Develop intuitive judgement and understanding for everything. Perceive those things which cannot be seen. Pay attention even to trifles. Do nothing which is of no use.<br />-Musashi Miyamoto</p>
         </blockquote>
+
       </main>
     );
 }
