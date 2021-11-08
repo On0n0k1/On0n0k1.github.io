@@ -87,33 +87,41 @@ function Content() {
         <div className="content-left">
           <section className="content-left">
             <h2>Rust</h2>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-            <h2>WebAssembly</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <ul className="list-disc">
+              <li><b>WebAssembly:</b> Compiled machine code for faster javascript computation.</li>
+              <li><b>Gtk:</b> GUI that is default for Gnome based operation systems.</li>
+              <li><b>Rocket:</b> Api framework.</li>
+              <li><b>Warp:</b> Api framework.</li>
+              <li><b>Tokio:</b> Concurrency, multithreading framework.</li>
+            </ul>
           </section>
         </div>
 
 
-        <div id="javascript-related" className="content-middle">
+        <div id="webstack" className="content-middle">
           <section className="content-middle">
-            <h2>Javascript Related</h2>
+            <h2>Web Stack</h2>
           </section>
         </div>
 
         <div className="content-right">
           <section className="content-right">
-            <h2>React</h2>
-            <h2>Nodejs</h2>
+            <h2>Javascript</h2>
+            <ul className="list-circle">
+              <li><b>Nodejs:</b> Javascript runtime and dependency manager.</li>
+              <li><b>React:</b> One of the most popular web front-end frameworks.</li>
+              <li><b>XMLHttpRequest:</b> High level protocols for data transfers.</li>
+              <li><b>ThreeJS:</b> High level 3D rendering using WebGL. Supports 3D models from blender, zbrush, unity, unreal engine, i.e.</li>
+              <li><b>WebAssembly:</b> Compiled machine code for faster javascript.</li>
+            </ul>
 
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <h2>CSS</h2>
+            <ul className="list-disc">
+              <li><b>Grids</b></li>
+              <li><b>Flexbox</b></li>
+              <li><b>Transitions</b></li>
+            </ul>
+
 
           </section>
         </div>
@@ -122,31 +130,31 @@ function Content() {
         <div className="content-left">
           <section className="content-left">
             <h2>Python</h2>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <ul className="list-circle">
+              <li><b>Generators:</b> Like functions but a lot more simple and with less overhead.</li>
+              <li><b>List Comprehension:</b> Create and iterate through a list in a single line of code.</li>
+              <li><b>OOP:</b> including operator overloading. E.G. making A + B compute in a unique way.</li>
+              <li><b>PyO3:</b> Rust crate(library) for compiling code that Python can import and use.</li>
+            </ul>
 
           </section>
         </div>
 
 
-        <div id="ci-cd" className="content-middle">
+        {/* <div id="ci-cd" className="content-middle">
           <section className="content-middle">
             <h2><b>CI/CD</b></h2>
           </section>
-        </div>
+        </div> */}
 
         <div className="content-right">
           <section className="content-right">
-            <h2>Docker</h2>
-            <h2>Webpack</h2>
-            <h2>Github Actions</h2>
-
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
+            <h2><b>CI/CD</b></h2>
+            <ul className="list-disc">
+              <li><b>Docker:</b></li>
+              <li><b>Webpack:</b></li>
+              <li><b>Github Actions:</b></li>
+            </ul>
           </section>
         </div>
 
@@ -159,11 +167,14 @@ function Content() {
 
         <div className="content-left">
           <section className="content-left">
-            <h2>EC2</h2>
-            <h2>Lambda</h2>
-
+            <h2>ECS</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              I know the basics of hosting a docker image here.
+            </p>
+
+            <h2>Lambda</h2>
+            <p>
+              I know the basics of hosting functions in rust or nodejs.
             </p>
 
           </section>

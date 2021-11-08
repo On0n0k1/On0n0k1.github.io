@@ -44,7 +44,7 @@ export function mainTransition(backgroundActions, setActiveMenu){
                 leftIcon={ <ProjectsIcon /> } 
                 rightIcon={ <RightIcon /> } 
                 goToMenu={ () => { return "projects";} }
-            >{ "Projects" }</DropdownRow>, 
+            >{ "Topics" }</DropdownRow>, 
             <DropdownRow 
                 key='3'
                 id="dropDownMainSettings"
