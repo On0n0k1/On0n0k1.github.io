@@ -181,7 +181,7 @@ function Content() {
         </div>
 
         <blockquote>
-          <p>The best way out is always through <br />-Robert Frost</p>
+          <p>The way of the foreman carpenter is the same as the way of the commander of a warrior house.<br />-Musashi Miyamoto</p>
         </blockquote>
 
         <div id="work-history" className="content-right">

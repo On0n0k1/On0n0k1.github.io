@@ -69,17 +69,19 @@ section {
     display: inline-block;
 }
 
-header, section.content-left{
-    margin-right: auto;
-}
+/* header, section.content-left{ */
+    /* margin-right: auto;
+    margin-left: 0; */
+/* } */
 
-section.content-middle{
-    margin: 0 auto;
-}
+/* section.content-middle{ */
+    /* margin: 0 auto; */
+/* } */
 
-section.content-right{
-    margin-left: auto;
-}
+/* section.content-right{ */
+    /* margin-left: auto;
+    margin-right: 0; */
+/* } */
 
 blockquote {
     margin: 0;
@@ -106,6 +108,7 @@ div.content-right {
     grid-column: 5 / 11;
 
     margin-bottom: var(--spacing);
+    margin-left: auto;
 }
 
 /* grid-column: calc(5 - max(18vw, 5rem)/9vw) / 10; */
@@ -113,6 +116,7 @@ div.content-left {
     grid-column: 2 / 7;
 
     margin-bottom: var(--spacing);
+    margin-right: auto;
 }
 
 div.content-middle {
@@ -120,6 +124,8 @@ div.content-middle {
     display: flex;
     justify-content: center;
     
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: var(--spacing);
 }
 
