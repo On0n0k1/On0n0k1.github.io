@@ -181,7 +181,7 @@ function Content() {
         </div>
 
         <blockquote>
-          <p>The way of the foreman carpenter is the same as the way of the commander of a warrior house.<br />-Musashi Miyamoto</p>
+          <p>This is the way for men who want to learn my strategy: Do not think dishonestly. The way is in training. Become acquainted with every art. Know the ways of all professions. Distinguish between gain and loss in wordly matters. Develop intuitive judgement and understanding for everything. Perceive those things which cannot be seen. Pay attention even to trifles. Do nothing which is of no use.<br />-Musashi Miyamoto</p>
         </blockquote>
 
         <div id="work-history" className="content-right">

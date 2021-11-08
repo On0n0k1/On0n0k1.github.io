@@ -60,10 +60,9 @@ function Menu() {
 
     return (
         <Navbar>
-            <NavItem propKey='1' href="#" icon={<StarIcon />} />
-            <NavItem propKey='2' href="#" icon={<HomeIcon />} />
+            <NavItem propKey='1' href="https://on0n0k1.github.io/" icon={<HomeIcon />} />
 
-            <NavItem propKey='3' icon={<OptionsIcon />}>
+            <NavItem propKey='2' icon={<OptionsIcon />}>
                 <DropdownMenu backgroundActions={backgroundActions}></DropdownMenu>
             </NavItem>
         </Navbar>
