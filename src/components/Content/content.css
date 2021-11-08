@@ -27,8 +27,12 @@ main {
     /* grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr)); */
 }
 
+/* main ul{
+    padding-left: 2rem;
+} */
+
 main ul{
-    padding-left: 4%;
+    padding-left: 1rem;
 }
 
 main ul.list-circle{
