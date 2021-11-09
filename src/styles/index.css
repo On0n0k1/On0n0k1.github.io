@@ -149,7 +149,7 @@ code {
 
   /* 120  105                 X = 105/1.2*/
   /* 100  X*/
-  top: calc(105% / 1.2);
+  top: calc(105% / 1.2 - var(--background-scene-text-interface) * 1.618 * 1.25);
   /* top: */
 }
 
