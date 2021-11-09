@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import './FPSCheckbox.css';
+import './checkbox.css';
 import {getCSS, setCSS} from '../../../other_functions/cssFunctions.js';
 
 
@@ -13,7 +13,7 @@ import {getCSS, setCSS} from '../../../other_functions/cssFunctions.js';
 // --z-index-background-canvas-birds: var(--z-index-background-invisible);
 // --z-index-background-canvas-floating: var(--z-index-background-invisible);
 
-// --z-index-background-scene-text-interface: var(--z-index-background-invisible);
+// --z-index-background-scene-checkbox: var(--z-index-background-invisible);
 
 // --z-index-background-div-cube: var(--z-index-background-canvas-cube);
 // --z-index-background-div-birds: var(--z-index-background-canvas-birds);
@@ -58,8 +58,8 @@ export default function FPSCheckbox(props) {
 
     // <input
     //         type="checkbox"
-    //         id="text-interface-checkbox"
-    //         name="text-interface-checkbox"
+    //         id="checkbox-checkbox"
+    //         name="checkbox-checkbox"
     //         value="interface"
     //         checked={isChecked}
     //         onChange={handleOnChange}
@@ -69,7 +69,7 @@ export default function FPSCheckbox(props) {
   //   <input
   //   type="checkbox"
   //   id={props.id}
-  //   className="text-interface-checkbox"
+  //   className="checkbox-checkbox"
   //   name={props.name}
   //   value={props.value}
   //   checked={isChecked}
@@ -79,15 +79,14 @@ export default function FPSCheckbox(props) {
     // useEffect(props)
   
     return (
-      <label className="text-interface-container">Show FPS
+      <label className="checkbox-container">Show FPS
         <input
             type="checkbox"
             id={props.id}
-            className="text-interface-checkbox"
             checked={isChecked}
             onChange={handleOnChange}
           />
-        <span className="text-interface-checkmark"></span>
+        <span className="checkbox-checkmark"></span>
       </label>
     );
   }

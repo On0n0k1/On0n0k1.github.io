@@ -42,6 +42,16 @@ code {
     /* scrollbar */
     --scrollbar-background: var(--menu-bg);
     --scrollbar-color: #484a4d;
+
+
+    /* text-interface is the canvas that show fps. Maybe it will show more stuff later. */
+    /* This attribute is the size of the font. The size of 
+    the div will be relative to this value. Javascript also 
+    uses this value for the canvas size. */
+    --background-scene-text-interface: 2rem;
+    /* How low the div will be from top to bottom */
+    /* --background-scene-div-position: calc(100% - 2 * (var(--background-scene-text-interface) * 1.618 * 1.25)); */
+    
 }
 
 /* Scrollbars(start) */
@@ -82,7 +92,10 @@ code {
 }
 
 #bg-text{
+  /* margin-top: auto;
+  margin-right: auto; */
   z-index: var(--z-index-background-scene-text-interface);
+  position: relative;
 }
 
 #background-scene-container-birds{
@@ -117,6 +130,10 @@ code {
 
 .background-scene-container#background-scene-text-interface{
   background-color: #0000;
+  width: auto;
+  height: auto;
+  bottom: 5%;
+  left: 5%;
 }
 
 

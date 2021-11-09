@@ -5,7 +5,7 @@ import LeftIcon from '../../Icons/left-svgrepo-com.svg';
 import AboutMeIcon from '../../Icons/account-svgrepo-com.svg';
 import ProjectsIcon from '../../Icons/folder-svgrepo-com.svg'
 import AnimationSettingsIcon from '../../Icons/setting-svgrepo-com.svg';
-import FPSCheckbox from './FPSCheckbox/FPSCheckbox';
+import FPSCheckbox from './checkboxes/FPSCheckbox';
 
 import React from 'react';
 
@@ -139,7 +139,7 @@ export function settingsCube(backgroundActions, setActiveMenu) {
                 key='3'
                 id={ "dropDownSettingsTextInterfaceCheckbox" }
                 setActiveMenu={ setActiveMenu }
-            >{ <FPSCheckbox id="text-interface-checkbox"/> }</DropdownRow>, 
+            >{ <FPSCheckbox id="checkbox-checkbox"/> }</DropdownRow>, 
             <DropdownRow 
                 key='4'
                 id={ "dropDownSettingsCubeButterfly" }
@@ -189,7 +189,7 @@ export function settingsBirds(backgroundActions, setActiveMenu) {
                 key='3'
                 id={ "dropDownSettingsTextInterfaceCheckbox" }
                 setActiveMenu={ setActiveMenu }
-            >{ <FPSCheckbox id="text-interface-checkbox"/> }</DropdownRow>, 
+            >{ <FPSCheckbox id="checkbox-checkbox"/> }</DropdownRow>, 
             <DropdownRow 
                 key='4'
                 id={ "dropDownSettingsBirdsSnake" }
@@ -233,7 +233,7 @@ export function settingsFloating(backgroundActions, setActiveMenu) {
                 key='3'
                 id="dropDownSettingsTextInterfaceCheckbox"
                 setActiveMenu={ setActiveMenu }
-            >{ <FPSCheckbox id="text-interface-checkbox"/> }</DropdownRow>, 
+            >{ <FPSCheckbox id="checkbox-checkbox"/> }</DropdownRow>, 
             <DropdownRow 
                 key='4'
                 id="dropDownSettingsBirdsSnake"
