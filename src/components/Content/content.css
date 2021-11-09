@@ -9,16 +9,35 @@
     font-style: normal;
 }
 
+div.scrollable-content{
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    height: calc(100% - var(--menu-nav-size));
+    /* height: 100%; */
+    position: absolute;
+    /* position: relative; */
+    margin-top: var(--menu-nav-size);
+    /* top: var(--menu-nav-size); */
+    /* scroll-padding: 120px 0px; */
+    /* scroll-padding-top: auto;
+    scroll-padding-bottom: auto; */
+    /* margin-bottom: 120px; */
+}
 
 main {
-    width: 100vw;
-    /* width: 100%; */
+    /* overflow: scroll; */
+    position: relative;
+    /* width: 100vw; */
+    width: 100%;
     color: white;
     z-index: var(--z-index-front-content);
     /* Since this is the  main content of the page, I don't think it needs to be absolute */
     /* position: absolute; */
     position: relative;
     width: 100%;
+    /* height: calc(100% + 120px); */
+    /* height: 100%; */
     margin: 0px auto;
     padding: 120px 0px;
 
@@ -88,9 +107,11 @@ section {
 /* } */
 
 blockquote {
+    display: inline-block;
     margin: 0;
     padding: 0;
     grid-column: 2 / span 9;
+    /* padding-bottom: var(--spacing); */
     margin-bottom: var(--spacing);
 }
 
@@ -100,6 +121,7 @@ blockquote p {
     font-size: calc(0.5rem + 2.5vw);
     display: inline;
     line-height: 1;
+    /* margin-bottom: var(--spacing); */
 }
 
 div.content-header {

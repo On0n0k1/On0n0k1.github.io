@@ -8,6 +8,7 @@ canvas {
 
 body {
     margin: 0;
+    /* overflow: hidden; */
     /* overflow-x: hidden; */
 
     background: #151616;
@@ -96,6 +97,9 @@ code {
   margin-right: auto; */
   z-index: var(--z-index-background-scene-text-interface);
   position: relative;
+  /* display: inline-block; */
+  /* float: inline-end; */
+  /* bottom: 0; */
 }
 
 #background-scene-container-birds{
@@ -118,7 +122,15 @@ code {
   /* tell our scene container to take up the full page */
   position: fixed;
   width: 100%;
-  height: 100%;
+  /* width: 120%;
+  left: -10%; */
+
+  /* height: 100%; */
+
+  /* When scrolling in a touch device, the bottom of the canvas becomes visible
+    stretching the image taller to see if the issue is solved.*/
+  top: -10%;
+  height: 120%;
   /* z-index: -2; */
 
   /*
@@ -131,9 +143,14 @@ code {
 .background-scene-container#background-scene-text-interface{
   background-color: #0000;
   width: auto;
-  height: auto;
-  bottom: 5%;
+  height: calc(var(--background-scene-text-interface) * 1.618 * 1.25);
+  /* bottom: 5%; */
   left: 5%;
+
+  /* 120  105                 X = 105/1.2*/
+  /* 100  X*/
+  top: calc(105% / 1.2);
+  /* top: */
 }
 
 
