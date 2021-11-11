@@ -6,10 +6,20 @@
 
 :root{
     /* background 3d canvas */
-    --z-index-background-interface: -1;
-    --z-index-background-visible: -2;
     --z-index-background-invisible: -3;
+    --z-index-background-visible: -2;
+    --z-index-background-interface: 1;
 
+    /* --z-index-front-content-invisible: -4; */
+    --z-index-front-content-visible: 2;
+
+    --z-index-cube-controlled: 3;
+
+    
+
+    --z-index-menu-items: 99;
+
+    --z-index-front-content: var(--z-index-front-content-visible);
     --z-index-background-canvas-cube: var(--z-index-background-invisible);
     --z-index-background-canvas-birds: var(--z-index-background-invisible);
     --z-index-background-canvas-floating: var(--z-index-background-invisible);
@@ -20,7 +30,4 @@
     --z-index-background-div-birds: var(--z-index-background-canvas-birds);
     --z-index-background-div-floating: var(--z-index-background-canvas-floating);
 
-    --z-index-front-content: 1;
-
-    --z-index-menu-items: 99;
 }

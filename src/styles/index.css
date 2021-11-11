@@ -128,7 +128,7 @@ code {
   /* height: 100%; */
 
   /* When scrolling in a touch device, the bottom of the canvas becomes visible
-    stretching the image taller to see if the issue is solved.*/
+    stretching the background taller to see if the issue is solved.*/
   top: -10%;
   height: 120%;
   /* z-index: -2; */

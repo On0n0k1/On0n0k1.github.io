@@ -5,7 +5,8 @@ import LeftIcon from '../../Icons/left-svgrepo-com.svg';
 import AboutMeIcon from '../../Icons/account-svgrepo-com.svg';
 import ProjectsIcon from '../../Icons/folder-svgrepo-com.svg'
 import AnimationSettingsIcon from '../../Icons/setting-svgrepo-com.svg';
-import FPSCheckbox from './checkboxes/FPSCheckbox';
+import FPSCheckbox from './checkboxes/FPSCheckbox.js';
+import CubeCheckbox from './checkboxes/CubeCheckbox.js';
 
 import React from 'react';
 
@@ -142,10 +143,9 @@ export function settingsCube(backgroundActions, setActiveMenu) {
             >{ <FPSCheckbox id="checkbox-checkbox"/> }</DropdownRow>, 
             <DropdownRow 
                 key='4'
-                id={ "dropDownSettingsCubeButterfly" }
+                id={ "dropDownSettingsCubeControl" }
                 setActiveMenu={ setActiveMenu }
-                leftIcon="🦋"
-            >{ "Butterfly" }</DropdownRow>, 
+            >{ <CubeCheckbox id="checkbox-control" /> }</DropdownRow>, 
             <DropdownRow 
                 key='5'
                 id={ "dropDownSettingsCubeSnake" }

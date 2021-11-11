@@ -18,6 +18,7 @@ div.scrollable-content{
     position: absolute;
     /* position: relative; */
     margin-top: var(--menu-nav-size);
+    z-index: --z-index-front-content;
     /* top: var(--menu-nav-size); */
     /* scroll-padding: 120px 0px; */
     /* scroll-padding-top: auto;
