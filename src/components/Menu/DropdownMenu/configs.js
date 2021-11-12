@@ -7,6 +7,7 @@ import ProjectsIcon from '../../Icons/folder-svgrepo-com.svg'
 import AnimationSettingsIcon from '../../Icons/setting-svgrepo-com.svg';
 import FPSCheckbox from './checkboxes/FPSCheckbox.js';
 import CubeCheckbox from './checkboxes/CubeCheckbox.js';
+import FloatingSlider from './FloatingSlider/FloatingSlider';
 
 import React from 'react';
 
@@ -238,8 +239,7 @@ export function settingsFloating(backgroundActions, setActiveMenu) {
                 key='4'
                 id="dropDownSettingsBirdsSnake"
                 setActiveMenu={ setActiveMenu }
-                leftIcon="🐍"
-            >{ "Snake" }</DropdownRow>, 
+            >{ <FloatingSlider/> }</DropdownRow>, 
             <DropdownRow 
                 key='5'
                 id={ "dropDownSettingsBirdsHorse" }
