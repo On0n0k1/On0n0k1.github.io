@@ -1,6 +1,6 @@
-// import { loadBirds } from './components/birds/birds.js';
-
-import { createFloater } from './components/floater';
+import { createFloater } from './components/floater/floater.js';
+import createMaterials from './components/floater/materials.js';
+import createGeometry from './components/floater/geometry.js';
 import { createCamera } from './components/camera.js';
 import { createLights } from './components/lights.js';
 import { createScene } from './components/scene.js';
@@ -15,15 +15,11 @@ let scene;
 let loop;
 
 
-// function getCSS(var_name){
-//      return getComputedStyle(document.documentElement)
-//         .getPropertyValue(var_name);
-// }
+// Load css z-index default values from the document.
+// Used for changing canvas visibility.
+const visible_layer = getCSS('--z-index-background-visible');
+const invisible_layer = getCSS('--z-index-background-invisible');
 
-// function setCSS(var_name, var_value){
-//     document.documentElement.style
-//         .setProperty(var_name, var_value);
-// }
 
 import { getCSS, setCSS } from "../../other_functions/cssFunctions";
 
@@ -33,38 +29,35 @@ class FloatingAnimation {
     renderer = createRenderer('#bg-floating');
     scene = createScene();
     loop = new Loop(camera, scene, renderer);
-;
+
+    // will run dispose for all of the list when destructing
+
+    const geometry = createGeometry();
+    const materials = createMaterials();
+    const materialsLength = materials.length;
+
     const { ambientLight, mainLight } = createLights();
-
-
-
-    // const floaters = [
-    //   createFloater(0),
-    //   createFloater(1),
-    //   createFloater(2),
-    //   createFloater(3),
-    //   createFloater(4),
-    //   createFloater(5),
-    //   createFloater(6),
-    //   createFloater(7),
-    // ];
+    this.disposables = [geometry, ambientLight, mainLight];
+    materials.map((material) => {
+      this.disposables.push(material);
+    });
 
     const floaters = [];
-    for (let i = 0; i < 1 ; i++) {
-      for (let textureId=0; textureId<7; textureId++){
-        floaters.push(createFloater(textureId, (i*6 + textureId)*5));
+    for (let i = 0; i < 4 ; i++) {
+      for (let textureId=0; textureId<materialsLength; textureId++){
+        // floaters.push(createFloater(textureId, (i*6 + textureId)*5));
+        let floater = createFloater(geometry, materials[textureId], (i*materialsLength + textureId)*5);
+        floaters.push(floater);
+        // this.disposables.push(floater);
       }
-      
     }
 
     scene.add(ambientLight, mainLight);
-    // loop.updatables.push(floater);
     floaters.map((floater) => {
       loop.updatables.push(floater);
       scene.add(floater);
     });
-    // scene.add(ambientLight, mainLight, floater);
-
+    
     const resizer = new Resizer(camera, renderer);
   }
 
@@ -74,17 +67,20 @@ class FloatingAnimation {
   }
 
   start() {
-    let visible_layer = getCSS('--z-index-background-visible');
+    // let visible_layer = getCSS('--z-index-background-visible');
     setCSS('--z-index-background-canvas-floating', visible_layer);
 
     loop.start();
   }
 
   stop() {
-    let invisible_layer = getCSS('--z-index-background-invisible');
+    // let invisible_layer = getCSS('--z-index-background-invisible');
     setCSS('--z-index-background-canvas-floating', invisible_layer);
 
     loop.stop();
+    this.disposables.map((disposable) => {
+      disposable.dispose();
+    });
   }
 }
 
