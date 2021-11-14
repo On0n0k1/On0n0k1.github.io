@@ -14,6 +14,7 @@ class Background {
         this.birdAnimation = new BirdAnimation();
         this.cubeAnimation = new CubeAnimation();
         this.floatingAnimation = new FloatingAnimation();
+        this.floatingAnimation.setLength(7);
 
         // this.textInterface = new TextInterface();
         // this.textInterface.init();
@@ -67,6 +68,19 @@ class Background {
         this.currentAnimation = 0;
         this.floatingAnimation.start();
     }
+
+    setFloatingLength(size){
+        return this.floatingAnimation.setLength(size);
+    }
+
+    getFloatingLength(){
+        return this.floatingAnimation.getLength();
+    }
+
+    getFloatingMaxLength(){
+        return this.floatingAnimation.getMaxLength();
+    }
+
 }
 
 export default Background;

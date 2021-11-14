@@ -25,7 +25,16 @@ const menuclassname = {
 
 
 export function mainTransition(backgroundActions, setActiveMenu){
-    let { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation } = backgroundActions;
+    let { 
+        goCube, 
+        goBirds, 
+        goFloating, 
+        getAnimationClassNames, 
+        getCurrentAnimation, 
+        setFloatingLength, 
+        getFloatingLength, 
+        getFloatingMaxLength 
+    } = backgroundActions;
 
     return {
         activeMenu: 'main',
@@ -106,7 +115,17 @@ export function projects(backgroundActions, setActiveMenu) {
 
 
 export function settingsCube(backgroundActions, setActiveMenu) {
-    let { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation } = backgroundActions;
+    let { 
+        goCube, 
+        goBirds, 
+        goFloating, 
+        getAnimationClassNames, 
+        getCurrentAnimation, 
+        setFloatingLength, 
+        getFloatingLength, 
+        getFloatingMaxLength, 
+    } = backgroundActions;
+
     return {
         activeMenu: 'settings-cube',
         classNames: menuclassname,
@@ -159,7 +178,17 @@ export function settingsCube(backgroundActions, setActiveMenu) {
 
 
 export function settingsBirds(backgroundActions, setActiveMenu) {
-    let { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation } = backgroundActions;
+    let { 
+        goCube, 
+        goBirds, 
+        goFloating, 
+        getAnimationClassNames, 
+        getCurrentAnimation, 
+        setFloatingLength, 
+        getFloatingLength, 
+        getFloatingMaxLength 
+    } = backgroundActions;
+
     return {
         activeMenu: 'settings-birds',
         classNames: menuclassname,
@@ -203,7 +232,17 @@ export function settingsBirds(backgroundActions, setActiveMenu) {
 
 
 export function settingsFloating(backgroundActions, setActiveMenu) {
-    let { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation } = backgroundActions;
+    let { 
+        goCube, 
+        goBirds, 
+        goFloating, 
+        getAnimationClassNames, 
+        getCurrentAnimation, 
+        setFloatingLength, 
+        getFloatingLength, 
+        getFloatingMaxLength, 
+    } = backgroundActions;
+
     return {
         activeMenu: 'settings-floating',
         classNames: menuclassname,
@@ -237,9 +276,13 @@ export function settingsFloating(backgroundActions, setActiveMenu) {
             >{ <FPSCheckbox id="checkbox-checkbox"/> }</DropdownRow>, 
             <DropdownRow 
                 key='4'
-                id="dropDownSettingsBirdsSnake"
+                id="dropDownSettingsFloatingSlider"
                 setActiveMenu={ setActiveMenu }
-            >{ <FloatingSlider/> }</DropdownRow>, 
+            >{ <FloatingSlider 
+                    setFloatingLength={setFloatingLength}
+                    getFloatingLength={getFloatingLength}
+                    getFloatingMaxLength={getFloatingMaxLength}
+                /> }</DropdownRow>, 
             <DropdownRow 
                 key='5'
                 id={ "dropDownSettingsBirdsHorse" }

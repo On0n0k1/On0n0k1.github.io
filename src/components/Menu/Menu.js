@@ -37,7 +37,19 @@ const getCurrentAnimation = () => {
     return background.getCurrentAnimation();
 }
 
-const backgroundActions = { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation };
+const setFloatingLength = (size) => {
+    return background.setFloatingLength(size);
+}
+
+const getFloatingLength = () => {
+    return background.getFloatingLength();
+}
+
+const getFloatingMaxLength = () =>{
+    return background.getFloatingMaxLength();
+}
+
+const backgroundActions = { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation, setFloatingLength, getFloatingLength, getFloatingMaxLength };
 
 
 function Menu() {

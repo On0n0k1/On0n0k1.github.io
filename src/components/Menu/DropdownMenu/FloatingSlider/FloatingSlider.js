@@ -16,19 +16,23 @@ import './floating.css';
 
 // The current state of fps is stored as css
 // We check the current css value to know if it's enabled
-function getState(){
-  //   let state = parseInt(getCSS("--z-index-background-scene-text-interface"), 10);
-  //   let visible = parseInt(canvasVisible, 10);
+// function getState(){
+//   //   let state = parseInt(getCSS("--z-index-background-scene-text-interface"), 10);
+//   //   let visible = parseInt(canvasVisible, 10);
     
-  //   return (state === visible);
-  return 30;
-}
+//   //   return (state === visible);
+//   return 30;
+// }
 
 export default function FloatingSlider(props) {
-  const [value, setValue] = useState(getState());
+  let setFloatingLength = props.setFloatingLength;
+  let getFloatingMaxLength = props.getFloatingMaxLength;
+
+  const [value, setValue] = useState(props.getFloatingLength());
 
   useEffect(()=>{
     console.log(value);
+    setFloatingLength(value);
   }, [value]);
 
   const handleOnChange = (e) => {
@@ -46,7 +50,7 @@ export default function FloatingSlider(props) {
         id="floating-slider" 
         name="floating-slider" 
         min="0" 
-        max="100" 
+        max={ `${getFloatingMaxLength()}` }
         value={`${value}`}
         onInput={handleOnChange}
         step="1" 
