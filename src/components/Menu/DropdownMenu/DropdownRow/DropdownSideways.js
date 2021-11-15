@@ -35,7 +35,7 @@ export default function DropdownSideways(props){
                 () => {
                     props.rightAction && props.rightAction();
                     goRight();
-                    props.rightGoToMenu && props.setActiveMenu(props.rightGoToMenu);
+                    props.rightGoToMenu && props.setActiveMenu(props.rightGoToMenu());
                 }
             }>
                 {props.rightIcon}

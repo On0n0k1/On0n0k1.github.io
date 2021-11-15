@@ -25,16 +25,16 @@ const menuclassname = {
 
 
 export function mainTransition(backgroundActions, setActiveMenu){
-    let { 
-        goCube, 
-        goBirds, 
-        goFloating, 
-        getAnimationClassNames, 
-        getCurrentAnimation, 
-        setFloatingLength, 
-        getFloatingLength, 
-        getFloatingMaxLength 
-    } = backgroundActions;
+    // let { 
+    //     goCube, 
+    //     goBirds, 
+    //     goFloating, 
+    //     getAnimationClassNames, 
+    //     getCurrentAnimation, 
+    //     setFloatingLength, 
+    //     getFloatingLength, 
+    //     getFloatingMaxLength 
+    // } = backgroundActions;
 
     return {
         activeMenu: 'main',
@@ -63,8 +63,8 @@ export function mainTransition(backgroundActions, setActiveMenu){
                 leftIcon={ <AnimationSettingsIcon /> } 
                 rightIcon={ <RightIcon /> } 
                 goToMenu={ () => { 
-                    let classNames = getAnimationClassNames();
-                    let index = getCurrentAnimation();
+                    let classNames = backgroundActions.getAnimationClassNames();
+                    let index = backgroundActions.getCurrentAnimation();
                     return classNames[index];
                 }} 
             >{ "Animation Settings" }</DropdownRow>
@@ -115,16 +115,16 @@ export function projects(backgroundActions, setActiveMenu) {
 
 
 export function settingsCube(backgroundActions, setActiveMenu) {
-    let { 
-        goCube, 
-        goBirds, 
-        goFloating, 
-        getAnimationClassNames, 
-        getCurrentAnimation, 
-        setFloatingLength, 
-        getFloatingLength, 
-        getFloatingMaxLength, 
-    } = backgroundActions;
+    // let { 
+    //     goCube, 
+    //     goBirds, 
+    //     goFloating, 
+    //     getAnimationClassNames, 
+    //     getCurrentAnimation, 
+    //     setFloatingLength, 
+    //     getFloatingLength, 
+    //     getFloatingMaxLength, 
+    // } = backgroundActions;
 
     return {
         activeMenu: 'settings-cube',
@@ -147,12 +147,12 @@ export function settingsCube(backgroundActions, setActiveMenu) {
                 iconLinks={ true }
                 leftIcon={<LeftIcon />} 
                 leftAction={() => { 
-                    goFloating();
+                    backgroundActions.goFloating();
                 }}
                 leftGoToMenu={() => { return "settings-floating"; }}
                 rightIcon={<RightIcon />}
                 rightAction={() => { 
-                    goBirds(); 
+                    backgroundActions.goBirds(); 
                 }}
                 rightGoToMenu={() => { return "settings-birds"; }}
             >{"Cube"}</DropdownSideways>,
@@ -178,16 +178,16 @@ export function settingsCube(backgroundActions, setActiveMenu) {
 
 
 export function settingsBirds(backgroundActions, setActiveMenu) {
-    let { 
-        goCube, 
-        goBirds, 
-        goFloating, 
-        getAnimationClassNames, 
-        getCurrentAnimation, 
-        setFloatingLength, 
-        getFloatingLength, 
-        getFloatingMaxLength 
-    } = backgroundActions;
+    // let { 
+    //     goCube, 
+    //     goBirds, 
+    //     goFloating, 
+    //     getAnimationClassNames, 
+    //     getCurrentAnimation, 
+    //     setFloatingLength, 
+    //     getFloatingLength, 
+    //     getFloatingMaxLength 
+    // } = backgroundActions;
 
     return {
         activeMenu: 'settings-birds',
@@ -209,10 +209,10 @@ export function settingsBirds(backgroundActions, setActiveMenu) {
                 setActiveMenu={ setActiveMenu }
                 iconLinks={ true } 
                 leftIcon={ <LeftIcon /> } 
-                leftAction={ () => { goCube() } } 
+                leftAction={ () => { backgroundActions.goCube() } } 
                 leftGoToMenu={ () => { return "settings-cube"; } } 
                 rightIcon={ <RightIcon /> } 
-                rightAction={ () => { goFloating() } } 
+                rightAction={ () => { backgroundActions.goFloating() } } 
                 rightGoToMenu={ () => { return "settings-floating"; } }
             >{ "Birds" }</DropdownSideways>, 
             <DropdownRow 
@@ -232,16 +232,16 @@ export function settingsBirds(backgroundActions, setActiveMenu) {
 
 
 export function settingsFloating(backgroundActions, setActiveMenu) {
-    let { 
-        goCube, 
-        goBirds, 
-        goFloating, 
-        getAnimationClassNames, 
-        getCurrentAnimation, 
-        setFloatingLength, 
-        getFloatingLength, 
-        getFloatingMaxLength, 
-    } = backgroundActions;
+    // let { 
+    //     goCube, 
+    //     goBirds, 
+    //     goFloating, 
+    //     getAnimationClassNames, 
+    //     getCurrentAnimation, 
+    //     setFloatingLength, 
+    //     getFloatingLength, 
+    //     getFloatingMaxLength, 
+    // } = backgroundActions;
 
     return {
         activeMenu: 'settings-floating',
@@ -263,10 +263,10 @@ export function settingsFloating(backgroundActions, setActiveMenu) {
                 setActiveMenu={ setActiveMenu }
                 iconLinks={true}
                 leftIcon={ <LeftIcon /> } 
-                leftAction={ () =>{ goBirds() }} 
+                leftAction={ () =>{ backgroundActions.goBirds(); }} 
                 leftGoToMenu={ () => { return "settings-birds"; }} 
                 rightIcon={ <RightIcon /> } 
-                rightAction={ () => { goCube() }} 
+                rightAction={ () => { backgroundActions.goCube(); }} 
                 rightGoToMenu={ () => { return "settings-cube"; }} 
             >{ "Floating" }</DropdownSideways>, 
             <DropdownRow 
@@ -279,9 +279,9 @@ export function settingsFloating(backgroundActions, setActiveMenu) {
                 id="dropDownSettingsFloatingSlider"
                 setActiveMenu={ setActiveMenu }
             >{ <FloatingSlider 
-                    setFloatingLength={setFloatingLength}
-                    getFloatingLength={getFloatingLength}
-                    getFloatingMaxLength={getFloatingMaxLength}
+                    setFloatingLength={ backgroundActions.setFloatingLength }
+                    getFloatingLength={ backgroundActions.getFloatingLength }
+                    getFloatingMaxLength={ backgroundActions.getFloatingMaxLength }
                 /> }</DropdownRow>, 
             <DropdownRow 
                 key='5'

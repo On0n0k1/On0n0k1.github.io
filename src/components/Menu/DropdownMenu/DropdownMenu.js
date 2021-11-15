@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-// Manual configs telling what to build
-import { mainTransition, projects, settingsCube, settingsBirds, settingsFloating } from './configs';
-// import { goLeft, goRight} from './cssUpdates';
-import { getCSS } from '../../other_functions/cssFunctions';
-
 
 import './dropdownMenu.css';
+// Manual configs telling what to build
+import { mainTransition, projects, settingsCube, settingsBirds, settingsFloating } from './configs';
+import { getCSS } from '../../other_functions/cssFunctions';
+
 
 // Used in CSSTransition timeout. That way we can just change the variable in the css and have it change here as well.
 // Added 50 milliseconds just to be sure that the transition is finished before it ends.

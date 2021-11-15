@@ -17,48 +17,22 @@ import DropdownMenu from './DropdownMenu/DropdownMenu';
 // startCubeAnimation()
 
 const background = new Background();
-const goBirds = () => {
-    background.startBirdAnimation();
-}
 
-const goCube = () => {
-    background.startCubeAnimation();
-}
-
-const goFloating = () => {
-    background.startFloatingAnimation();
-}
-
-const getAnimationClassNames = () => {
-    return background.getAnimationClassNames();
-}
-
-const getCurrentAnimation = () => {
-    return background.getCurrentAnimation();
-}
-
-const setFloatingLength = (size) => {
-    return background.setFloatingLength(size);
-}
-
-const getFloatingLength = () => {
-    return background.getFloatingLength();
-}
-
-const getFloatingMaxLength = () =>{
-    return background.getFloatingMaxLength();
-}
-
-const backgroundActions = { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation, setFloatingLength, getFloatingLength, getFloatingMaxLength };
-
+// const backgroundActions = { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation, setFloatingLength, getFloatingLength, getFloatingMaxLength };
+const backgroundActions = {
+    goCube: () => { background.startCubeAnimation(); },
+    goBirds: () => { background.startBirdAnimation(); },
+    goFloating: () => { background.startFloatingAnimation(); },
+    getAnimationClassNames: () => { return background.getAnimationClassNames(); },
+    getCurrentAnimation: () => { return background.getCurrentAnimation(); },
+    setFloatingLength: (size) => { background.setFloatingLength(size); },
+    getFloatingLength: () => { return background.getFloatingLength(); },
+    getFloatingMaxLength: () => { return background.getFloatingMaxLength(); },
+};
 
 function Menu() {
     // Run only when the window opens, setting the canvas renderer
     useEffect(() => {
-        // main().catch((err) => {
-        //     console.error(err);
-        // });
-
         // Loads 3d models for the bird's animation
         // When menu is first loaded
         background.init().catch((err) => {
@@ -67,7 +41,7 @@ function Menu() {
 
         // background.startBirdAnimation();
         // background.startCubeAnimation();
-        goFloating();
+        backgroundActions.goFloating();
     }, []);
 
     return (
@@ -94,6 +68,7 @@ function NavItem(props) {
     // mainContent
     useEffect(() => {
         const mainElement = document.getElementById("mainContent");
+        // When clicking outside of the menu, closes the menu.
         mainElement.addEventListener('click', function () {
             // console.log("closing window");
             setOpen(false);
