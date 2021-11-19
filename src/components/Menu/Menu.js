@@ -12,10 +12,6 @@ import './menu.css';
 import DropdownMenu from './DropdownMenu/DropdownMenu';
 
 
-// startBirdAnimation()
-
-// startCubeAnimation()
-
 const background = new Background();
 
 // const backgroundActions = { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation, setFloatingLength, getFloatingLength, getFloatingMaxLength };
@@ -28,7 +24,16 @@ const backgroundActions = {
     setFloatingLength: (size) => { background.setFloatingLength(size); },
     getFloatingLength: () => { return background.getFloatingLength(); },
     getFloatingMaxLength: () => { return background.getFloatingMaxLength(); },
+    focusStork: () => { background.focusStork(); },
+    focusParrot: () => { background.focusParrot(); },
+    focusFlamingo: () => { background.focusFlamingo(); },
+    getFocus: () => { return background.getFocus(); },
 };
+
+
+// focusStork()
+// focusParrot()
+// focusFlamingo()
 
 function Menu() {
     // Run only when the window opens, setting the canvas renderer

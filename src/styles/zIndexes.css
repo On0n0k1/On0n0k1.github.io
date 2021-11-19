@@ -18,6 +18,7 @@
     
 
     --z-index-menu-items: 99;
+    --bird-focus-z-index: 100;
 
     --z-index-front-content: var(--z-index-front-content-visible);
     --z-index-background-canvas-cube: var(--z-index-background-invisible);

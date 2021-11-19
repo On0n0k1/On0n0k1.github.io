@@ -7,7 +7,9 @@ import ProjectsIcon from '../../Icons/folder-svgrepo-com.svg'
 import AnimationSettingsIcon from '../../Icons/setting-svgrepo-com.svg';
 import FPSCheckbox from './checkboxes/FPSCheckbox.js';
 import CubeCheckbox from './checkboxes/CubeCheckbox.js';
-import FloatingSlider from './FloatingSlider/FloatingSlider';
+import FloatingSlider from './FloatingSlider/FloatingSlider.js';
+import BirdFocus from './birdFocus/birdFocus.js';
+
 
 import React from 'react';
 
@@ -25,16 +27,6 @@ const menuclassname = {
 
 
 export function mainTransition(backgroundActions, setActiveMenu){
-    // let { 
-    //     goCube, 
-    //     goBirds, 
-    //     goFloating, 
-    //     getAnimationClassNames, 
-    //     getCurrentAnimation, 
-    //     setFloatingLength, 
-    //     getFloatingLength, 
-    //     getFloatingMaxLength 
-    // } = backgroundActions;
 
     return {
         activeMenu: 'main',
@@ -115,16 +107,6 @@ export function projects(backgroundActions, setActiveMenu) {
 
 
 export function settingsCube(backgroundActions, setActiveMenu) {
-    // let { 
-    //     goCube, 
-    //     goBirds, 
-    //     goFloating, 
-    //     getAnimationClassNames, 
-    //     getCurrentAnimation, 
-    //     setFloatingLength, 
-    //     getFloatingLength, 
-    //     getFloatingMaxLength, 
-    // } = backgroundActions;
 
     return {
         activeMenu: 'settings-cube',
@@ -178,16 +160,6 @@ export function settingsCube(backgroundActions, setActiveMenu) {
 
 
 export function settingsBirds(backgroundActions, setActiveMenu) {
-    // let { 
-    //     goCube, 
-    //     goBirds, 
-    //     goFloating, 
-    //     getAnimationClassNames, 
-    //     getCurrentAnimation, 
-    //     setFloatingLength, 
-    //     getFloatingLength, 
-    //     getFloatingMaxLength 
-    // } = backgroundActions;
 
     return {
         activeMenu: 'settings-birds',
@@ -222,26 +194,20 @@ export function settingsBirds(backgroundActions, setActiveMenu) {
             >{ <FPSCheckbox id="checkbox-checkbox"/> }</DropdownRow>, 
             <DropdownRow 
                 key='4'
-                id={ "dropDownSettingsBirdsSnake" }
+                id={ "dropDownSettingsBirdsBirdFocus" }
                 setActiveMenu={ setActiveMenu }
-                leftIcon="🐍"
-            >{ "Snake" }</DropdownRow>,
+            >{ <BirdFocus 
+                focusStork={ () => { backgroundActions.focusStork(); } }
+                focusParrot={ () => { backgroundActions.focusParrot(); } }
+                focusFlamingo={ () => { backgroundActions.focusFlamingo(); } }
+                getFocus={ () => { return backgroundActions.getFocus(); } }
+            /> }</DropdownRow>,
         ]
     };
 };
 
 
 export function settingsFloating(backgroundActions, setActiveMenu) {
-    // let { 
-    //     goCube, 
-    //     goBirds, 
-    //     goFloating, 
-    //     getAnimationClassNames, 
-    //     getCurrentAnimation, 
-    //     setFloatingLength, 
-    //     getFloatingLength, 
-    //     getFloatingMaxLength, 
-    // } = backgroundActions;
 
     return {
         activeMenu: 'settings-floating',

@@ -31,7 +31,7 @@ export default function FloatingSlider(props) {
   const [value, setValue] = useState(props.getFloatingLength());
 
   useEffect(()=>{
-    console.log(value);
+    // console.log(value);
     setFloatingLength(value);
   }, [value]);
 

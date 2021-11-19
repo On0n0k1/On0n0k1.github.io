@@ -1,0 +1,119 @@
+:root{
+  --bird-focus-circle-size-half: 0.6rem;
+  --bird-focus-internal-border-half: 2px;
+  --bird-focus-full-size-half: calc(var(--bird-focus-circle-size-half) + var(--bird-focus-internal-border-half));
+  --bird-focus-full-size: calc(var(--bird-focus-full-size-half) * 2);
+  --bird-focus-external-border: 3px;
+  --bird-focus-inactive-color: #00aeff;
+  --bird-focus-text-color: #00aeff;
+  /* --bird-focus-inactive-color: var(--bird-focus-text-color); */
+  --bird-focus-checked-color: #d8421d;
+  --bird-focus-check-area-z-index: calc(var(--bird-focus-z-index)+1);
+}
+
+/* Overwrite this default variable color for these specific radials */
+.bird-focus>.bird-focus-child#bird-focus-child-stork{
+  --bird-focus-checked-color: #bbbbbb;
+}
+
+/* parrot remains red */
+
+.bird-focus>.bird-focus-child#bird-focus-child-flamingo{
+  --bird-focus-checked-color: #f80eec;
+}
+
+div.bird-focus{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 2px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.bird-focus>.bird-focus-child{
+  position: relative;
+  /* background-color: crimson; */
+
+  width: auto;
+  height: auto;
+
+}
+
+
+.bird-focus>.bird-focus-child{
+  color: var(--bird-focus-text-color);
+  display: block;
+  position: relative;
+  /* border-bottom: 1px dotted #DAA520; */
+}
+
+.bird-focus>.bird-focus-child input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+.bird-focus>.bird-focus-child label{
+  display: block;
+  position: relative;
+  font-weight: inherit;
+  font-size: 0.8rem;
+  padding: var(--bird-focus-full-size-half) var(--bird-focus-full-size-half) var(--bird-focus-full-size-half) calc(var(--bird-focus-full-size) * 2);
+  margin: 2px auto;
+  height: var(--bird-focus-full-size);
+  width: auto;
+  cursor: pointer;
+  z-index: var(--bird-focus-z-index);
+}
+
+.bird-focus>.bird-focus-child:hover label{
+  color: var(--bird-focus-checked-color);
+  /* opacity: 0.95; */
+}
+
+/* .bird-focus>.bird-focus-child#bird-focus-child-x:hover label{
+  color: #0e680e;
+}
+
+.bird-focus>.bird-focus-child#bird-focus-child-z:hover label{
+  color: #0f1bc5;
+} */
+
+
+
+.bird-focus>.bird-focus-child .radio-demo{
+  display: block;
+  position: absolute;
+  border: var(--bird-focus-external-border) solid var(--bird-focus-inactive-color);
+  border-radius: 100%;
+  height: var(--bird-focus-full-size);
+  width: var(--bird-focus-full-size);
+  top: var(--bird-focus-full-size-half);
+  left: var(--bird-focus-full-size-half);
+  z-index: var(--bird-focus-check-area-z-index);
+}
+
+.bird-focus>.bird-focus-child .radio-demo::before {
+  position: absolute;
+  content: '';
+  border-radius: 80%;
+  height: calc(var(--bird-focus-circle-size-half)*2);
+  width: calc(var(--bird-focus-circle-size-half)*2);
+  top: var(--bird-focus-internal-border-half);
+  left: var(--bird-focus-internal-border-half);
+  margin: auto;
+  transition: background 0.25s linear;
+}
+
+input[type=radio]:checked ~ .radio-demo {
+  border: var(--bird-focus-external-border) solid var(--bird-focus-checked-color);
+}
+
+input[type=radio]:checked ~ .radio-demo::before{
+  background: var(--bird-focus-checked-color);
+}

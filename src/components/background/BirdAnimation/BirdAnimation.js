@@ -28,6 +28,8 @@ let loop;
 
 import { getCSS, setCSS } from "../../other_functions/cssFunctions";
 
+const visible_layer = getCSS('--z-index-background-visible');
+const invisible_layer = getCSS('--z-index-background-invisible');
 
 class BirdAnimation {
   // constructor(container) {
@@ -46,6 +48,8 @@ constructor() {
 
     // const resizer = new Resizer(container, camera, renderer);
     const resizer = new Resizer(camera, renderer);
+
+    this.birdFocus = 2;
   }
 
   async init() {
@@ -63,23 +67,37 @@ constructor() {
   }
 
   start() {
-    // --z-index-background-canvas-cube: var(--z-index-background-invisible);
-    // --z-index-background-canvas-birds: var(--z-index-background-invisible);
-    // --z-index-background-visible: -2;
-
-    let visible_layer = getCSS('--z-index-background-visible');
     setCSS('--z-index-background-canvas-birds', visible_layer);
 
     loop.start();
   }
 
   stop() {
-
-    let invisible_layer = getCSS('--z-index-background-invisible');
     setCSS('--z-index-background-canvas-birds', invisible_layer);
 
     loop.stop();
   }
+
+  focusStork(){
+    this.birdFocus = 1;
+    console.log("Focus Stork enabled.");
+  }
+
+  focusParrot(){
+    this.birdFocus = 2;
+    console.log("Focus Parrot enabled.");
+  }
+
+  focusFlamingo(){
+    this.birdFocus = 3;
+    console.log("Focus Flamingo enabled")
+  }
+
+  getFocus() {
+    let value = this.birdFocus;
+    return value;
+  }
 }
+
 
 export { BirdAnimation };

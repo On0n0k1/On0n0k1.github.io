@@ -81,6 +81,26 @@ class Background {
         return this.floatingAnimation.getMaxLength();
     }
 
+    focusStork(){
+        this.birdAnimation.focusStork();
+    }
+
+    focusParrot(){
+        this.birdAnimation.focusParrot();
+    }
+
+    focusFlamingo(){
+        this.birdAnimation.focusFlamingo();
+    }
+
+    getFocus(){
+        return this.birdAnimation.getFocus();
+    }
+
 }
+
+// focusStork()
+// focusParrot()
+// focusFlamingo()
 
 export default Background;

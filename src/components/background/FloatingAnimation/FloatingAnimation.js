@@ -82,7 +82,7 @@ class FloatingAnimation {
     let floatersSize = this.floatersSize;
     
     if (floatersSize < size){
-      console.log("Less");
+      // console.log("Less");
       let startIndex = floatersSize;
       let endIndex = size;
       for(let i=startIndex; i<endIndex; i++){
@@ -96,7 +96,7 @@ class FloatingAnimation {
       }
     } else {
       if (floatersSize > size){
-        console.log("Higher");
+        // console.log("Higher");
         let startIndex = floatersSize-1;
         let endIndex = size;
         for(let i=startIndex; i>=endIndex; i--){
@@ -107,7 +107,7 @@ class FloatingAnimation {
       }
     }
     // this.floatersSize = size;
-    console.log(`floaterSize: ${this.floatersSize}`);
+    // console.log(`floaterSize: ${this.floatersSize}`);
   }
 
   render() {

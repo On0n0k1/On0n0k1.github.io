@@ -65,7 +65,8 @@ function getMaterial(textureId) {
 
   // load a texture
   const texture = textureLoader.load(getFileName(textureId));
-  console.log(createMaterials());
+  // console.log(createMaterials());
+  createMaterials();
 
   // create a "standard" material using
   // the texture we just loaded as a color map
