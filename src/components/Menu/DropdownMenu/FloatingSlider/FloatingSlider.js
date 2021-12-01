@@ -1,42 +1,26 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './floating.css';
-// import {getCSS, setCSS} from '../../../other_functions/cssFunctions.js';
 
-// const canvasVisible = getCSS("--z-index-background-interface");
-// const canvasInvisible = getCSS("--z-index-background-invisible");
 
-// function setCanvasVisible(){
-//   setCSS("--z-index-background-scene-text-interface", canvasVisible);
-// }
-
-// function setCanvasInvisible(){
-//   setCSS("--z-index-background-scene-text-interface", canvasInvisible);
-// }
-
-// The current state of fps is stored as css
-// We check the current css value to know if it's enabled
-// function getState(){
-//   //   let state = parseInt(getCSS("--z-index-background-scene-text-interface"), 10);
-//   //   let visible = parseInt(canvasVisible, 10);
-    
-//   //   return (state === visible);
-//   return 30;
-// }
-
+// Used by configs, which is used by DropdownMenu.
+// Renders a slider that controls how many cubes to render.
 export default function FloatingSlider(props) {
+  // Closure that sets how many cubes are rendered.
   let setFloatingLength = props.setFloatingLength;
+  // Closure that gets the number of rendered cubes.
   let getFloatingMaxLength = props.getFloatingMaxLength;
 
+  // State for the slider.
   const [value, setValue] = useState(props.getFloatingLength());
 
-  useEffect(()=>{
-    // console.log(value);
+  // When state changes, set the number of cubes.
+  useEffect( () => {
     setFloatingLength(value);
   }, [value]);
 
+  // Closure for changing state. Used in input event.
   const handleOnChange = (e) => {
-
     setValue(parseInt(e.target.value, 10));
   };
 

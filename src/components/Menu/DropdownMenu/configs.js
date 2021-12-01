@@ -1,3 +1,10 @@
+// The menu jsx components receive a javascript object and parse it for building the main menu and secondary menus.
+// This file has the functions that return each of these components for the menu.
+// We can change most of these values knowing that css transitions will remain working as intended.
+//
+// Also: main menu is Menu.js, secondary menus are DropdownMenu.js
+
+
 // svg icons imported using svgr
 import StarIcon from '../../Icons/star.svg';
 import RightIcon from '../../Icons/right.svg';
@@ -18,6 +25,7 @@ import DropdownRow from './DropdownRow/DropdownRow.js';
 import DropdownSideways from './DropdownRow/DropdownSideways.js';
 
 
+// This are the css class names used by CSSTransitions.
 const menuclassname = {
     enter: 'menu-original-enter',
     enterActive: 'menu-original-enter-active',
@@ -25,7 +33,8 @@ const menuclassname = {
     exitActive: 'menu-original-exit-active',
 };
 
-
+// This is the first dropdown menu that shows.
+// Has "About Me", "Topics" and "Animation Settings" rows.
 export function mainTransition(backgroundActions, setActiveMenu){
 
     return {
@@ -64,7 +73,8 @@ export function mainTransition(backgroundActions, setActiveMenu){
     };
 };
 
-
+// Secondary menu dropdown.
+// Has the rows "Back", "Contact Info", "Coding Skills", "Projects".
 export function projects(backgroundActions, setActiveMenu) { 
     return {
         activeMenu: 'projects',
@@ -105,7 +115,8 @@ export function projects(backgroundActions, setActiveMenu) {
     };
 };
 
-
+// Secondary menu dropdown.
+// Has the rows "Back", Animation Selector, "FPS Checkbox" and "Cube Control".
 export function settingsCube(backgroundActions, setActiveMenu) {
 
     return {
@@ -137,7 +148,7 @@ export function settingsCube(backgroundActions, setActiveMenu) {
                     backgroundActions.goBirds(); 
                 }}
                 rightGoToMenu={() => { return "settings-birds"; }}
-            >{"Cube"}</DropdownSideways>,
+            >{ "Cube" }</DropdownSideways>,
             <DropdownRow 
                 key='3'
                 id={ "dropDownSettingsTextInterfaceCheckbox" }
@@ -148,17 +159,13 @@ export function settingsCube(backgroundActions, setActiveMenu) {
                 id={ "dropDownSettingsCubeControl" }
                 setActiveMenu={ setActiveMenu }
             >{ <CubeCheckbox id="checkbox-control" /> }</DropdownRow>, 
-            <DropdownRow 
-                key='5'
-                id={ "dropDownSettingsCubeSnake" }
-                setActiveMenu={ setActiveMenu }
-                leftIcon="🐍"
-            >{ "Snake" }</DropdownRow>,
         ]
     };
 };
 
 
+// Secondary Menu dropdown.
+// Has the rows "Back", Animation Selector, "FPS Checkbox", "Bird Focus radio".
 export function settingsBirds(backgroundActions, setActiveMenu) {
 
     return {
@@ -207,6 +214,8 @@ export function settingsBirds(backgroundActions, setActiveMenu) {
 };
 
 
+// Secondary Menu dropdown.
+// Has the rows "Back", Animation Selector, "FPS Checkbox", "Floating Slider".
 export function settingsFloating(backgroundActions, setActiveMenu) {
 
     return {
@@ -244,17 +253,13 @@ export function settingsFloating(backgroundActions, setActiveMenu) {
                 key='4'
                 id="dropDownSettingsFloatingSlider"
                 setActiveMenu={ setActiveMenu }
-            >{ <FloatingSlider 
+            >{
+                <FloatingSlider 
                     setFloatingLength={ backgroundActions.setFloatingLength }
                     getFloatingLength={ backgroundActions.getFloatingLength }
                     getFloatingMaxLength={ backgroundActions.getFloatingMaxLength }
-                /> }</DropdownRow>, 
-            <DropdownRow 
-                key='5'
-                id={ "dropDownSettingsBirdsHorse" }
-                setActiveMenu={ setActiveMenu }
-                leftIcon="🐎"
-            >{ "Horse" }</DropdownRow>,
+                /> 
+            }</DropdownRow>, 
         ]
     };
 };

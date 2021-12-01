@@ -69,6 +69,7 @@ div.menu-item {
 
 /* Css transitions */
 
+/* -------------------------------------------------------------------------------------------------- */
 /* This is the default transition for each menu tab, applies to all elements */
 .menu-original-enter{
     width: 90%;
@@ -93,7 +94,9 @@ div.menu-item {
     transition: all var(--menu-speed) ease;
 }
 
-/* This is to make some of the lines not animation when ignoretransition is set */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* This is to make some of the lines not move when ignoretransition is set */
 .menu-original-enter a[ignoretransitionstart], .menu-original-enter div[ignoretransitionstart]{    
     transform: var(--menu-leaving);
 }
@@ -112,3 +115,4 @@ div.menu-item {
     transition: all 0ms ease;
 }
 
+/* -------------------------------------------------------------------------------------------------- */

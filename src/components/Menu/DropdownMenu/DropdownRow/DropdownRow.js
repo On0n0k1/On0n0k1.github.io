@@ -1,13 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { goLeft, goRight} from '../cssUpdates';
 
-
+// Called by DropdownMenu.
+// Renders a single row of the dropdown menu.
+// Has an icon to the left and an arrow to the right.
 export default function DropdownRow(props){
+    // moveDirection is run right before switching each of the menus.
+    // goRight makes transition switch to the right.
+    // goLeft makes transition switch to the left.
     let moveDirection = goRight;
+
+    // goBack = true means it will go to the opposite direction from default.
     if (props.goBack === true){
         moveDirection = goLeft;
     }
-    // console.log(`key:${props.key}  id:${props.id}`);
 
     return (
         <a 

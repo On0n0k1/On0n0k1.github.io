@@ -1,20 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+
+// Background is the 3d rendered threejs background
+// DropdownMenu is the dropdown menu with cssTransitions
+import Background from '../background/Background';
+import DropdownMenu from './DropdownMenu/DropdownMenu';
 
 // svg icons imported using svgr
-import StarIcon from '../Icons/star.svg';
+// import StarIcon from '../Icons/star.svg';
 import HomeIcon from '../Icons/home.svg';
 import OptionsIcon from '../Icons/options.svg';
 
-
-// import main from '../background/main';
-import Background from '../background/Background';
+// css for menu
 import './menu.css';
-import DropdownMenu from './DropdownMenu/DropdownMenu';
 
 
 const background = new Background();
 
-// const backgroundActions = { goCube, goBirds, goFloating, getAnimationClassNames, getCurrentAnimation, setFloatingLength, getFloatingLength, getFloatingMaxLength };
+// These are functions that affect the background animations.
+// Packaging these here so that some of the menu items can interact with it.
 const backgroundActions = {
     goCube: () => { background.startCubeAnimation(); },
     goBirds: () => { background.startBirdAnimation(); },
@@ -30,11 +33,7 @@ const backgroundActions = {
     getFocus: () => { return background.getFocus(); },
 };
 
-
-// focusStork()
-// focusParrot()
-// focusFlamingo()
-
+// Starts up background animations and renders the top navigation bar.
 function Menu() {
     // Run only when the window opens, setting the canvas renderer
     useEffect(() => {
@@ -44,8 +43,6 @@ function Menu() {
             console.error(err);
         });
 
-        // background.startBirdAnimation();
-        // background.startCubeAnimation();
         backgroundActions.goFloating();
     }, []);
 
@@ -60,6 +57,7 @@ function Menu() {
     );
 }
 
+// This renders the full top navigation bar.
 function Navbar(props) {
     return (
         <nav className="menu-navbar">
@@ -68,6 +66,7 @@ function Navbar(props) {
     );
 }
 
+// This represents a single icon link in the top navigation bar.
 function NavItem(props) {
     const [open, setOpen] = useState(false);
     // mainContent
