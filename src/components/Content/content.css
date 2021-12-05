@@ -14,42 +14,24 @@ div.scrollable-content{
     overflow-x: hidden;
     width: 100%;
     height: calc(100% - var(--menu-nav-size));
-    /* height: 100%; */
     position: absolute;
-    /* position: relative; */
     margin-top: var(--menu-nav-size);
     z-index: --z-index-front-content;
-    /* top: var(--menu-nav-size); */
-    /* scroll-padding: 120px 0px; */
-    /* scroll-padding-top: auto;
-    scroll-padding-bottom: auto; */
-    /* margin-bottom: 120px; */
 }
 
 main {
-    /* overflow: scroll; */
     position: relative;
-    /* width: 100vw; */
     width: 100%;
     color: white;
     z-index: var(--z-index-front-content);
-    /* Since this is the  main content of the page, I don't think it needs to be absolute */
-    /* position: absolute; */
     position: relative;
     width: 100%;
-    /* height: calc(100% + 120px); */
-    /* height: 100%; */
     margin: 0px auto;
     padding: 120px 0px;
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    /* grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr)); */
 }
-
-/* main ul{
-    padding-left: 2rem;
-} */
 
 main ul{
     padding-left: 1rem;
@@ -71,48 +53,25 @@ h1, h2, h3, blockquote {
 
 header {
     background: var(--dark-bg);
-    /* grid-column: 3/ span 7; */
-    /* font-size: 1.75rem; */
     font-size: calc(0.5rem + 2.5vw);
     padding: 1rem;
     display: inline-block;
-
-    /* margin-bottom: var(--spacing); */
 }
 
 section {
-    /* grid-column: 2 / 8; */
     padding: 1rem;
     background: var(--dark-bg);
-    /* font-size: 1.25rem; */
     font-size: calc(0.8rem + 1vw);
     line-height: 1.5;
-    /* margin-bottom: var(--spacing); */
-/* 
-    margin-right: auto; */
     display: inline-block;
 }
 
-/* header, section.content-left{ */
-    /* margin-right: auto;
-    margin-left: 0; */
-/* } */
-
-/* section.content-middle{ */
-    /* margin: 0 auto; */
-/* } */
-
-/* section.content-right{ */
-    /* margin-left: auto;
-    margin-right: 0; */
-/* } */
 
 blockquote {
     display: inline-block;
     margin: 0;
     padding: 0;
     grid-column: 2 / span 9;
-    /* padding-bottom: var(--spacing); */
     margin-bottom: var(--spacing);
 }
 
@@ -122,7 +81,6 @@ blockquote p {
     font-size: calc(0.5rem + 2.5vw);
     display: inline;
     line-height: 1;
-    /* margin-bottom: var(--spacing); */
 }
 
 div.content-header {

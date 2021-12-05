@@ -25,30 +25,30 @@ function cubeBackground(){
 // Used by configs, which is used by DropdownMenu.
 // Renders a checkbox that controls when cube is controllable or not.
 export default function CubeCheckbox(props) {
-    const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
-    useEffect(()=>{
-      // The function after && is only executed when the previous condition is true.
-      isChecked && cubeControlled();
-      !isChecked && cubeBackground();
-    },[isChecked])
+  useEffect(()=>{
+    // The function after && is only executed when the previous condition is true.
+    isChecked && cubeControlled();
+    !isChecked && cubeBackground();
+  },[isChecked])
 
-    const handleOnChange = () => {
-      // Inverts the state of the checkbox.
-      setIsChecked(!isChecked);
-    };
+  const handleOnChange = () => {
+    // Inverts the state of the checkbox.
+    setIsChecked(!isChecked);
+  };
 
-  
-    return (
-      <label className="checkbox-container">Control cube
-        <input
-            type="checkbox"
-            id={props.id}
-            checked={isChecked}
-            onChange={handleOnChange}
-          />
-        <span id="cube-control" className="checkbox-checkmark"></span>
-      </label>
-    );
-  }
+
+  return (
+    <label className="checkbox-container">Control cube
+      <input
+          type="checkbox"
+          id={props.id}
+          checked={isChecked}
+          onChange={handleOnChange}
+        />
+      <span id="cube-control" className="checkbox-checkmark"></span>
+    </label>
+  );
+}
 

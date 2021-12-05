@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './Menu/Menu';
-import Content from './Content/content';
+import Content from './Content/Content';
 
 
 function App() {

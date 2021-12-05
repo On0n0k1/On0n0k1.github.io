@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import './content.css';
 
+import Projects from './Projects/Projects.jsx';
+
 function Content() {
     return (
       <div className="scrollable-content">
@@ -125,7 +127,7 @@ function Content() {
                 <li><b>Nodejs:</b> Javascript runtime and dependency manager.</li>
                 <li><b>React:</b> One of the most popular web front-end frameworks.</li>
                 <li><b>XMLHttpRequest:</b> High level protocols for data transfers.</li>
-                <li><b>ThreeJS:</b> High level 3D rendering using WebGL. Supports 3D models from blender, zbrush, unity, unreal engine, i.e.</li>
+                <li><b>ThreeJS:</b> High level 3D rendering using WebGL. Supports 3D models from several 3d tools like blender, zbrush, unity, unreal engine, et cetera.</li>
                 <li><b>WebAssembly:</b> Compiled machine code for faster javascript.</li>
               </ul>
 
@@ -188,24 +190,7 @@ function Content() {
             </section>
           </div>
 
-
-
-          <div id="content-projects" className="content-middle">
-            <section>
-              <h2>Projects</h2>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-
-              <h2>Accomplishments</h2>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-
-            </section>
-          </div>
+          <Projects />
 
           <blockquote>
             <p>This is the way for those who want to learn my strategy: Do not think dishonestly. The way is in training. Become acquainted with every art. Know the ways of all professions. Distinguish between gain and loss in wordly matters. Develop intuitive judgement and understanding for everything. Perceive those things which cannot be seen. Pay attention even to trifles. Do nothing which is of no use.<br />-Musashi Miyamoto</p>

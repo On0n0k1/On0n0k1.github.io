@@ -5,20 +5,23 @@
 
 import { getCSS, setCSS } from "../../other_functions/cssFunctions";
 
-// These values never change.
-let left = getCSS('--menu-go-left');
-let right = getCSS('--menu-go-right');
+let left = getCSS('--content-projects-go-left');
+let right = getCSS('--content-projects-go-right');
 
 // Set css to make menu enters from the right, and leave to the left.
 export function goLeft(){
-    setCSS('--menu-entering', right);
-    setCSS('--menu-leaving', left);
+
+    setCSS('--content-projects-entering', right);
+    setCSS('--content-projects-leaving', left);
 }
 
 // Set css to make menu enter from the left, and leave to the right.
 export function goRight(){
-    setCSS('--menu-entering', left);
-    setCSS('--menu-leaving', right);
+    // let left = getCSS('--content-projects-go-left');
+    // let right = getCSS('--content-projects-go-right');
+
+    setCSS('--content-projects-entering', left);
+    setCSS('--content-projects-leaving', right);
 }
 
 export default { goLeft, goRight}

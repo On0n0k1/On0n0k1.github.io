@@ -32,7 +32,17 @@ module.exports = (env, args) => {
                         { loader: "css-loader" }
                     ]
                 },
-                
+                {
+                    test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+                    use: [      
+                        {
+                            loader: require.resolve('url-loader'),
+                            options: {
+                                limit: 819200,
+                            },
+                        },
+                    ],
+                }
             ],
         },
         plugins: [
