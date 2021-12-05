@@ -52,6 +52,7 @@ div.content-middle-projects {
     justify-items: center;
 }
 
+
 .content-projects-content svg {
     display: grid;
     place-items: center;
@@ -82,6 +83,20 @@ div.content-middle-projects {
 
     display: grid;
     place-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .content-projects-container {
+        grid-template-columns: 0 1fr 0;
+    }
+
+    .content-projects-left{
+        display: none;
+    }
+
+    .content-projects-right{
+        display: none;
+    }
 }
 
 .content-projects-content{
