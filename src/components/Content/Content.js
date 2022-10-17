@@ -178,21 +178,42 @@ function Content() {
           </div>
 
           <div className="content-middle">
-            <section>
-              <h2><b>3D Modeling</b></h2>
-            </section>
-          </div>
-
-          <div className="content-right">
-            <section>
-              <h2>Blender/Unity</h2>
-              <p>
-                Just getting started with these to make better 3D websites.
-              </p>
+            <section className="content-middle">
+              <h2><b>A few Projects</b></h2>
             </section>
           </div>
 
           {/* <Projects /> */}
+
+          <div className="content-left">
+            <section>
+            <h2>Multithreading Library</h2>
+              <p>
+                My first Rust project made in Rust. Available in Crates.io .
+              </p>
+              <p>
+                <a target="_blank" href="https://github.com/On0n0k1/kik_sync_service">https://github.com/On0n0k1/kik_sync_service</a>
+              </p>
+
+              <h2>Address Book</h2>
+              <p>
+                An Adress book implemented in GTK using Rust
+              </p>
+              <p>
+                <a target="_blank" href="https://github.com/On0n0k1/address_book_gtk">https://github.com/On0n0k1/address_book_gtk</a>
+              </p>
+
+              <h2>Mandelbroth Fractal calculator</h2>
+              <p>
+                A simple Mandelbroth fractal viewer for linux
+              </p>
+              <p>
+                <a target="_blank" href="https://github.com/On0n0k1/crispy_octo_fractals">https://github.com/On0n0k1/crispy_octo_fractals</a>
+              </p>
+
+
+            </section>
+          </div>
 
 
 
