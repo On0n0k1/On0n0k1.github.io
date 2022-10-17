@@ -27,79 +27,6 @@ const projectclassname = {
 const convertedSpeed = parseInt(getCSS('--content-projects-speed'), 10) + 50;
 
 
-// function Project(props){
-
-//   // Transition ignores will not apply to the text in the middle
-//   return (
-//       <div 
-//           className="content-projects-item" 
-//           id={props.id}>
-//       <a 
-//           href={props.hrefLeft} 
-//           className="content-project-icon-button" 
-//           onClick={
-//               () => {
-//                   // Run leftAction function (if it exists).
-//                   props.leftAction && props.leftAction();
-//                   // Switch transition to make it go to the left.
-//                   goLeft();
-//                   // Set the next active menu to leftGoToMenu (if it exists).
-//                   props.leftGoToProject && props.setActiveProject(props.leftGoToProject());
-//               }
-//           }>
-//               {props.leftIcon}
-//           </a>
-//           <div className="content-projects">
-//               {props.children}
-//           </div>
-          
-//           <a 
-//               href={props.hrefRight} 
-//               className="content-projects-icon-button" 
-//               onClick={
-//               () => {
-//                   // Run rightAction function (if it exists).
-//                   props.rightAction && props.rightAction();
-//                   // Switch transition to make it go to the right.
-//                   goRight();
-//                   // Set the next active Menu to rightGoToMenu (if it exists).
-//                   props.rightGoToProject && props.setActiveProject(props.rightGoToProject());
-//               }
-//           }>
-//               {props.rightIcon}
-//           </a>
-//       </div>
-//   );
-// }
-
-// function projectFirst(backgroundActions, setActiveProject) {
-
-//   return {
-//       activeProject: 'projects-first',
-//       classNames: projectclassname,
-//       theseDropDownItems: [
-//           <Project 
-//               key='2'
-//               id="dropDownSettingsCubeGoNext"
-//               setActiveProject={ setActiveProject }
-//               iconLinks={ true }
-//               leftIcon={<LeftIcon />} 
-//               leftAction={() => { 
-//                   // backgroundActions.goFloating();
-//               }}
-//               leftGoToProject={() => { return "settings-floating"; }}
-//               rightIcon={<RightIcon />}
-//               rightAction={() => { 
-//                   // backgroundActions.goBirds(); 
-//               }}
-//               rightGoToProject={() => { return "settings-birds"; }}
-//           >{ "Cube" }</Project>,
-//       ]
-//   };
-// };
-
-
-
 export default function Projects(props) {
   const [activeProject, setActiveProject] = useState('projects-first');
   const actives = ["projects-first", "projects-second"];
@@ -155,41 +82,6 @@ export default function Projects(props) {
     );
   };
 
-  // <a 
-  //           className="content-projects-icon-button content-projects-icon-button-left" 
-  //           onClick={
-  //           () => {
-  //             // // Run leftAction function (if it exists).
-  //             // props.leftAction && props.leftAction();
-  //             // // Switch transition to make it go to the right.
-  //             // goLeft();
-  //             // // Set the next active Menu to rightGoToMenu (if it exists).
-  //             // props.leftGoToProject && setActiveProject(props.leftGoToProject());
-  //             leftArrow();
-  //           }
-  //         }>
-  //             <LeftIcon />
-  //         </a>
-
-  //       <div className="content-projects-main">
-  //         <ProjectFirst />
-  //         <ProjectSecond />
-  //       </div>
-  //       <a 
-  //           className="content-projects-icon-button content-projects-icon-button-right" 
-  //           onClick={
-  //           () => {
-  //             // // Run rightAction function (if it exists).
-  //             // props.rightAction && props.rightAction();
-  //             // // Switch transition to make it go to the right.
-  //             // goRight();
-  //             // // Set the next active Menu to rightGoToMenu (if it exists).
-  //             // props.rightGoToProject && setActiveProject(props.rightGoToProject());
-  //             rightArrow();
-  //           }
-  //         }>
-  //             <RightIcon />
-  //         </a>
 
   function ProjectSecond() {
     // const setActiveProject = props.setActiveProject;

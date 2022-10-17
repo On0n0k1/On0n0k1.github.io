@@ -10,8 +10,8 @@ function Content() {
         <main id="mainContent">
           <div className="content-header">
             <header>
-              <h1>Warning</h1>
-              <p>Page still under development!</p>
+              <h1>Summary</h1>
+              <p>This is an old site that will be completely replaced some time in the future</p>
             </header>
           </div>
 
@@ -27,6 +27,8 @@ function Content() {
                 <li><b>Linkedin:</b> <a target="_blank" href="https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2">https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2/</a></li>
                 <li><b>Email:</b> stiltztinkerstein@gmail.com</li>
                 <li><b>Phone:</b> (Message me so we can schedule a call)</li>
+                <li><b>NEAR Smart Contract Tutorial:</b> <a target="_blank" href="https://github.com/On0n0k1/Tutorial_NEAR_Rust">https://github.com/On0n0k1/Tutorial_NEAR_Rust</a></li>
+                <li><b>Exceptional Level Near Certified Developer:</b> <a target="_blank" href="https://airtable.com/shrijLwiPJp9wvhcw/tblz5izwaj0N12wBT">https://airtable.com/shrijLwiPJp9wvhcw/tblz5izwaj0N12wBT</a></li>
               </ul>
             </section>
           </div>
@@ -190,7 +192,9 @@ function Content() {
             </section>
           </div>
 
-          <Projects />
+          {/* <Projects /> */}
+
+
 
           <blockquote>
             <p>This is the way for those who want to learn my strategy: Do not think dishonestly. The way is in training. Become acquainted with every art. Know the ways of all professions. Distinguish between gain and loss in wordly matters. Develop intuitive judgement and understanding for everything. Perceive those things which cannot be seen. Pay attention even to trifles. Do nothing which is of no use.<br />-Musashi Miyamoto</p>
