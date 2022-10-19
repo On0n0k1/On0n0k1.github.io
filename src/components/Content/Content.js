@@ -187,29 +187,51 @@ function Content() {
 
           <div className="content-left">
             <section>
+            <h2>(Ongoing) T3 Website with some CICD</h2>
+            <p>
+              I was learning T3 Stack this last couple of weeks. 
+              So I decided to implement some things myself while I follow the steps in the tutorial and get the hang of the tools.
+              T3 stack consists of Next.js, tRPC, TailwindCSS, Typescript and Prisma.
+              I'm also adding docker, docker-compose and trying some dev-ops to see if it's a good idea.
+              Detail: This is part of a tutorial I'm following.
+            </p>
+            <p>
+              <a target="_blank" href="https://github.com/On0n0k1/NCD.L1--Chess">https://github.com/On0n0k1/NCD.L1--Chess</a>
+            </p>
+
+
+            <h2>Chess Game</h2>
+            <p>
+              Made a smart contract in Rust for playing Chess.
+            </p>
+            <p>
+              <a target="_blank" href="https://github.com/On0n0k1/NCD.L1--Chess">https://github.com/On0n0k1/NCD.L1--Chess</a>
+            </p>
+
+
             <h2>Multithreading Library</h2>
-              <p>
-                My first Rust project made in Rust. Available in Crates.io .
-              </p>
-              <p>
-                <a target="_blank" href="https://github.com/On0n0k1/kik_sync_service">https://github.com/On0n0k1/kik_sync_service</a>
-              </p>
+            <p>
+              My first Rust project made in Rust. Available in Crates.io .
+            </p>
+            <p>
+              <a target="_blank" href="https://github.com/On0n0k1/kik_sync_service">https://github.com/On0n0k1/kik_sync_service</a>
+            </p>
 
-              <h2>Address Book</h2>
-              <p>
-                An Adress book implemented in GTK using Rust
-              </p>
-              <p>
-                <a target="_blank" href="https://github.com/On0n0k1/address_book_gtk">https://github.com/On0n0k1/address_book_gtk</a>
-              </p>
+            <h2>Address Book</h2>
+            <p>
+              An Adress book implemented in GTK using Rust
+            </p>
+            <p>
+              <a target="_blank" href="https://github.com/On0n0k1/address_book_gtk">https://github.com/On0n0k1/address_book_gtk</a>
+            </p>
 
-              <h2>Mandelbroth Fractal calculator</h2>
-              <p>
-                A simple Mandelbroth fractal viewer for linux
-              </p>
-              <p>
-                <a target="_blank" href="https://github.com/On0n0k1/crispy_octo_fractals">https://github.com/On0n0k1/crispy_octo_fractals</a>
-              </p>
+            <h2>Mandelbroth Fractal calculator</h2>
+            <p>
+              A simple Mandelbroth fractal viewer for linux
+            </p>
+            <p>
+              <a target="_blank" href="https://github.com/On0n0k1/crispy_octo_fractals">https://github.com/On0n0k1/crispy_octo_fractals</a>
+            </p>
 
 
             </section>
