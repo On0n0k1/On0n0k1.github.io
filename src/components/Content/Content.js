@@ -196,7 +196,7 @@ function Content() {
               Detail: This is part of a tutorial I'm following.
             </p>
             <p>
-              <a target="_blank" href="https://github.com/On0n0k1/NCD.L1--Chess">https://github.com/On0n0k1/NCD.L1--Chess</a>
+              <a target="_blank" href="https://github.com/On0n0k1/roundest-mon">https://github.com/On0n0k1/roundest-mon</a>
             </p>
 
             <h2>NEAR Tutorial</h2>
