@@ -185,7 +185,7 @@ function Content() {
 
           {/* <Projects /> */}
 
-          <div className="content-left">
+          <div id="content-projects" className="content-left">
             <section>
             <h2>(Ongoing) T3 Website with some CICD</h2>
             <p>
