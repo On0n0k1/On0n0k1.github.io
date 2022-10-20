@@ -199,6 +199,13 @@ function Content() {
               <a target="_blank" href="https://github.com/On0n0k1/NCD.L1--Chess">https://github.com/On0n0k1/NCD.L1--Chess</a>
             </p>
 
+            <h2>NEAR Tutorial</h2>
+            <p>
+              Tutorial that teaches the basics of developing NEAR smart contracts. Notice how all projects are properly documented.
+            </p>
+            <p>
+              <a target="_blank" href="https://github.com/On0n0k1/Tutorial_NEAR_Rust">https://github.com/On0n0k1/Tutorial_NEAR_Rust</a>
+            </p>
 
             <h2>Chess Game</h2>
             <p>
