@@ -1,0 +1,85 @@
+:root {
+    --checkbox-background-color: #eee;
+    --checkbox-background-color-border: white;
+    --checkbox-background-color-hover: #ccc;
+    /* --checkbox-background-color-checked: #2196F3; */
+    --checkbox-background-color-checked: #d8421d;
+    --checkbox-cube-background-color-checked: #0e680e;
+}
+
+.checkbox-container {
+    display: flex;
+    position: relative;
+    padding-left: 50px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox-checkmark {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 28px;
+    width: 28px;
+    background-color: var(--checkbox-background-color);
+}
+
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input~.checkbox-checkmark {
+    background-color: var(--checkbox-background-color-hover);
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked~.checkbox-checkmark {
+    background-color: var(--checkbox-background-color-checked);
+}
+
+
+/* Unique color for cube checkbox */
+.checkbox-container input:checked~.checkbox-checkmark#cube-control {
+    background-color: var(--checkbox-cube-background-color-checked);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked~.checkbox-checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkbox-checkmark:after {
+    left: 10px;
+    /* top: 5px; */
+    top: 5px;
+    width: 7px;
+    height: 16px;
+    border: solid var(--checkbox-background-color-border);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
