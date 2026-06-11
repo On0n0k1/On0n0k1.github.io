@@ -95,7 +95,7 @@ function Content() {
                 <span className="resume-company">PrivID</span>
                 <span className="resume-main">Implementing distributed services in the cloud. Integrating Cryptography systems and ZKP into production.</span>
               </span>
-              <span className="resume-date">Aug 2024 - Dec 2025</span>
+              <span className="resume-date">Jan 2023 - Jul 2024</span>
             </a>
           </section>
           <section id="work-history" className="flex flex-col gap-20">
