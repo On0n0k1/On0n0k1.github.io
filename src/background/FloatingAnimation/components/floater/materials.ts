@@ -6,12 +6,23 @@ import {
 
 function getFileNames() {
   return [
-    'dockerlogo.png',
-    'pythonlogo.png',
-    'webassemblylogo.png',
-    'webpacklogo.png',
+    'AWS.webp',
+    'typescript.jpeg',
     'rustlogo.png',
+    'solana.jpg',
+    'dockerlogo.png',
+    'webassemblylogo.png',
+    'pythonlogo.png',
+    'threejslogo.png',
+    'amazon-rds.png',
+    'aws_sqs.jpg',
+    'kuberneteslogo.png',
+    'mongodb.png',
+    'postgresql.webp',
+    'webpacklogo.png',
     'reactlogo.png',
+    'redis.webp',
+    'redshift.png',
     'webstack.png',
   ];
 }
