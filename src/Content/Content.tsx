@@ -121,6 +121,37 @@ function Content() {
           </section>
         </div>
 
+        <div id="content-work" className="content-middle">
+          <section className="content-middle">
+            <h2><b>Education</b></h2>
+          </section>
+        </div>
+
+        <div className="content-work" id="work">
+          <section id="work-history" className="flex flex-col gap-20">
+            <a className='resume-row'>
+              <span id='resume-logo' className='resume-logo'><img src="/anhanguera_educacional_sa_logo.jpeg"></img></span>
+              <span className="resume-main">
+                <strong className="resume-title">Anhanguera Educacional</strong>
+                <span className="resume-company">Bachelor's Degree in Computer Science</span>
+                <span className="resume-main">Foundations of Computer Science. Databases. Web Development with Java and Python. System Architecture, Cybersecurity, Hardware, etc. Did a research on the applications of Rust Programming language in System's Development</span>
+              </span>
+              <span className="resume-date">Jan 2018 - Dec 2022</span>
+            </a>
+          </section>
+          <section id="work-history" className="flex flex-col gap-20">
+            <a className='resume-row'>
+              <span id='resume-logo' className='resume-logo'><img src="/senai_logo.jpeg"></img></span>
+              <span className="resume-main">
+                <strong className="resume-title">SENAI Anielo Greco</strong>
+                <span className="resume-company">Associate's Degree Industrial Electronics Technology/Technician</span>
+                <span className="resume-main">Foundations of electricity and electronics. Electric systems. Industrial Motors and electronics. Industrial Automation. Implemented Arduino, PIC and Raspberry Development for automation.</span>
+              </span>
+              <span className="resume-date">Jun 2013 - Dec 2014</span>
+            </a>
+          </section>
+        </div>
+
         <div id="content-coding-skills" className="content-middle">
           <section className="content-middle">
             <h2>Coding Skills</h2>
