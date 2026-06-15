@@ -1,0 +1,54 @@
+div.coding-skills {
+    grid-column: 3 / 12;
+
+    margin-bottom: var(--spacing);
+    border-top: 1px solid rgba(255, 255, 255, 0.328);
+    border-bottom: 3px solid rgba(15, 15, 15, 0.656);
+    border-radius: 4px;
+    padding: 0;
+    gap: 16px;
+}
+
+span.coding-skills-item {
+    padding: .5rem;
+    text-align: center;
+    border-radius: 1rem;
+    border: rgb(197, 197, 197) 2px double;
+    margin: .5rem;
+    color: rgb(219, 228, 217);
+    background-color: rgba(82, 82, 82, 0.9);
+    transition: color .1s linear, border-color .1s linear, background-color .1s linear;
+}
+
+span.coding-skills-item:hover {
+    background-color: rgb(68, 68, 68);
+    color: white;
+    border-color: white;
+    cursor: pointer;
+}
+
+div.coding-skills>section {
+    padding: .5rem;
+    display: grid;
+    align-items: center;
+    grid-template-rows: 1fr auto 1rem;
+    justify-content: stretch;
+}
+
+div.coding-skills>section h2 {
+    padding: .3rem 0 .5rem .5rem;
+    text-align: center;
+}
+
+span.skills-block {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.coding-skills>section div.separator {
+    width: 90%;
+    border-top: 2px solid rgb(255, 255, 255);
+    justify-self: center;
+}

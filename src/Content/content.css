@@ -121,9 +121,7 @@ span.resume-logo {
     width: 38px;
     height: 38px;
     display: grid;
-    /* align-self: start; */
     align-items: center;
-    /* color: var(--text-color); */
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 0.89rem;
     font-weight: 800;
@@ -131,7 +129,6 @@ span.resume-logo {
     place-items: center;
     border: 1px solid var(--line-color);
     border-radius: 4px;
-    /* background: var(--soft-color); */
     overflow: hidden;
 }
 
@@ -148,8 +145,6 @@ span.resume-main {
     flex-direction: column;
     gap: 4px;
     font-size: 1.1rem;
-    /* font-size: 1.2rem;
-    line-height: 1.35rem; */
 }
 
 strong.resume-title {
@@ -203,7 +198,6 @@ div.content-right {
     margin-left: auto;
 }
 
-/* grid-column: calc(5 - max(18vw, 5rem)/9vw) / 10; */
 div.content-left {
     grid-column: 2 / 7;
 
@@ -230,7 +224,3 @@ div.scrollable-content footer {
     border-style: solid;
     z-index: var(--z-index-front-content);
 }
-
-/* <footer className="py-8 text-center text-slate-500 text-sm border-t border-white/10">
-        <p>Built with React, TypeScript, Tailwind &amp; Three.js</p>
-      </footer> */

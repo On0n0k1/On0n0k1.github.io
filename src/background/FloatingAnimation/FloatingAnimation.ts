@@ -1,6 +1,3 @@
-// import { createFloater } from './components/floater/floater.ts';
-// import createMaterials from './components/floater/materials.ts';
-// import createGeometry from './components/floater/geometry.ts';
 import { createCamera } from './components/camera.ts';
 import { createLights } from './components/lights.ts';
 import { createScene } from './components/scene.ts';
@@ -8,12 +5,6 @@ import { createScene } from './components/scene.ts';
 import { createRenderer } from '../systems/renderer.ts';
 import { Resizer } from '../systems/Resizer.js';
 import { Loop } from '../systems/Loop.js';
-
-// let camera;
-// let renderer;
-// let scene;
-// let loop;
-
 
 // Load css z-index default values from the document.
 // Used for changing canvas visibility.
@@ -24,8 +15,6 @@ const invisible_layer = getCSS('--z-index-background-invisible');
 import { getCSS, setCSS } from "../../other_functions/cssFunctions";
 import type { MeshStandardMaterial, Object3DEventMap, OrthographicCamera, Scene, WebGLRenderer } from 'three';
 import createGeometry, { Box } from './components/floater/geometry.ts';
-// import type { Cube } from '../CubeAnimation/components/cube.ts';
-// import type { Bird } from '../BirdAnimation/components/birds/setupModel.ts';
 
 interface Disposable {
   dispose: () => void
