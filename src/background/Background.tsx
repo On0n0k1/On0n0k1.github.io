@@ -3,15 +3,7 @@ import { CubeAnimation } from './CubeAnimation/CubeAnimation.js';
 import type { MeshStandardMaterial } from 'three';
 import { FloatingAnimation } from './FloatingAnimation/FloatingAnimation.js';
 
-// import countFrame from './TextInterface/TextInterface.js';
 import { FrameCounter } from './FrameCounter/FrameCounter.js';
-
-
-
-// import main from "./main";
-
-
-
 
 class Background {
     private birdAnimation: BirdAnimation;
@@ -25,7 +17,7 @@ class Background {
         this.birdAnimation = new BirdAnimation();
         this.cubeAnimation = new CubeAnimation();
         this.floatingAnimation = new FloatingAnimation(floatingMaterials);
-        this.floatingAnimation.setLength(7);
+        this.floatingAnimation.setLength(12);
 
         // this.textInterface = new TextInterface();
         // this.textInterface.init();
@@ -59,29 +51,24 @@ class Background {
         this.birdAnimation.stop();
         this.cubeAnimation.stop();
         this.floatingAnimation.stop();
-        // this.frameCounter.stop();
     }
 
     startCubeAnimation() {
         this.stop();
         this.currentAnimation = 1;
         this.cubeAnimation.start();
-        // this.frameCounter.start();
-
     }
 
     startBirdAnimation() {
         this.stop();
         this.currentAnimation = 2;
         this.birdAnimation.start();
-        // this.frameCounter.start();
     }
 
     startFloatingAnimation() {
         this.stop();
         this.currentAnimation = 0;
         this.floatingAnimation.start();
-        // this.frameCounter.start();
     }
 
     setFloatingLength(
@@ -116,9 +103,5 @@ class Background {
     }
 
 }
-
-// focusStork()
-// focusParrot()
-// focusFlamingo()
 
 export default Background;
