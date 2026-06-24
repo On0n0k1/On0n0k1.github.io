@@ -1,37 +1,60 @@
-# My Portifolio Webpage
+# Lucas Lemos — Portfolio Webpage
 
-Still in development. This is a portifolio webpage that has an introduction about me, has a navigation bar on top and a background with animated canvas.
+Personal portfolio webpage with an animated 3D background, navigation menu, resume, and skills section.
 
-Tools used are nodejs, react compiled through babel, threejs. All packaged with webpack. At late stages will include webassembly using wasm-pack and rust.
+Live at: [on0n0k1.github.io](https://on0n0k1.github.io)
 
 
-## How to use it
+## Tech Stack
 
- - npm i: Install dependencies.
+- **React 19** with TypeScript
+- **Three.js** — 3D animated background (floating cubes, birds, cube animation)
+- **Vite** — build tool and dev server
+- **Tailwind CSS** — utility styling
+- **react-transition-group** — menu and content transitions
 
- - npm run build: Package everything for production in 'docs' folder.
 
- - npm run start: Start a webdev instance with hot reload.
+## Getting Started
+
+```bash
+npm i             # Install dependencies
+npm run dev       # Start dev server with hot reload
+npm run build     # Build for production into docs/
+npm run preview   # Preview the production build locally
+npm run lint      # Run ESLint
+```
 
 
 ## Directory Structure
 
-Starting with the root folder.
+```
+.
+├── docs/         # Production build output (served by GitHub Pages)
+├── public/       # Static assets: models, textures, logos, favicon
+└── src/
+    ├── background/       # Three.js animated background
+    │   ├── BirdAnimation/
+    │   ├── CubeAnimation/
+    │   ├── FloatingAnimation/
+    │   ├── FrameCounter/
+    │   └── systems/      # Renderer, camera, controls helpers
+    ├── Content/          # Resume and skills sections
+    │   └── codingSkills/
+    ├── Menu/             # Navigation menu and dropdown
+    ├── Icons/            # SVG icon components
+    ├── hooks/            # Custom React hooks
+    ├── other_functions/  # Shared utilities
+    ├── styles/           # Global CSS and z-index variables
+    ├── App.tsx
+    └── main.tsx
+```
 
- - docs: Webpack will pack the files in this folder. Github pages use this folder for the on0n0k1.github.io webpage.
- - public: Template used for the initial html page. Has 3d models, textures, a react favicon to show the main framework used, and the 'index.html' file.
- - src: webpack entry is 'index.js'. Coded in react and plain javascript.
- - '.babelrc': config for the babel loader. We need it to transpile es6 react into browser readable javascript.
- - 'LICENSE': MIT License. Have fun.
- - 'package.json': nodejs dependencies and scripts for running.
- - 'README.md': Hello!
- - 'webpack.config.js': Webpack configuration file.
- 
- 
-### Src Directory
 
- - components: components used in react.
- - styles: 'index.css' has the css for the starting template. 'zindexes.css' has the 'z-index' attribute for each element in the entire page. It's a good way to make sure that everything is layered up correctly.
- - 'index.js': calls React main component and place it in '#root" div of the template.
+## GitHub Pages
 
-### Components Directory
+The `docs/` folder is the build output and is served directly by GitHub Pages from the `main` branch. After building, commit the updated `docs/` to deploy.
+
+
+## License
+
+MIT — see [LICENSE](LICENSE).
