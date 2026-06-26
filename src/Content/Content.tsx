@@ -24,7 +24,7 @@ function Content() {
               <li><b>Linkedin:</b> <a target="_blank" href="https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2">https://www.linkedin.com/in/lucas-alessandro-do-carmo-lemos-18a091b2/</a></li>
               <li><b>Email:</b> lucas.lemos.kaihatsusha@gmail.com</li>
               <li><b>Phone:</b> (Message me so we can schedule a call)</li>
-              <li><a href="/CV/Lucas_Lemos_Curriculum.pdf" download className='download-cv'>Download CV</a></li>
+              <li><a href="/CV/Lucas_Lemos_CV.pdf" download className='download-cv'>Download CV</a></li>
               {/* <li><b>Exceptional Level Near Certified Developer:</b> <a target="_blank" href="https://airtable.com/shrijLwiPJp9wvhcw/tblz5izwaj0N12wBT">https://airtable.com/shrijLwiPJp9wvhcw/tblz5izwaj0N12wBT</a></li> */}
             </ul>
           </section>
