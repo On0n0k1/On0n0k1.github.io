@@ -15,6 +15,8 @@ serve.js            # local preview server (no dependencies)
 
 Each directory under `sites/` is self-contained static output (HTML/CSS/JS/assets) copied in from the project's own repository after it builds there. Nothing in this repo compiles or bundles anything.
 
+The root (`sites/index.html` and its assets) is populated from [On0n0k1/portifolio](https://github.com/On0n0k1/portifolio) — that repo's build output is committed directly into `sites/`, so it's what's served at `https://On0n0k1.github.io/`.
+
 ## Local preview
 
 ```
