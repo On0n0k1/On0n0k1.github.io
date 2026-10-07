@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started — TabTuber</title>
+<meta name="description" content="TabTuber user documentation: Getting started.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="side-inner">
+<a class="side-brand" href="index.html">TabTuber docs</a>
+<nav class="side-nav" aria-label="Documentation pages">
+<a href="index.html">Start here</a>
+<a href="getting-started.html" aria-current="page">Getting started</a>
+<a href="choosing-an-avatar.html">Choosing an avatar</a>
+<a href="performing.html">Performing</a>
+<a href="lip-sync.html">Lip sync</a>
+<a href="tracking-quality.html">Tracking quality</a>
+<a href="streaming-with-obs.html">Streaming with OBS</a>
+<a href="troubleshooting.html">Troubleshooting</a>
+</nav>
+<a class="side-app" href="../index.html">Open the app →</a>
+<a class="side-link" href="https://on0n0k1.github.io" target="_blank" rel="noopener">Portfolio →</a>
+</div></aside>
+<div class="content">
+<main>
+<h1 id="getting-started">Getting started</h1>
+<p>What to do the first time you open TabTuber, and what everything on screen is.</p>
+<hr>
+<h2 id="1-open-it-and-allow-the-camera">1. Open it and allow the camera</h2>
+<p><strong><a href="https://on0n0k1.github.io/projects/tabtuber/" target="_blank" rel="noopener">Open the app →</a></strong></p>
+<p>Your browser asks for permission to use your camera. Allow it. If you block it
+by accident, the app tells you so in a bar across the top — you will need to
+re-allow it in your browser&#39;s address bar and reload.</p>
+<p>Nothing is installed and no account is made. If you would rather run it
+yourself, the repository&#39;s <a href="https://github.com/On0n0k1/TabTuber" target="_blank" rel="noopener">README</a> has the two commands.</p>
+<h3 id="before-anything-else-turn-a-light-on">Before anything else: turn a light on</h3>
+<p><strong>This matters more than any setting in the app.</strong></p>
+<p>Your webcam makes its own decision about frame rate, and in a dim room it slows
+down to let more light in. Measured on one machine: <strong>11 frames per second in a
+dim room, 30 with a lamp on.</strong> That took the avatar&#39;s lag from 180ms to 90ms
+with nothing changed but the lamp.</p>
+<p>A lamp pointed at your face, not at the wall behind you. If the avatar feels
+laggy later, come back to this before you change anything else — see
+<a href="tracking-quality.html">Tracking quality</a>.</p>
+<h2 id="2-wait-for-the-avatar">2. Wait for the avatar</h2>
+<p>The first load fetches the tracking model, so give it a few seconds. A bar
+across the top tells you what it is doing.</p>
+<p>When it is ready, an avatar appears and starts following you. Move your head and
+shoulders; it should follow immediately.</p>
+<hr>
+<h2 id="what-you-are-looking-at">What you are looking at</h2>
+<p>Four things, and only one of them is for you.</p>
+<h3 id="the-row-of-icons-along-the-bottom-this-is-yours">The row of icons along the bottom — <strong>this is yours</strong></h3>
+<p>Everything you need. Hover any icon and it tells you what it does and gives you
+its keyboard shortcut.</p>
+<p>Left to right: setup, camera preview, microphone, tracking mode, face tracking,
+finger tracking, posture, and five expressions.</p>
+<p><a href="performing.html">Performing</a> covers them.</p>
+<h3 id="the-small-picture-top-left">The small picture, top left</h3>
+<p>Your camera, with the tracking dots drawn over it. Useful for checking you are
+framed properly.</p>
+<p><strong>Hiding it does not turn the camera off.</strong> The eye icon hides the picture and
+nothing else — tracking carries on. There is no button in the app that stops the
+camera; close the tab or revoke the permission in your browser.</p>
+<h3 id="the-numbers-under-the-preview">The numbers under the preview</h3>
+<p>How well it is running.</p>
+<ul>
+<li><strong>The milliseconds</strong> are how long it takes for your movement to reach the
+avatar. <strong>Green is good</strong> (under 100ms), amber is noticeable, red is bad.</li>
+<li><strong>The fps</strong> is what your camera is delivering. <strong>It turns amber under 20</strong>,
+and when it does, that is your problem — not anything else on screen.</li>
+</ul>
+<p>Note that this does <em>not</em> include OBS capturing and encoding, so what your
+viewers see is a little higher.</p>
+<h3 id="the-panel-on-the-right-ignore-this">The panel on the right — <strong>ignore this</strong></h3>
+<p><strong>It is a developer tool, not settings.</strong> It opens collapsed to a single bar,
+and you should never need to open it.</p>
+<p>It holds internal values for diagnosing problems. You can get everything you
+want without touching it, and changing things in there is a good way to make the
+avatar look wrong and not know why.</p>
+<p>Everything a normal setup needs is in <strong>Setup</strong>, behind the leftmost icon on the
+toolbar. If you are looking for a setting and cannot find it, it is there — not
+in the panel.</p>
+<hr>
+<h2 id="3-set-yourself-up">3. Set yourself up</h2>
+<p>Press the <strong>leftmost toolbar icon</strong> to open Setup. Four things:</p>
+<h3 id="camera">Camera</h3>
+<p>Which camera to use. If it says <strong>&quot;(current camera unknown)&quot;</strong>, your browser is
+not telling the app which camera it picked — just choose one from the list and
+that settles it. If it says <strong>&quot;no camera found&quot;</strong>, your browser is not seeing a
+camera at all.</p>
+<h3 id="avatar">Avatar</h3>
+<p>The two that come with it, or <strong>Upload a VRM avatar</strong> for your own. You can also
+just <strong>drag a <code>.vrm</code> file onto the page</strong>.</p>
+<p>See <a href="choosing-an-avatar.html">Choosing an avatar</a>.</p>
+<h3 id="background">Background</h3>
+<p>What sits behind the avatar.</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>checker</strong></td><td>a grey checkerboard, for working on your setup</td></tr>
+<tr><td><strong>key</strong></td><td>flat green, for chroma-keying in OBS</td></tr>
+<tr><td><strong>transparent</strong></td><td>nothing, which is what OBS composites properly</td></tr>
+</tbody>
+</table></div>
+<p>Leave it on <strong>checker</strong> until you set up OBS. <a href="streaming-with-obs.html">Streaming with
+OBS</a> says which to use.</p>
+<h3 id="mirror">Mirror</h3>
+<p>Whether the avatar mirrors you like a mirror does. <strong>On by default</strong>, which is
+what most people want — raise your right hand and the hand on the right of the
+screen goes up.</p>
+<hr>
+<h2 id="4-try-the-rest">4. Try the rest</h2>
+<ul>
+<li><strong>Press the microphone icon</strong> and allow microphone access. The avatar&#39;s mouth
+now follows your voice. → <a href="lip-sync.html">Lip sync</a></li>
+<li><strong>Press 1 to 5</strong> for expressions, <strong>0</strong> for neutral. → <a href="performing.html">Performing</a></li>
+<li><strong>Press the posture icon</strong> if you are sitting down. → <a href="performing.html#sitting-or-standing">Performing</a></li>
+<li><strong>Want fingers, blinking and eye movement?</strong> Press the tracking icon to switch
+to full tracking — but read <a href="tracking-quality.html#full-tracking-versus-body-only">the cost
+first</a>.</li>
+</ul>
+<p>Your choices are remembered, so the next time you open it you pick up where you
+left off.</p>
+<hr>
+<h2 id="next">Next</h2>
+<p><strong><a href="choosing-an-avatar.html">Choosing an avatar →</a></strong></p>
+<p>Or go straight to <strong><a href="streaming-with-obs.html">Streaming with OBS →</a></strong> if you want
+it in your scene now.</p>
+</main>
+<footer class="foot">
+TabTuber user documentation.
+<a href="https://github.com/On0n0k1/TabTuber">Source and developer docs on GitHub</a>.
+Built by <a href="https://on0n0k1.github.io">Lucas Lemos</a>.
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start here — TabTuber</title>
+<meta name="description" content="TabTuber user documentation: Start here.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="side-inner">
+<a class="side-brand" href="index.html">TabTuber docs</a>
+<nav class="side-nav" aria-label="Documentation pages">
+<a href="index.html" aria-current="page">Start here</a>
+<a href="getting-started.html">Getting started</a>
+<a href="choosing-an-avatar.html">Choosing an avatar</a>
+<a href="performing.html">Performing</a>
+<a href="lip-sync.html">Lip sync</a>
+<a href="tracking-quality.html">Tracking quality</a>
+<a href="streaming-with-obs.html">Streaming with OBS</a>
+<a href="troubleshooting.html">Troubleshooting</a>
+</nav>
+<a class="side-app" href="../index.html">Open the app →</a>
+<a class="side-link" href="https://on0n0k1.github.io" target="_blank" rel="noopener">Portfolio →</a>
+</div></aside>
+<div class="content">
+<main>
+<h1 id="tabtuber-user-guide">TabTuber — user guide</h1>
+<p>TabTuber turns your webcam into a VTubing avatar. It runs entirely in a browser
+tab: your camera and microphone never leave your machine, and there is no
+account to make and nothing to install.</p>
+<p><strong><a href="https://on0n0k1.github.io/projects/tabtuber/" target="_blank" rel="noopener">Open the app →</a></strong></p>
+<hr>
+<h2 id="start-here">Start here</h2>
+<p>New to it? Read these three, in order. Twenty minutes and you will have an
+avatar on screen and in OBS.</p>
+<p><strong>1. <a href="getting-started.html">Getting started</a></strong>
+Open the app, allow the camera, and understand what you are looking at.</p>
+<p><strong>2. <a href="choosing-an-avatar.html">Choosing an avatar</a></strong>
+Use one of the two that come with it, or bring your own.</p>
+<p><strong>3. <a href="streaming-with-obs.html">Streaming with OBS</a></strong>
+Get the avatar into your scene, over your game footage.</p>
+<h2 id="then-as-you-need-it">Then, as you need it</h2>
+<p><strong><a href="performing.html">Performing</a></strong> — expressions and their keyboard shortcuts,
+sitting or standing, mirroring, and the backdrop.</p>
+<p><strong><a href="lip-sync.html">Lip sync</a></strong> — turn the microphone on and make the mouth follow
+your voice properly.</p>
+<p><strong><a href="tracking-quality.html">Tracking quality</a></strong> — how to get smooth, responsive
+tracking, and what to do when it is not. <strong>Read the first section even if
+nothing is wrong.</strong></p>
+<p><strong><a href="troubleshooting.html">Troubleshooting</a></strong> — something is wrong and you want it
+fixed.</p>
+<hr>
+<h2 id="the-five-minute-version">The five-minute version</h2>
+<p>If you would rather not read anything:</p>
+<ol>
+<li><strong>Open the app and allow the camera.</strong> Your avatar appears.</li>
+<li><strong>Turn a light on, facing you.</strong> This matters more than any setting. A dim
+room halves your frame rate and doubles the lag.</li>
+<li><strong>Ignore the panel on the right.</strong> It is a developer tool. Everything you
+need is the row of icons along the bottom.</li>
+<li><strong>Press the leftmost icon</strong> to pick a camera, an avatar, and a backdrop.</li>
+<li><strong>Press the microphone icon</strong> if you want the mouth to move with your voice.</li>
+<li><strong>Press 1 to 5</strong> for expressions, and <strong>0</strong> to go back to neutral.</li>
+</ol>
+<h2 id="things-worth-knowing-up-front">Things worth knowing up front</h2>
+<ul>
+<li><strong>Only the body is tracked by default.</strong> No individual fingers, and blinking
+is on a timer rather than following your eyes. Fuller tracking is one button
+away, but it costs a lot of frame rate — see
+<a href="tracking-quality.html#full-tracking-versus-body-only">Tracking quality</a>.</li>
+<li><strong>Hiding the camera preview does not turn the camera off.</strong> It only hides the
+picture.</li>
+<li><strong>Expressions are chosen by you, not read from your face.</strong> The number keys
+are how you use them.</li>
+<li><strong>The mouth follows your microphone, not your camera.</strong></li>
+<li><strong>Your legs are not tracked while sitting.</strong> On purpose — see
+<a href="performing.html#sitting-or-standing">Performing</a>.</li>
+</ul>
+<h2 id="nothing-is-uploaded">Nothing is uploaded</h2>
+<p>Worth being specific, because this is unusual for the category.</p>
+<p>Your camera and microphone are read in the page. The tracking runs in the page.
+The avatar is drawn in the page. An avatar file you drop in is read off your
+disk and never sent anywhere. <strong>There is no server</strong> — the whole thing is a
+static web page, so there is nowhere for your video to go even in principle.</p>
+<p>Once the page has loaded, you can disconnect from the internet and it keeps
+working.</p>
+</main>
+<footer class="foot">
+TabTuber user documentation.
+<a href="https://github.com/On0n0k1/TabTuber">Source and developer docs on GitHub</a>.
+Built by <a href="https://on0n0k1.github.io">Lucas Lemos</a>.
+</footer>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tracking quality — TabTuber</title>
+<meta name="description" content="TabTuber user documentation: Tracking quality.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="side-inner">
+<a class="side-brand" href="index.html">TabTuber docs</a>
+<nav class="side-nav" aria-label="Documentation pages">
+<a href="index.html">Start here</a>
+<a href="getting-started.html">Getting started</a>
+<a href="choosing-an-avatar.html">Choosing an avatar</a>
+<a href="performing.html">Performing</a>
+<a href="lip-sync.html">Lip sync</a>
+<a href="tracking-quality.html" aria-current="page">Tracking quality</a>
+<a href="streaming-with-obs.html">Streaming with OBS</a>
+<a href="troubleshooting.html">Troubleshooting</a>
+</nav>
+<a class="side-app" href="../index.html">Open the app →</a>
+<a class="side-link" href="https://on0n0k1.github.io" target="_blank" rel="noopener">Portfolio →</a>
+</div></aside>
+<div class="content">
+<main>
+<h1 id="tracking-quality">Tracking quality</h1>
+<p>How to get smooth, responsive tracking — and what to do when you cannot.</p>
+<p><strong>If you read only one section, read the first one.</strong> Lighting does more for
+tracking than every setting in the app combined.</p>
+<hr>
+<h2 id="light-yourself-properly">Light yourself properly</h2>
+<p>Your webcam decides its own frame rate, and in a dim room it slows down to
+gather more light. You cannot override this — the camera makes that choice before
+the app ever sees a frame.</p>
+<p>Measured on one machine, changing nothing but a lamp:</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th>Dim room</th><th>Lamp on</th></tr></thead>
+<tbody>
+<tr><td>Camera frame rate</td><td><strong>11 fps</strong></td><td><strong>30 fps</strong></td></tr>
+<tr><td>Avatar lag</td><td><strong>180 ms</strong></td><td><strong>90 ms</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>Half the lag, from a lamp.</strong></p>
+<h3 id="what-to-do">What to do</h3>
+<ul>
+<li><strong>Put a light in front of you</strong>, pointed at your face. A desk lamp bounced off
+a wall or ceiling is fine and more flattering than direct light.</li>
+<li><strong>Do not sit with a window behind you.</strong> The camera exposes for the bright
+window and leaves you a dark shape, which is the same problem with extra
+steps.</li>
+<li><strong>Check the fps number</strong> under the camera preview. If it is amber, you do not
+have enough light.</li>
+</ul>
+<h3 id="why-it-matters-so-much">Why it matters so much</h3>
+<p><strong>Below about 15 fps, nothing in the app can save you.</strong> Smoothing cannot invent
+frames your camera never captured. Every setting that exists works on the signal
+the camera delivers, and if that signal arrives twice a second there is nothing
+to work with.</p>
+<p>This is the first thing to check whenever the avatar feels wrong — before
+settings, before tracking modes, before anything.</p>
+<hr>
+<h2 id="frame-yourself-properly">Frame yourself properly</h2>
+<ul>
+<li><strong>Fill a reasonable amount of the frame.</strong> The tracker works from pixels, so a
+person far away is tracked from very little information. This matters most for
+hands and fingers.</li>
+<li><strong>Keep your hands in frame</strong> if you want them tracked. When they leave, the
+avatar relaxes them smoothly rather than snapping.</li>
+<li><strong>Plain backgrounds help.</strong> Not essential, but a cluttered background with
+person-shaped objects in it gives the tracker more chances to be wrong.</li>
+<li><strong>If you are sitting, press the posture button.</strong> See
+<a href="performing.html#sitting-or-standing">Performing</a>.</li>
+</ul>
+<hr>
+<h2 id="reading-the-numbers">Reading the numbers</h2>
+<p>Under the camera preview, top left.</p>
+<h3 id="milliseconds-how-far-behind-the-avatar-is">Milliseconds — how far behind the avatar is</h3>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>Green</strong></td><td>under 100 ms — feels attached to you</td></tr>
+<tr><td><strong>Amber</strong></td><td>100–150 ms — noticeable</td></tr>
+<tr><td><strong>Red</strong></td><td>over 150 ms — feels like something following you</td></tr>
+</tbody>
+</table></div>
+<p>This does <strong>not</strong> include OBS capturing and encoding, so your viewers see a bit
+more than this. It tells you whether the app is your problem.</p>
+<h3 id="fps-what-your-camera-is-giving-you">fps — what your camera is giving you</h3>
+<p><strong>Amber below 20.</strong> This is the number that explains a bad millisecond figure
+most of the time, and the fix is usually light rather than a setting.</p>
+<hr>
+<h2 id="full-tracking-versus-body-only">Full tracking versus body-only</h2>
+<p>The one setting that genuinely changes performance. The <strong>tracking button</strong> on
+the toolbar swaps between them.</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th><strong>body only</strong></th><th><strong>full</strong></th></tr></thead>
+<tbody>
+<tr><td>Head, torso, arms, legs</td><td>yes</td><td>yes</td></tr>
+<tr><td>Individual fingers</td><td><strong>no</strong></td><td>yes</td></tr>
+<tr><td>Blinking and eye movement from camera</td><td><strong>no</strong></td><td>yes</td></tr>
+<tr><td>Speed on a mid-range phone</td><td><strong>~12 fps</strong></td><td><strong>~3 fps</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>Body-only is the default</strong>, for everyone. Full tracking costs roughly <strong>three
+and a half times</strong> the frame rate, because it runs separate detection for each
+hand and for your face on top of the body.</p>
+<h3 id="which-should-you-use">Which should you use?</h3>
+<p><strong>Try full tracking.</strong> If the fps number stays green and the avatar feels
+responsive, keep it — fingers and real blinking are a genuine upgrade.</p>
+<p><strong>If the fps drops or the lag goes amber, go back to body-only.</strong> A smooth avatar
+without fingers reads far better than a stuttering one with them. This is not a
+close call: viewers notice stutter immediately and rarely notice fingers.</p>
+<h3 id="things-to-expect-when-you-switch">Things to expect when you switch</h3>
+<ul>
+<li><strong>It pauses.</strong> A different model has to load. Your avatar keeps moving on the
+old one until the new one is ready.</li>
+<li><strong>It downloads.</strong> Switching to full fetches another model the first time.</li>
+<li><strong>Your choice is remembered</strong>, so you only pay that once.</li>
+<li><strong>Face and finger buttons grey out</strong> in body-only mode, and hovering them
+explains why. They come back on when you return to full.</li>
+</ul>
+<h3 id="what-body-only-actually-loses">What body-only actually loses</h3>
+<p>No fingers, and no camera-driven blinking or eye movement. Blinking still happens
+— it runs on a timer instead, which most viewers never notice. Hand <em>orientation</em>
+is also rougher, so wrists are less precise.</p>
+<hr>
+<h2 id="face-tracking-costs-more-than-you-would-think">Face tracking costs more than you would think</h2>
+<p>Turning on <strong>face tracking</strong> does not just add the cost of tracking your face. It
+forces the whole pipeline onto a slower processing path, so <strong>your body and hand
+tracking get slower too.</strong></p>
+<p>If everything got worse when you turned on blinking, that is why, and it is
+working as designed rather than broken.</p>
+<p>It also rebuilds the tracker, so expect a pause when you toggle it.</p>
+<p>Worth it if you have frame rate to spare. The first thing to turn off if you do
+not.</p>
+<hr>
+<h2 id="finger-tracking-is-marked-experimental">Finger tracking is marked experimental</h2>
+<p>It works, but two things are worth knowing:</p>
+<ul>
+<li><strong>Fingers need pixels.</strong> Precision depends on how much of the frame your hand
+occupies, so fingers are good close to the camera and poor far from it.</li>
+<li><strong>It makes jitter obvious.</strong> A twitching fingertip is small and fast and far
+easier to see than a twitching arm. The jitter was always there; fingers show
+it to you.</li>
+</ul>
+<p>If the hands look nervous, move closer, improve the light, or turn fingers off.</p>
+<hr>
+<h2 id="on-a-phone">On a phone</h2>
+<p><strong>It works</strong>, on body-only tracking — around 12 fps, against 3 with full
+tracking. That is the difference between an avatar that follows you and one that
+lurches.</p>
+<p>Body-only is already the default, so there is nothing you need to do. If you
+switch to full on a phone, expect it to struggle, and switch back.</p>
+<p>Phones also need good light more than laptops do, since phone cameras are
+quicker to slow down in the dark.</p>
+<hr>
+<h2 id="when-it-is-still-bad">When it is still bad</h2>
+<p>In rough order of how often each is the answer:</p>
+<ol>
+<li><strong>More light.</strong> Check the fps number.</li>
+<li><strong>Switch to body-only tracking.</strong></li>
+<li><strong>Turn off face tracking</strong>, which is the most expensive single option.</li>
+<li><strong>Turn off finger tracking.</strong></li>
+<li><strong>Close other tabs</strong>, particularly anything playing video or running a game.</li>
+<li><strong>Move closer</strong> to the camera.</li>
+<li><strong>Check nothing else is using the camera</strong> — a video call holding the camera
+can force it to a lower frame rate.</li>
+</ol>
+<p>If none of that helps, see <a href="troubleshooting.html">Troubleshooting</a>.</p>
+</main>
+<footer class="foot">
+TabTuber user documentation.
+<a href="https://github.com/On0n0k1/TabTuber">Source and developer docs on GitHub</a>.
+Built by <a href="https://on0n0k1.github.io">Lucas Lemos</a>.
+</footer>
+</div>
+</div>
+</body>
+</html>

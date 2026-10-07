@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troubleshooting — TabTuber</title>
+<meta name="description" content="TabTuber user documentation: Troubleshooting.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="side-inner">
+<a class="side-brand" href="index.html">TabTuber docs</a>
+<nav class="side-nav" aria-label="Documentation pages">
+<a href="index.html">Start here</a>
+<a href="getting-started.html">Getting started</a>
+<a href="choosing-an-avatar.html">Choosing an avatar</a>
+<a href="performing.html">Performing</a>
+<a href="lip-sync.html">Lip sync</a>
+<a href="tracking-quality.html">Tracking quality</a>
+<a href="streaming-with-obs.html">Streaming with OBS</a>
+<a href="troubleshooting.html" aria-current="page">Troubleshooting</a>
+</nav>
+<a class="side-app" href="../index.html">Open the app →</a>
+<a class="side-link" href="https://on0n0k1.github.io" target="_blank" rel="noopener">Portfolio →</a>
+</div></aside>
+<div class="content">
+<main>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p>Find your symptom. Each fix is something that has actually caught someone out.</p>
+<hr>
+<h2 id="start-here">Start here</h2>
+<p>Two things account for most problems:</p>
+<ol>
+<li><strong>Is there a light on your face?</strong> Check the <strong>fps number</strong> under the camera
+preview. Amber means not enough light, and that affects everything else.
+→ <a href="tracking-quality.html#light-yourself-properly">Light yourself properly</a></li>
+<li><strong>Is there a message at the top of the page?</strong> Errors stay up until you
+dismiss them and usually say exactly what is wrong.</li>
+</ol>
+<hr>
+<h2 id="nothing-appears">Nothing appears</h2>
+<h3 id="the-page-is-blank-or-stuck-on-a-message">The page is blank, or stuck on a message</h3>
+<p>The first load fetches the tracking model, which takes a few seconds. The bar at
+the top tells you what it is doing.</p>
+<p>If it stays stuck: reload. If it is still stuck, your connection is probably
+blocking the download.</p>
+<h3 id="camera-permission-was-denied">&quot;Camera permission was denied&quot;</h3>
+<p>Your browser blocked the camera, or you clicked Block. Look for a camera icon in
+your browser&#39;s address bar, allow it, and reload the page.</p>
+<h3 id="no-camera-error-but-no-avatar-either">No camera error, but no avatar either</h3>
+<p>Check the panel on the right is not hiding it, and try switching avatar in
+<strong>Setup</strong>. If an avatar fails to load, the top bar says so.</p>
+<h3 id="it-will-not-use-my-camera-at-all">It will not use my camera at all</h3>
+<p>The page needs a <strong>secure address</strong> to access a camera: <code>https://</code> or
+<code>localhost</code>. If you are opening it over your home network by IP address
+(<code>http://192.168...</code>), browsers refuse camera access and always will.</p>
+<hr>
+<h2 id="something-is-wrong-with-the-camera">Something is wrong with the camera</h2>
+<h3 id="the-wrong-camera-is-being-used">The wrong camera is being used</h3>
+<p><strong>Setup → Camera</strong>, and pick the one you want.</p>
+<p>If it says <strong>&quot;(current camera unknown)&quot;</strong>, your browser is not reporting which
+camera it chose — choosing one from the list explicitly settles it.</p>
+<p>If it says <strong>&quot;no camera found&quot;</strong>, your browser is not seeing any camera. Check it
+is plugged in and that nothing else has exclusive hold of it.</p>
+<h3 id="another-app-has-my-camera">Another app has my camera</h3>
+<p>Close video calls and anything else using the camera. Some apps will let the
+camera be shared but force it to a lower frame rate, which looks like a
+performance problem rather than a conflict.</p>
+<h3 id="turning-off-the-preview-did-not-turn-off-my-camera">Turning off the preview did not turn off my camera</h3>
+<p><strong>It is not supposed to.</strong> The eye icon hides the picture only — tracking carries
+on, and the camera light stays on.</p>
+<p>There is no control in the app that stops the camera. Close the tab or revoke the
+permission in your browser.</p>
+<hr>
+<h2 id="the-avatar-moves-badly">The avatar moves badly</h2>
+<h3 id="everything-is-laggy-or-stuttery">Everything is laggy or stuttery</h3>
+<p><strong>Light first.</strong> Check the fps number — if it is amber, that is your answer.
+→ <a href="tracking-quality.html#light-yourself-properly">Tracking quality</a></p>
+<p>Then, in order: switch to <strong>body-only</strong> tracking, turn off <strong>face tracking</strong>,
+turn off <strong>finger tracking</strong>, close other tabs.
+→ <a href="tracking-quality.html#when-it-is-still-bad">When it is still bad</a></p>
+<h3 id="it-got-much-worse-when-i-turned-on-blinking">It got much worse when I turned on blinking</h3>
+<p>Expected. <strong>Face tracking forces the whole pipeline onto a slower path</strong>, so your
+body and hand tracking slow down too, not just the face. Turn it back off if you
+cannot spare the frame rate.
+→ <a href="tracking-quality.html#face-tracking-costs-more-than-you-would-think">Face tracking costs more than you would think</a></p>
+<h3 id="the-avatar-moves-less-than-i-do-or-seems-sluggish">The avatar moves less than I do, or seems sluggish</h3>
+<p>Likely your <strong>model</strong>, not the tracking. A missing bone silently drops its share
+of the movement, so the avatar under-rotates — which reads as sluggishness rather
+than as an error.</p>
+<p>Try one of the bundled avatars. If that moves properly, it is your model.
+→ <a href="choosing-an-avatar.html#what-makes-a-model-work-well">What makes a model work well</a></p>
+<h3 id="the-hands-jitter">The hands jitter</h3>
+<p>Normal, and most visible with finger tracking on. Fingers are tracked from pixels,
+so a hand far from the camera is tracked from very little.</p>
+<p>Move closer, add light, or turn finger tracking off.</p>
+<h3 id="my-avatar-is-standing-up-while-i-am-sitting-down">My avatar is standing up while I am sitting down</h3>
+<p><strong>Press the posture button</strong> to switch to sitting.</p>
+<p>The tracker reports your legs confidently even when it cannot see them under a
+desk, so the avatar believes them. Sitting mode throws that data away.
+→ <a href="performing.html#sitting-or-standing">Sitting or standing</a></p>
+<h3 id="my-fingers-do-not-move">My fingers do not move</h3>
+<p>Three possible reasons:</p>
+<ol>
+<li><strong>Tracking is set to body-only</strong> — the default. Switch to full tracking.</li>
+<li><strong>Finger tracking is off.</strong> It is a separate button from tracking mode.</li>
+<li><strong>Your model has no finger bones.</strong> Try a bundled avatar to tell the
+difference.</li>
+</ol>
+<h3 id="my-avatar-does-not-blink-or-its-eyes-do-not-move">My avatar does not blink, or its eyes do not move</h3>
+<p>Blinking runs on a timer by default and should always happen. For blinking and
+eye movement that follow <em>your</em> face, you need full tracking <strong>and</strong> the face
+tracking button.</p>
+<p>If the eyes never move even then, your model may have no eye bones.</p>
+<h3 id="raising-my-right-hand-raises-the-wrong-one">Raising my right hand raises the wrong one</h3>
+<p>That is mirroring, and it is on by default on purpose — the avatar behaves like a
+mirror. Turn <strong>Mirror</strong> off in Setup if you want it to face you like another
+person instead.</p>
+<hr>
+<h2 id="the-mouth-is-wrong">The mouth is wrong</h2>
+<h3 id="it-does-not-move-at-all">It does not move at all</h3>
+<p>Check the microphone icon is lit and that your browser granted microphone
+permission. Open the panel on the right, find the <strong>Mic</strong> readouts, and check
+<code>level</code> moves when you talk.</p>
+<h3 id="it-moves-when-i-am-not-talking">It moves when I am not talking</h3>
+<p>If it is following your game audio, turn <strong>echoCancellation</strong> on, or use
+headphones. Otherwise raise <strong>min duration</strong> or <strong>open level</strong> in the Lip sync
+folder.</p>
+<h3 id="it-snaps-fully-open-and-shut-with-nothing-in-between">It snaps fully open and shut with nothing in between</h3>
+<p>A known problem. You are almost certainly running <strong>aggressive noise removal
+before the browser</strong> — EasyEffects, RNNoise, NVIDIA Broadcast. Those produce
+complete silence between words, which breaks the app&#39;s measurement of your room.</p>
+<p>Turn the upstream noise removal down or off.
+→ <a href="lip-sync.html#if-the-mouth-is-snapping-fully-open-and-shut">Full explanation</a></p>
+<h3 id="it-looks-like-a-puppet-just-flapping">It looks like a puppet just flapping</h3>
+<p>Switch the mouth mode to <strong>animated</strong>, or calibrate and use <strong>vowel</strong>.
+→ <a href="lip-sync.html#the-three-mouth-modes">The three mouth modes</a></p>
+<h3 id="i-switched-to-vowel-mode-and-nothing-changed">I switched to vowel mode and nothing changed</h3>
+<p>You have not calibrated yet. Vowel mode behaves exactly like animated until you
+do.
+→ <a href="lip-sync.html#calibrating-your-vowels">Calibrating your vowels</a></p>
+<hr>
+<h2 id="streaming-problems">Streaming problems</h2>
+<h3 id="my-viewers-can-see-my-toolbar">My viewers can see my toolbar</h3>
+<p>Crop it out. The toolbar is part of the page, so OBS captures it with the
+avatar. It never moves, so one crop filter lasts.
+→ <a href="streaming-with-obs.html#crop-the-interface-out">Crop the interface out</a></p>
+<h3 id="the-background-is-green-on-stream">The background is green on stream</h3>
+<p>Set <strong>Background → <code>transparent</code></strong> if you are using a Browser Source, or add a
+<strong>Chroma Key</strong> filter if you are using Window Capture.
+→ <a href="streaming-with-obs.html">Streaming with OBS</a></p>
+<h3 id="there-is-a-green-fringe-around-the-hair">There is a green fringe around the hair</h3>
+<p>Chroma keying always costs a little edge quality. Tune the Chroma Key filter&#39;s
+similarity and smoothness, or switch to a <strong>Browser Source</strong>, which has real
+transparency and no fringe at all.
+→ <a href="streaming-with-obs.html#the-better-way-browser-source">The better way</a></p>
+<h3 id="obs-will-not-give-the-page-my-camera">OBS will not give the page my camera</h3>
+<p>A known awkwardness with Browser Sources. If the workarounds do not help, use
+<strong>Window Capture</strong> instead — permissions simply work there.
+→ <a href="streaming-with-obs.html#3-deal-with-camera-permission">Deal with camera permission</a></p>
+<h3 id="parts-of-my-avatar-are-transparent-on-stream">Parts of my avatar are transparent on stream</h3>
+<p>You are chroma keying and your avatar is wearing green. Either change the outfit
+or switch to a Browser Source.</p>
+<h3 id="my-voice-is-ahead-of-the-avatar">My voice is ahead of the avatar</h3>
+<p>Only happens if you turned on <strong>lookahead</strong>. Add a positive sync offset to your
+microphone in OBS — later, not earlier.
+→ <a href="streaming-with-obs.html#audio-sync">Audio sync</a></p>
+<h3 id="the-expression-keys-do-nothing-while-i-stream">The expression keys do nothing while I stream</h3>
+<p>The keys only work when the <strong>browser window</strong> has focus, not OBS. Click into the
+browser window, or keep it on a second monitor.</p>
+<h3 id="the-expression-keys-do-nothing-at-all">The expression keys do nothing at all</h3>
+<p>They are ignored while your cursor is in a text box. Click an empty part of the
+page and try again.</p>
+<hr>
+<h2 id="starting-over">Starting over</h2>
+<p>If settings have ended up in a state you want rid of:</p>
+<p>Open the panel on the right, find <strong>Session</strong>, and press <strong>clear saved
+settings</strong>. Then <strong>reload the page</strong>.</p>
+<p>That clears your remembered tracking mode, lip sync state, posture and vowel
+calibration.</p>
+<p>Note that <strong>reset panel to defaults</strong> next to it is a different thing — it only
+resets the panel&#39;s own controls, and for anything remembered it resets to the
+remembered value rather than the original.</p>
+<hr>
+<h2 id="still-stuck">Still stuck</h2>
+<p>Nothing here matching? The browser console records every message the app raises,
+including ones that cleared themselves — open your browser&#39;s developer tools and
+look at the Console tab. That is the most useful thing to include if you report a
+problem.</p>
+</main>
+<footer class="foot">
+TabTuber user documentation.
+<a href="https://github.com/On0n0k1/TabTuber">Source and developer docs on GitHub</a>.
+Built by <a href="https://on0n0k1.github.io">Lucas Lemos</a>.
+</footer>
+</div>
+</div>
+</body>
+</html>

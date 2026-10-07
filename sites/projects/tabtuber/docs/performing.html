@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Performing — TabTuber</title>
+<meta name="description" content="TabTuber user documentation: Performing.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="side-inner">
+<a class="side-brand" href="index.html">TabTuber docs</a>
+<nav class="side-nav" aria-label="Documentation pages">
+<a href="index.html">Start here</a>
+<a href="getting-started.html">Getting started</a>
+<a href="choosing-an-avatar.html">Choosing an avatar</a>
+<a href="performing.html" aria-current="page">Performing</a>
+<a href="lip-sync.html">Lip sync</a>
+<a href="tracking-quality.html">Tracking quality</a>
+<a href="streaming-with-obs.html">Streaming with OBS</a>
+<a href="troubleshooting.html">Troubleshooting</a>
+</nav>
+<a class="side-app" href="../index.html">Open the app →</a>
+<a class="side-link" href="https://on0n0k1.github.io" target="_blank" rel="noopener">Portfolio →</a>
+</div></aside>
+<div class="content">
+<main>
+<h1 id="performing">Performing</h1>
+<p>The controls you actually use while you are live.</p>
+<p>Everything here is on the toolbar along the bottom. Hover any icon to see what
+it does and its keyboard shortcut.</p>
+<hr>
+<h2 id="expressions">Expressions</h2>
+<p>Five of them: <strong>happy</strong>, <strong>angry</strong>, <strong>sad</strong>, <strong>relaxed</strong>, <strong>surprised</strong>.</p>
+<h3 id="use-the-number-keys">Use the number keys</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Key</th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong> – <strong>5</strong></td><td>happy, angry, sad, relaxed, surprised, in that order</td></tr>
+<tr><td><strong>0</strong> or <strong>Escape</strong></td><td>back to neutral</td></tr>
+</tbody>
+</table></div>
+<p><strong>The keys are the point.</strong> Clicking a small icon mid-sentence is not something
+you will do; tapping a number is. Learn 1 to 5 and you can hit a reaction on a
+beat.</p>
+<h3 id="how-they-behave">How they behave</h3>
+<ul>
+<li><strong>One at a time.</strong> Picking a new one drops the old one.</li>
+<li><strong>Pressing the active one returns you to neutral</strong>, so there is no separate
+neutral button to find.</li>
+<li>They fade in and out rather than snapping.</li>
+<li><strong>They do not fire while you are typing</strong> in a text box, so you cannot
+accidentally pull a face while typing in chat.</li>
+</ul>
+<p>On a narrow window the five icons collapse into <strong>one button</strong> that opens them
+just above the bar. It wears whichever expression is currently on, so you can
+still see your state at a glance, and the tray stays open after you pick — handy
+for flicking between two reactions.</p>
+<h3 id="they-are-your-choice-not-your-face">They are your choice, not your face</h3>
+<p>The app does not read your expression off the camera and never tries to. You
+pick. This is deliberate: an avatar deciding you are sad when you are not is far
+worse than one that stays neutral until you tell it otherwise, and choosing the
+moment to react is part of performing.</p>
+<hr>
+<h2 id="sitting-or-standing">Sitting or standing</h2>
+<p>One button that swaps between the two.</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>standing</strong></td><td>tracks your whole body, frames you full-length</td></tr>
+<tr><td><strong>sitting</strong></td><td>ignores your legs, frames your upper body</td></tr>
+</tbody>
+</table></div>
+<p><strong>Switch to sitting when you are sitting down.</strong> Otherwise your avatar&#39;s legs
+will do something strange.</p>
+<p>Here is why that happens, because it surprises people: the tracker reports your
+legs&#39; positions <em>confidently</em> even when they are under a desk and it cannot see
+them. Given that data, the avatar stands up regardless of what you are actually
+doing. Sitting mode throws the leg data away instead of believing it.</p>
+<p>This is also why it is a button rather than automatic — the app would have to
+rely on the exact signal that cannot be trusted here.</p>
+<p>Your choice is remembered.</p>
+<hr>
+<h2 id="mirroring">Mirroring</h2>
+<p>In <strong>Setup</strong>, and <strong>on by default</strong>.</p>
+<p>With it on, the avatar behaves like a mirror: raise your right hand and the hand
+on the right of the screen goes up. Off, the avatar faces you like another
+person, so your right hand raises its left.</p>
+<p>Most people want it on and never touch it. The one case for turning it off is if
+you are showing something with handedness that matters — reading text, or
+demonstrating which hand does what.</p>
+<hr>
+<h2 id="the-camera-preview">The camera preview</h2>
+<p>The eye icon shows or hides the small picture of you in the top-left corner.</p>
+<p><strong>Hiding it does not turn the camera off.</strong> It hides the picture, and that is
+all — the tracking carries on exactly as before. People reliably assume
+otherwise, so it is worth saying plainly. There is no control in the app that
+stops the camera; close the tab or revoke the permission in your browser.</p>
+<p>Hide it before you stream, since it is the largest thing you would otherwise have
+to crop out of your scene.</p>
+<hr>
+<h2 id="the-backdrop">The backdrop</h2>
+<p>In <strong>Setup</strong>, under <strong>Background</strong>.</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>checker</strong></td><td>grey checkerboard — use while setting up</td></tr>
+<tr><td><strong>key</strong></td><td>flat green — for chroma-keying in OBS</td></tr>
+<tr><td><strong>transparent</strong></td><td>nothing behind the avatar — for OBS Browser Source</td></tr>
+</tbody>
+</table></div>
+<p>The checkerboard exists so you can see where the avatar&#39;s edges are while you
+work. It is not meant to go on stream. <a href="streaming-with-obs.html">Streaming with
+OBS</a> covers which of the other two you want.</p>
+<hr>
+<h2 id="microphone">Microphone</h2>
+<p>The microphone icon turns lip sync on and off, and the avatar&#39;s mouth follows
+your voice.</p>
+<p>The first time, your browser asks for microphone permission. Your choice is
+remembered between sessions, so it comes back on next time.</p>
+<p>Nothing is recorded and nothing is sent anywhere.</p>
+<p>See <strong><a href="lip-sync.html">Lip sync</a></strong> to make the mouth look right rather than just
+move.</p>
+<hr>
+<h2 id="face-and-finger-tracking">Face and finger tracking</h2>
+<p>Two more icons, and both need <strong>full tracking</strong> turned on first — they are greyed
+out otherwise, and hovering them tells you why.</p>
+<ul>
+<li><strong>Face tracking</strong> makes blinking and eye movement follow your actual face
+instead of running on a timer.</li>
+<li><strong>Finger tracking</strong> articulates individual fingers.</li>
+</ul>
+<p>Both cost frame rate, face tracking especially. <strong><a href="tracking-quality.html">Tracking
+quality</a></strong> explains what you are trading and whether it is
+worth it on your machine.</p>
+<hr>
+<h2 id="what-gets-remembered">What gets remembered</h2>
+<p>Close the tab and come back, and these are as you left them:</p>
+<ul>
+<li>whether lip sync is on</li>
+<li>sitting or standing</li>
+<li>your tracking mode</li>
+<li>your vowel calibration, if you did one</li>
+</ul>
+<p>Camera, avatar, background and mirror are not remembered — set those each
+session, or set them once and leave the tab open.</p>
+<hr>
+<h2 id="next">Next</h2>
+<p><strong><a href="lip-sync.html">Lip sync →</a></strong> or <strong><a href="tracking-quality.html">Tracking quality →</a></strong></p>
+</main>
+<footer class="foot">
+TabTuber user documentation.
+<a href="https://github.com/On0n0k1/TabTuber">Source and developer docs on GitHub</a>.
+Built by <a href="https://on0n0k1.github.io">Lucas Lemos</a>.
+</footer>
+</div>
+</div>
+</body>
+</html>

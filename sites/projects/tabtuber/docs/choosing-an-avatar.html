@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choosing an avatar — TabTuber</title>
+<meta name="description" content="TabTuber user documentation: Choosing an avatar.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="side-inner">
+<a class="side-brand" href="index.html">TabTuber docs</a>
+<nav class="side-nav" aria-label="Documentation pages">
+<a href="index.html">Start here</a>
+<a href="getting-started.html">Getting started</a>
+<a href="choosing-an-avatar.html" aria-current="page">Choosing an avatar</a>
+<a href="performing.html">Performing</a>
+<a href="lip-sync.html">Lip sync</a>
+<a href="tracking-quality.html">Tracking quality</a>
+<a href="streaming-with-obs.html">Streaming with OBS</a>
+<a href="troubleshooting.html">Troubleshooting</a>
+</nav>
+<a class="side-app" href="../index.html">Open the app →</a>
+<a class="side-link" href="https://on0n0k1.github.io" target="_blank" rel="noopener">Portfolio →</a>
+</div></aside>
+<div class="content">
+<main>
+<h1 id="choosing-an-avatar">Choosing an avatar</h1>
+<p>Use one of the two that come with it, or bring your own.</p>
+<hr>
+<h2 id="the-two-that-come-with-it">The two that come with it</h2>
+<p>Open <strong>Setup</strong> — the leftmost toolbar icon — and pick from the <strong>Avatar</strong> list.
+<strong>Avatar X</strong> and <strong>Avatar B</strong> are both there, and switching is instant.</p>
+<p>Both are VRoid Studio&#39;s sample models. <strong>You can stream with them, including
+commercially, without crediting anyone.</strong> Two things you may not do, covered at
+the <a href="#the-licence-on-the-bundled-avatars">bottom of this page</a>.</p>
+<h2 id="bringing-your-own">Bringing your own</h2>
+<p>Two ways, and they do the same thing:</p>
+<ul>
+<li><strong>Drag a <code>.vrm</code> file anywhere onto the page.</strong> Fastest once you know.</li>
+<li><strong>Setup → Upload a VRM avatar.</strong></li>
+</ul>
+<p>Your model loads immediately and joins the Avatar list, so you can switch back
+and forth for the rest of the session.</p>
+<p><strong>Your file is never uploaded.</strong> It is read off your disk, in the page. Like
+everything else here, there is no server for it to go to.</p>
+<p>One thing to know: the app remembers <em>where</em> your file is rather than keeping a
+copy. So if you move or delete it and then switch back to it later in the
+session, you get a load error naming the file. Reload and pick it again.</p>
+<h3 id="where-to-get-one">Where to get one</h3>
+<p>Any <strong>VRM</strong> file works. Common sources:</p>
+<ul>
+<li><strong><a href="https://vroid.com/en/studio" target="_blank" rel="noopener">VRoid Studio</a></strong> — free, and makes VRM
+natively. This is the usual answer if you want your own character.</li>
+<li><strong><a href="https://hub.vroid.com/" target="_blank" rel="noopener">VRoid Hub</a></strong> and <strong><a href="https://booth.pm/" target="_blank" rel="noopener">Booth</a></strong> —
+models made by other people. Check what the author allows before you stream
+with one.</li>
+<li><strong>Blender</strong>, with a VRM exporter add-on.</li>
+</ul>
+<p>Aim for <strong>VRM 1.0</strong>. Older VRM 0.x files load too, with a correction applied
+automatically.</p>
+<hr>
+<h2 id="what-makes-a-model-work-well">What makes a model work well</h2>
+<p>Most models just work. If yours does something odd, it is almost always one of
+these.</p>
+<h3 id="it-needs-a-full-set-of-bones">It needs a full set of bones</h3>
+<p>The app rotates 22 bones — spine, chest, neck, head, shoulders, arms, hands,
+legs and eyes — plus 30 more for fingers.</p>
+<p><strong>A model missing bones still works, it just does less:</strong></p>
+<div class="table-wrap"><table>
+<thead><tr><th>Missing</th><th>What happens</th></tr></thead>
+<tbody>
+<tr><td>finger bones</td><td>hands stay in a fixed pose; everything else is normal</td></tr>
+<tr><td>eye bones</td><td>eyes do not move; everything else is normal</td></tr>
+<tr><td>a body bone</td><td><strong>the avatar under-rotates</strong>, which looks sluggish</td></tr>
+</tbody>
+</table></div>
+<p>That last one is worth knowing because it does not look like an error — it looks
+like the tracking is bad. If your avatar seems to move less than you do, it is
+probably a missing bone rather than anything you can fix with a setting.</p>
+<h3 id="it-needs-expressions-for-expressions">It needs expressions, for expressions</h3>
+<p>The five expression buttons, blinking, and lip sync all use the model&#39;s built-in
+expression presets. A model without a given one simply loses that feature:</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td>happy, angry, sad, relaxed, surprised</td><td>the five expression buttons</td></tr>
+<tr><td>blink</td><td>blinking</td></tr>
+<tr><td>aa, ih, ou, ee, oh</td><td>mouth shapes for lip sync</td></tr>
+</tbody>
+</table></div>
+<p>Models made in VRoid Studio have all of these.</p>
+<h3 id="roughly-human-height">Roughly human height</h3>
+<p>Tracking does not care about scale, but the hair and clothing physics were tuned
+for a human-sized model. A model that is half or double the normal height may
+have oddly floppy or stiff hair. The app warns you when a model is far enough
+out for this to show.</p>
+<hr>
+<h2 id="checking-a-model-before-you-use-it">Checking a model before you use it</h2>
+<p>If you have the repository checked out, you can inspect a file without opening a
+browser:</p>
+<pre><code class="language-sh">npm run inspect-vrm path/to/model.vrm
+</code></pre>
+<pre><code>file        : AvatarSample_X.vrm (7.1 MB)
+VRM version : 1.0
+humanoid    : 54 bones mapped
+spring bones: true
+MToon       : true
+meshes      : 2, materials: 2
+driven 22   : ALL PRESENT
+</code></pre>
+<p>If bones are missing it names them. This is the quickest way to find out why a
+model looks sluggish.</p>
+<h2 id="making-a-model-load-faster">Making a model load faster</h2>
+<pre><code class="language-sh">npm run shrink-vrm path/to/model.vrm
+</code></pre>
+<p>Every VRM carries a <strong>preview thumbnail</strong> for model galleries. TabTuber never
+shows it, but your viewers&#39; browsers still download it — and on a VRoid export it
+is often <strong>15% of the whole file</strong>.</p>
+<p>Stripping it makes the model load faster and changes nothing visible. Keep your
+original, though: a stripped model shows no preview in tools that expect one.</p>
+<p>Do not do this to somebody else&#39;s model if its licence prohibits modification.</p>
+<hr>
+<h2 id="the-licence-on-the-bundled-avatars">The licence on the bundled avatars</h2>
+<p><strong>Avatar X</strong> and <strong>Avatar B</strong> are VRoid Studio sample models, authored by
+<strong>pixiv VRoid Project</strong>.</p>
+<h3 id="what-you-may-do">What you may do</h3>
+<p>pixiv&#39;s terms are generous. <strong>Anyone may use these models, in any activity,
+commercial or not, with no credit required.</strong> Stream with them, monetise the
+stream, and you owe nobody a mention.</p>
+<h3 id="what-you-may-not-do">What you may not do</h3>
+<p>Two things, and the first is easy to do by accident:</p>
+<ul>
+<li><strong>Do not re-license them as CC0.</strong> pixiv has not waived copyright, and the
+author field must keep naming them.</li>
+<li><strong>Do not build a character-creation service</strong> out of the data in them.</li>
+</ul>
+<h3 id="if-the-file-says-otherwise">If the file says otherwise</h3>
+<p>If you inspect these files you will see licence fields that look much stricter —
+no redistribution, no modification, author only. <strong>Those are the export dialog&#39;s
+defaults rather than pixiv&#39;s actual terms</strong>, and it is the published terms that
+govern. The copies shipped here have them corrected to match what pixiv already
+grants.</p>
+<h3 id="for-any-other-model">For any other model</h3>
+<p>If you are using somebody else&#39;s model, these are the fields that decide what
+you may do with it:</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th>Restrictive value means</th></tr></thead>
+<tbody>
+<tr><td><code>avatarPermission</code></td><td><code>onlyAuthor</code> — nobody but the author may use it</td></tr>
+<tr><td><code>commercialUsage</code></td><td><code>personalNonProfit</code> — no monetised streams</td></tr>
+<tr><td><code>creditNotation</code></td><td><code>required</code> — you must name the author</td></tr>
+<tr><td><code>allowRedistribution</code></td><td><code>false</code> — you may not share the file on</td></tr>
+<tr><td><code>modification</code></td><td><code>prohibited</code> — no editing, including shrinking it</td></tr>
+</tbody>
+</table></div>
+<p>A model you made yourself in VRoid is simpler: you set those fields, and they
+mean what they say.</p>
+<hr>
+<h2 id="next">Next</h2>
+<p><strong><a href="streaming-with-obs.html">Streaming with OBS →</a></strong>, or
+<strong><a href="performing.html">Performing →</a></strong> to learn the controls.</p>
+</main>
+<footer class="foot">
+TabTuber user documentation.
+<a href="https://github.com/On0n0k1/TabTuber">Source and developer docs on GitHub</a>.
+Built by <a href="https://on0n0k1.github.io">Lucas Lemos</a>.
+</footer>
+</div>
+</div>
+</body>
+</html>

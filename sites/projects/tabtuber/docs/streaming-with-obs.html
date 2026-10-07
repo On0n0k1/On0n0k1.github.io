@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Streaming with OBS — TabTuber</title>
+<meta name="description" content="TabTuber user documentation: Streaming with OBS.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="side-inner">
+<a class="side-brand" href="index.html">TabTuber docs</a>
+<nav class="side-nav" aria-label="Documentation pages">
+<a href="index.html">Start here</a>
+<a href="getting-started.html">Getting started</a>
+<a href="choosing-an-avatar.html">Choosing an avatar</a>
+<a href="performing.html">Performing</a>
+<a href="lip-sync.html">Lip sync</a>
+<a href="tracking-quality.html">Tracking quality</a>
+<a href="streaming-with-obs.html" aria-current="page">Streaming with OBS</a>
+<a href="troubleshooting.html">Troubleshooting</a>
+</nav>
+<a class="side-app" href="../index.html">Open the app →</a>
+<a class="side-link" href="https://on0n0k1.github.io" target="_blank" rel="noopener">Portfolio →</a>
+</div></aside>
+<div class="content">
+<main>
+<h1 id="streaming-with-obs">Streaming with OBS</h1>
+<p>Getting the avatar into your scene, over your game footage.</p>
+<p>There are two ways. <strong>If you want to be streaming in five minutes, use <a href="#the-quick-way-window-capture">Window
+Capture</a>.</strong> If you want the best-looking result,
+use <a href="#the-better-way-browser-source">Browser Source</a>.</p>
+<hr>
+<h2 id="which-one">Which one?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th><strong>Window Capture</strong></th><th><strong>Browser Source</strong></th></tr></thead>
+<tbody>
+<tr><td>Set-up difficulty</td><td>easy</td><td>fiddly</td></tr>
+<tr><td>Transparency</td><td>needs a chroma key</td><td><strong>real transparency</strong></td></tr>
+<tr><td>Camera permission</td><td><strong>just works</strong></td><td>awkward inside OBS</td></tr>
+<tr><td>Green fringing on hair</td><td>some</td><td><strong>none</strong></td></tr>
+<tr><td>Can your avatar wear green?</td><td>no</td><td>yes</td></tr>
+</tbody>
+</table></div>
+<p>They trade exactly one thing against each other: <strong>Browser Source gives you
+proper transparency but makes camera permission difficult; Window Capture makes
+permission trivial but has no transparency.</strong></p>
+<p>Start with Window Capture. Move to Browser Source when you are building a scene
+you will keep.</p>
+<hr>
+<h2 id="the-quick-way-window-capture">The quick way: Window Capture</h2>
+<h3 id="1-set-up-the-page">1. Set up the page</h3>
+<ul>
+<li>Open the app in your normal browser.</li>
+<li>Allow the camera.</li>
+<li><strong>Setup → Background → <code>key</code>.</strong> The backdrop turns flat green.</li>
+<li><strong>Hide the camera preview</strong> with the eye icon.</li>
+<li>Leave the panel on the right collapsed.</li>
+</ul>
+<p>Put the browser in full screen (<strong>F11</strong>) so there is no tab bar or address bar to
+deal with.</p>
+<h3 id="2-capture-it">2. Capture it</h3>
+<ul>
+<li>In OBS, add a <strong>Window Capture</strong> and pick your browser window.</li>
+<li>Add a <strong>Chroma Key</strong> filter to it. The defaults for green usually work
+straight away.</li>
+<li>Resize and position the avatar in your scene.</li>
+</ul>
+<h3 id="3-crop-the-leftovers">3. Crop the leftovers</h3>
+<p>The toolbar is part of the page, so OBS captures it along with the avatar. See
+<a href="#crop-the-interface-out">Crop the interface out</a>.</p>
+<p>That is it. The flat green backdrop is a single solid colour with no texture in
+it, which is about the easiest thing you can hand a chroma key.</p>
+<p><strong>One rule: your avatar cannot wear green.</strong> Anything green in the model
+disappears along with the background.</p>
+<hr>
+<h2 id="the-better-way-browser-source">The better way: Browser Source</h2>
+<h3 id="1-set-up-the-page">1. Set up the page</h3>
+<p><strong>Setup → Background → <code>transparent</code>.</strong> The backdrop disappears entirely.</p>
+<p>Do not use <code>key</code> here. You already have real transparency, and keying green out
+of it would only cost you quality.</p>
+<h3 id="2-add-the-source">2. Add the source</h3>
+<ul>
+<li>Add a <strong>Browser Source</strong> in OBS.</li>
+<li>Point it at <strong><code>https://on0n0k1.github.io/projects/tabtuber/</code></strong> (or
+<code>http://localhost:5173/</code> if you run it yourself).</li>
+<li>Set the width and height to suit your scene.</li>
+</ul>
+<h3 id="3-deal-with-camera-permission">3. Deal with camera permission</h3>
+<p><strong>This is the awkward part.</strong> OBS&#39;s built-in browser does not ask for camera
+permission the way a normal browser does, and depending on your OBS version it
+may refuse the camera outright.</p>
+<p>Things to try, in order:</p>
+<ul>
+<li><strong>Check the source&#39;s properties</strong> for a page-permissions or &quot;control audio via
+OBS&quot; style option, and look for anything about media access.</li>
+<li><strong>Some OBS builds need a launch flag</strong> to allow camera access to Browser
+Sources. Search for the flag for your OBS version and platform.</li>
+<li><strong>If it will not work, use Window Capture instead.</strong> It is not worth hours;
+the chroma key result is good.</li>
+</ul>
+<p>Once permission is granted, OBS remembers it.</p>
+<h3 id="4-crop-the-leftovers">4. Crop the leftovers</h3>
+<p>Same as the other path — see below.</p>
+<h3 id="why-it-looks-better">Why it looks better</h3>
+<p>OBS composites the page&#39;s real transparency directly. No keying means <strong>no green
+fringe around hair</strong>, no holes in anything green, and clean edges at any size.
+Hair is where you notice it most.</p>
+<hr>
+<h2 id="crop-the-interface-out">Crop the interface out</h2>
+<p><strong>Whichever path you took, OBS is capturing your toolbar.</strong> The toolbar, the
+camera preview, the numbers and the panel are all part of the page, sitting over
+the avatar.</p>
+<p>Crop them with a <strong>Crop/Pad</strong> filter on the source, or by holding <strong>Alt</strong> and
+dragging the source&#39;s edges in the OBS preview.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>What</th><th>Where</th></tr></thead>
+<tbody>
+<tr><td>Toolbar</td><td>along the bottom</td></tr>
+<tr><td>Camera preview and numbers</td><td>top left</td></tr>
+<tr><td>Panel</td><td>right edge</td></tr>
+<tr><td>Status messages</td><td>along the top</td></tr>
+</tbody>
+</table></div>
+<p><strong>None of these move</strong>, so one crop lasts forever — as long as you do not resize
+the window. Set your window size once and leave it alone; resizing moves the
+toolbar relative to the avatar and your crop will be wrong.</p>
+<p>Two things that make this much easier:</p>
+<ul>
+<li><strong>Hide the camera preview.</strong> It is the biggest thing in the corner and hiding
+it costs you nothing, since tracking continues regardless.</li>
+<li><strong>Leave the panel collapsed.</strong> Collapsed it is one thin bar instead of a
+column.</li>
+</ul>
+<p><strong>Cropping does not disable anything.</strong> The toolbar is still there and still
+listening for the number keys — which is exactly what you want mid-stream. You
+just cannot see it on the stream.</p>
+<hr>
+<h2 id="audio-sync">Audio sync</h2>
+<p><strong>Normally there is nothing to do here.</strong> Your voice and the avatar are already
+in step.</p>
+<p>The one exception: if you have turned on <strong>lookahead</strong> in the panel (it is off by
+default, and it buys slightly smoother motion), the avatar&#39;s body is deliberately
+held back a little. Your microphone audio is not, so your voice arrives before
+the avatar that is saying it.</p>
+<p><strong>The fix:</strong> add a <strong>positive sync offset</strong> to your microphone source in OBS, to
+hold the audio back until it matches. <strong>Nudge it later, not earlier</strong> — the
+instinct is to pull it earlier, which doubles the problem.</p>
+<hr>
+<h2 id="before-you-go-live">Before you go live</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Background set to match your capture path — <code>transparent</code> for Browser
+Source, <code>key</code> for Window Capture</li>
+<li><input disabled="" type="checkbox"> Camera preview hidden</li>
+<li><input disabled="" type="checkbox"> Panel collapsed</li>
+<li><input disabled="" type="checkbox"> Toolbar, corner and panel cropped out</li>
+<li><input disabled="" type="checkbox"> Window size fixed, so your crop stays valid</li>
+<li><input disabled="" type="checkbox"> <strong>A light on your face</strong> — see <a href="tracking-quality.html#light-yourself-properly">Tracking
+quality</a></li>
+<li><input disabled="" type="checkbox"> fps number green</li>
+<li><input disabled="" type="checkbox"> Microphone icon on, if you want lip sync</li>
+<li><input disabled="" type="checkbox"> Posture set to sitting, if you are sitting</li>
+<li><input disabled="" type="checkbox"> Tested that expression keys 1–5 work while OBS has focus</li>
+</ul>
+<h3 id="one-tip-about-the-number-keys">One tip about the number keys</h3>
+<p>The expression keys only work when the <strong>browser window</strong> has focus, not OBS. If
+you stream with OBS in front, you will not be able to hit expressions.</p>
+<p>Keep the browser window visible on a second monitor, or click into it when you
+want to use expressions.</p>
+<hr>
+<h2 id="next">Next</h2>
+<p><strong><a href="troubleshooting.html">Troubleshooting →</a></strong> if something is not right.</p>
+</main>
+<footer class="foot">
+TabTuber user documentation.
+<a href="https://github.com/On0n0k1/TabTuber">Source and developer docs on GitHub</a>.
+Built by <a href="https://on0n0k1.github.io">Lucas Lemos</a>.
+</footer>
+</div>
+</div>
+</body>
+</html>

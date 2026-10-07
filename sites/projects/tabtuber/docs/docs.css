@@ -1,0 +1,450 @@
+/*
+ * Stylesheet for the generated documentation pages (scripts/build-docs.mjs).
+ *
+ * Deliberately not src/style.css. That stylesheet exists to keep a canvas
+ * transparent and to position HUD elements around a lil-gui panel; none of it
+ * applies to a page of prose, and sharing it would couple the documentation's
+ * appearance to the app's compositing rules.
+ *
+ * Both colour schemes are supported rather than forcing dark. Documentation is
+ * read in daylight on other people's machines, and the app's own dark palette
+ * is a consequence of compositing over game footage, which a text page does
+ * not do.
+ */
+
+:root {
+  --bg: #16161a;
+  --bg-soft: #1d1d23;
+  --bg-code: #101014;
+  --fg: #d6d6dd;
+  --fg-dim: #9a9aa6;
+  --fg-bright: #f2f2f5;
+  --accent: #7bb0ff;
+  --accent-dim: #5a87c7;
+  --rule: #2e2e38;
+  --warn: #ffcb6b;
+
+  --measure: 44rem;
+  --radius: 6px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fdfdfc;
+    --bg-soft: #f3f3f1;
+    --bg-code: #f6f6f4;
+    --fg: #2c2c31;
+    --fg-dim: #63636d;
+    --fg-bright: #101014;
+    --accent: #1f5fb0;
+    --accent-dim: #3d77c2;
+    --rule: #dededa;
+    --warn: #8a6100;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* A little breathing room above an anchored heading, not clearance for a
+     sticky bar -- nothing overlaps the prose in this layout. */
+  scroll-padding-top: 1rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---- Layout ----------------------------------------------------------- */
+
+/*
+ * Page list in a column beside the prose, not a bar above it. A docs set of
+ * eight pages wants all eight visible at once with the current one marked --
+ * a horizontal bar either wraps to two rows or truncates, and neither shows
+ * where you are in the set.
+ */
+.layout {
+  display: grid;
+  /* minmax(0,…) on the prose column, or a wide <pre> inside it refuses to
+     shrink and pushes the whole grid wider than the viewport. */
+  grid-template-columns: 15rem minmax(0, 1fr);
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+/*
+ * The column stretches to the full grid row so its rule runs the height of the
+ * page; the sticky part is the content inside it. Making the column itself
+ * sticky instead leaves the divider stopping wherever the nav happens to end,
+ * which on a long page is a short line floating beside the prose.
+ */
+.side {
+  border-right: 1px solid var(--rule);
+}
+
+.side-inner {
+  position: sticky;
+  top: 0;
+  /* Scrolls on its own only once the nav is taller than the viewport, which
+     it is not today and would be with a few more pages. */
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 1.75rem 1.25rem 2rem;
+}
+
+.side-brand {
+  display: block;
+  margin-bottom: 1.25rem;
+  color: var(--fg-bright);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.side-nav a {
+  padding: 0.35rem 0.6rem;
+  border-left: 2px solid transparent;
+  border-radius: 0 4px 4px 0;
+  color: var(--fg-dim);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.side-nav a:hover {
+  background: var(--bg-soft);
+  color: var(--fg-bright);
+}
+
+/* Where you are, marked on the rail rather than by colour alone. */
+.side-nav a[aria-current="page"] {
+  border-left-color: var(--accent);
+  background: var(--bg-soft);
+  color: var(--fg-bright);
+  font-weight: 600;
+}
+
+.side-app {
+  display: block;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--accent);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.side-app:hover,
+.side-link:hover {
+  text-decoration: underline;
+}
+
+/*
+ * Sits with the app link rather than in the nav above: both leave the
+ * documentation, which is the thing the rule above them separates.
+ */
+.side-link {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--fg-dim);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.side-link:hover {
+  color: var(--accent);
+}
+
+/* ---- Content ---------------------------------------------------------- */
+
+.content {
+  min-width: 0;
+}
+
+main {
+  max-width: var(--measure);
+  padding: 2.5rem 2rem 4rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--fg-bright);
+  line-height: 1.25;
+  margin: 2.25rem 0 0.75rem;
+  /* A heading immediately followed by its section should not be orphaned. */
+  break-after: avoid;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+h4 {
+  font-size: 1rem;
+  color: var(--fg);
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.4rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--fg-bright);
+}
+
+strong {
+  color: var(--fg-bright);
+  font-weight: 650;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.1rem 0 0.1rem 1rem;
+  border-left: 3px solid var(--warn);
+  color: var(--fg-dim);
+}
+
+/* ---- Code ------------------------------------------------------------- */
+
+code,
+kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.875em;
+}
+
+:not(pre) > code {
+  background: var(--bg-code);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  /* A long path in prose must not force the page to scroll sideways. */
+  overflow-wrap: break-word;
+}
+
+pre {
+  background: var(--bg-code);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+}
+
+pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+/* ---- Tables ----------------------------------------------------------- */
+
+/*
+ * The documentation leans on tables heavily -- most pages compare two options
+ * or map a symptom to a fix -- so these get more attention than the rest.
+ */
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9375rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+thead th {
+  background: var(--bg-soft);
+  color: var(--fg-bright);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/*
+ * Several tables use an empty first header cell as a row label column. Without
+ * this the label column collapses and the row reads as a sentence fragment.
+ */
+tbody th {
+  background: var(--bg-soft);
+  font-weight: 600;
+}
+
+/* ---- Images ----------------------------------------------------------- */
+
+/*
+ * Screenshots are added to docs/ as ordinary files and referenced from the
+ * markdown; build-docs.mjs copies them across. They are bordered because a
+ * screenshot of a dark app on a dark page has no edge of its own.
+ */
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  display: block;
+  margin: 1.25rem 0;
+}
+
+/* ---- Narrow screens --------------------------------------------------- */
+
+/*
+ * Below the width that fits a sidebar and a readable measure side by side, the
+ * column becomes a block above the prose and the page list lies down into rows.
+ * Collapsing it behind a button was considered and rejected: eight links wrap
+ * into three rows, which is less page than a disclosure control plus the state
+ * it has to remember.
+ */
+@media (max-width: 54rem) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .side {
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .side-inner {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    padding: 1.25rem 1rem;
+  }
+
+  .side-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+  }
+
+  .side-nav a {
+    padding: 0.25rem 0.5rem;
+    border-left: 0;
+    border-radius: 4px;
+  }
+
+  .side-nav a[aria-current="page"] {
+    /* The rail is gone with the column, so the marker has to be the chip. */
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .side-brand,
+  .side-app,
+  .side-link {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .side-brand {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Side by side on one row, where the column had them stacked. */
+  .side-app,
+  .side-link {
+    display: inline-block;
+    margin-top: 0.85rem;
+  }
+
+  .side-link {
+    margin-left: 1rem;
+  }
+
+  main {
+    padding: 1.75rem 1rem 3rem;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+.foot {
+  padding: 1.5rem 2rem 3rem;
+  border-top: 1px solid var(--rule);
+  color: var(--fg-dim);
+  font-size: 0.875rem;
+}
+
+.foot a {
+  color: var(--accent-dim);
+}
+
+@media (max-width: 54rem) {
+  .foot {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+}

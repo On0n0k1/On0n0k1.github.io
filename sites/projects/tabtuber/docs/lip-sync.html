@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lip sync — TabTuber</title>
+<meta name="description" content="TabTuber user documentation: Lip sync.">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+<div class="layout">
+<aside class="side"><div class="side-inner">
+<a class="side-brand" href="index.html">TabTuber docs</a>
+<nav class="side-nav" aria-label="Documentation pages">
+<a href="index.html">Start here</a>
+<a href="getting-started.html">Getting started</a>
+<a href="choosing-an-avatar.html">Choosing an avatar</a>
+<a href="performing.html">Performing</a>
+<a href="lip-sync.html" aria-current="page">Lip sync</a>
+<a href="tracking-quality.html">Tracking quality</a>
+<a href="streaming-with-obs.html">Streaming with OBS</a>
+<a href="troubleshooting.html">Troubleshooting</a>
+</nav>
+<a class="side-app" href="../index.html">Open the app →</a>
+<a class="side-link" href="https://on0n0k1.github.io" target="_blank" rel="noopener">Portfolio →</a>
+</div></aside>
+<div class="content">
+<main>
+<h1 id="lip-sync">Lip sync</h1>
+<p>Making the avatar&#39;s mouth follow your voice.</p>
+<hr>
+<h2 id="turn-it-on">Turn it on</h2>
+<p>Press the <strong>microphone icon</strong> on the toolbar and allow microphone access when
+your browser asks. That is the whole setup — the mouth now opens and closes with
+your voice.</p>
+<p>Your choice is remembered, so it comes back on next time.</p>
+<p><strong>Nothing is recorded and nothing is sent anywhere.</strong> Your microphone is read in
+the page, like your camera.</p>
+<h2 id="the-mouth-follows-your-microphone-not-your-camera">The mouth follows your microphone, not your camera</h2>
+<p>Even with full face tracking on, the mouth comes from your voice. Reading mouth
+shapes off the camera was tried and abandoned — the tracking was not accurate
+enough, and a mouth that is wrong <em>in sync with your face</em> looks worse than one
+that is approximate but always in time with what you are saying.</p>
+<hr>
+<h2 id="making-it-look-better">Making it look better</h2>
+<p>The microphone button is all most people need. If you want the mouth to actually
+articulate rather than just open and shut, there is more to turn on — but it
+lives in the <strong>panel on the right</strong>, the one the rest of this guide tells you to
+ignore.</p>
+<p>That is a fair criticism of the app rather than of you. Open the panel, find
+<strong>Lip sync</strong>, and everything below is in there. Nothing you do in that folder can
+break anything.</p>
+<h3 id="the-three-mouth-modes">The three mouth modes</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Mode</th><th>What you get</th></tr></thead>
+<tbody>
+<tr><td><strong>amplitude</strong></td><td>the mouth opens as far as you are loud. The default</td></tr>
+<tr><td><strong>animated</strong></td><td>it also moves through mouth shapes at the rate of speech</td></tr>
+<tr><td><strong>vowel</strong></td><td>it matches the actual vowel you are saying — <strong>needs calibration</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>amplitude</strong> is honest and never wrong, because it only claims to know how loud
+you are. It can look a little like a puppet.</p>
+<p><strong>animated</strong> looks considerably more like talking. It does not know which sound
+you are making — it moves through plausible shapes at roughly the right rate,
+which your eye reads as speech. For most people this is the best
+effort-to-result step available.</p>
+<p><strong>vowel</strong> is the real thing, and it needs a minute of setup first. <strong>Without
+calibration it behaves exactly like animated</strong> — so if you switch to it and see
+no difference, that is why.</p>
+<p><code>openness</code> next to the mode controls how far the mouth travels.</p>
+<h3 id="calibrating-your-vowels">Calibrating your vowels</h3>
+<p>In the <strong>Vowel calibration</strong> folder, press <strong>record aa / ee / ou</strong> and hold three
+sounds when prompted:</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>&quot;ahh&quot;</strong></td><td>as in f<em>a</em>ther</td></tr>
+<tr><td><strong>&quot;eee&quot;</strong></td><td>as in s<em>ee</em></td></tr>
+<tr><td><strong>&quot;ooo&quot;</strong></td><td>as in b<em>oo</em>t</td></tr>
+</tbody>
+</table></div>
+<p>About a second each. Hold each one steadily rather than saying it — it is
+listening to the sustained sound. The avatar holds still while you do this.</p>
+<p>Only three, because those three are the corners of the range and every other
+vowel sits between them. The app works the rest out.</p>
+<p><strong>Your calibration is remembered between sessions.</strong> <em>forget calibration</em>
+clears it if you want to redo it, and <em>cancel</em> abandons a recording in progress.</p>
+<p>Do it with the microphone you actually stream with, in the room you stream from.</p>
+<hr>
+<h2 id="stopping-things-that-are-not-your-voice">Stopping things that are not your voice</h2>
+<h3 id="the-browsers-noise-cancelling">The browser&#39;s noise cancelling</h3>
+<p>Three switches in the <strong>Noise cancelling</strong> folder. The defaults are deliberate
+and not all the same, so here is what each one is for:</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th>Default</th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>echoCancellation</strong></td><td><strong>on</strong></td><td><strong>Leave this on.</strong> Without it, game audio coming out of your speakers moves your avatar&#39;s mouth. The single most useful one here</td></tr>
+<tr><td><strong>noiseSuppression</strong></td><td><strong>off</strong></td><td>Removes steady background noise — fans, hum. Off because most people already have noise removal in front of the browser, and doing it twice chews up the quiet parts of words</td></tr>
+<tr><td><strong>autoGainControl</strong></td><td><strong>off</strong></td><td>Evens out your volume, which is exactly the signal the mouth is reading. Turning it on makes the mouth less expressive</td></tr>
+</tbody>
+</table></div>
+<p>If you have no other noise processing and a noisy room, <strong>noiseSuppression</strong> is
+worth trying. If you already run something like RNNoise or NVIDIA Broadcast,
+leave it off.</p>
+<p>Note that noise suppression only deals with <em>steady</em> noise. A clap, a snap or a
+keyboard clack goes straight through it — that is what the gate below is for.</p>
+<h3 id="the-noise-gate">The noise gate</h3>
+<p>A sound has to <strong>last</strong> a moment before it counts as speech. This is what stops
+a finger snap or a door closing from flapping the avatar&#39;s mouth.</p>
+<p>The defaults work for most people. If you want to tune it:</p>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>min duration (s)</strong></td><td>how long a sound must last to count. <strong>0 turns the gate off</strong></td></tr>
+<tr><td><strong>hangover (s)</strong></td><td>how long speech stays open after you stop, so gaps between words do not close the mouth</td></tr>
+<tr><td><strong>open level</strong></td><td>how loud something must be before it is considered at all</td></tr>
+<tr><td><strong>noise gate</strong></td><td>how far above your room&#39;s noise floor counts as speech</td></tr>
+<tr><td><strong>mic gain</strong></td><td>turn this up if your microphone is quiet</td></tr>
+</tbody>
+</table></div>
+<p><strong>To set it:</strong> open the <strong>Mic</strong> readouts and watch while you talk. You want
+<code>level</code> sitting near zero when you are quiet and climbing when you speak, and
+<code>speaking</code> flipping between 0 and 1 in time with your voice rather than with your
+room.</p>
+<hr>
+<h2 id="if-the-mouth-is-snapping-fully-open-and-shut">If the mouth is snapping fully open and shut</h2>
+<p>A known problem with a known cause. If you run <strong>aggressive noise removal before
+the browser</strong> — EasyEffects, RNNoise, NVIDIA Broadcast — those tools produce
+<em>complete digital silence</em> between words. The app measures your room&#39;s noise
+level to work out what counts as speech, and complete silence breaks that
+measurement, so almost everything reads as maximum volume.</p>
+<p>The result is a mouth that is either fully open or shut, with nothing in between.</p>
+<p><strong>The fix:</strong> turn the upstream noise removal down or off and let the app&#39;s own
+gate do that job. It is built for exactly this.</p>
+<hr>
+<h2 id="quick-fixes">Quick fixes</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Problem</th><th>Try</th></tr></thead>
+<tbody>
+<tr><td>Mouth does not move at all</td><td>Check the microphone icon is lit, and that your browser has microphone permission. Check <code>level</code> in the <strong>Mic</strong> readouts moves when you talk</td></tr>
+<tr><td>Mouth moves when you are not talking</td><td>Raise <strong>min duration</strong> or <strong>open level</strong>. If it is tracking your game audio, turn <strong>echoCancellation</strong> on</td></tr>
+<tr><td>Mouth barely opens</td><td>Raise <strong>mic gain</strong>, or <strong>openness</strong></td></tr>
+<tr><td>Mouth is open or shut with nothing between</td><td>See <a href="#if-the-mouth-is-snapping-fully-open-and-shut">above</a></td></tr>
+<tr><td>Mouth looks like a puppet</td><td>Switch the mode to <strong>animated</strong></td></tr>
+<tr><td>Switched to <strong>vowel</strong> and nothing changed</td><td>You have not calibrated yet</td></tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="next">Next</h2>
+<p><strong><a href="tracking-quality.html">Tracking quality →</a></strong> or <strong><a href="streaming-with-obs.html">Streaming with OBS
+→</a></strong></p>
+</main>
+<footer class="foot">
+TabTuber user documentation.
+<a href="https://github.com/On0n0k1/TabTuber">Source and developer docs on GitHub</a>.
+Built by <a href="https://on0n0k1.github.io">Lucas Lemos</a>.
+</footer>
+</div>
+</div>
+</body>
+</html>
